@@ -11,6 +11,19 @@
 		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.debug.js"></script>
 		<script type="text/javascript" src="js/global.js"></script>
 		<script type="text/javascript" src="js/scene_intro1.js"></script>
+		
+		<!--SideScrolling JQuery Plugin-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/jquery.mousewheel.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('html, body, *').mousewheel(function(e, delta) {
+					this.scrollLeft -= (delta * 40);
+					e.preventDefault();
+				});
+			});
+		</script>
+		
 	</head>
 	<body>
 		<header><!--Navigation etc.--></header>
