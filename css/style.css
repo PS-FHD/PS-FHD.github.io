@@ -1,0 +1,32 @@
+body {
+	background-color: black;
+	margin: 0px;
+	padding: 0px;
+}
+
+body > header {
+	/* Der Header (inkl. Navigationsmenü) sollte immer zu sehen sein, daher
+	   fixieren damit er beim Scrollen stehen bleibt.*/
+	position: fixed; 
+	top: 0px;
+	left: 0px;
+	width: 100%; /* Immer so breit wie der Viewport des browsers. */
+	height: 70px;
+}
+
+body > footer {
+	/* Der Footer sollte immer zu sehen sein, daher fixieren damit er beim Scrollen 
+	   stehen bleibt.*/
+	position: fixed;
+	width: 100%; /* Immer so breit wie der Viewport des browsers. */
+	top: 730px;
+	height: 70px;
+}
+
+#scrollContainer {
+	height: 660px;
+	background-color: magenta; /* Eventuelle lücken sollten gut sichtbar sein. */
+	position: relative;
+	top: +70px;
+	width: 5000px; /* Scrollbarer Bereich, vergrößern wenn nötig. */
+}
