@@ -25,8 +25,22 @@ body > footer {
 
 #scrollContainer {
 	height: 660px;
-	background-color: magenta; /* Eventuelle lücken sollten gut sichtbar sein. */
-	position: relative;
-	top: +70px;
-	width: 5000px; /* Scrollbarer Bereich, vergrößern wenn nötig. */
+	background-color: magenta; /* Eventuelle lücken sollten gut Sichtbar sein. */
+	position: absolute;
+	top: 70px;
+	left: 0px;
+	white-space: nowrap;
+}
+
+.scene {
+	display: inline-block; /* Szenen sollten sich inline hintereinander Ausrichten. */
+	background-color: white;
+	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
+	min-width: 1000px;
+	max-width: 2000px;
+	height: 100%; /* Immer so groß wie der Scrollcontainer. */
+}
+
+#intro1 {
+	background-image: url(../img/einl+selbstst_bg_2500x660.jpg);
 }
