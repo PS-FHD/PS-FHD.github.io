@@ -5,11 +5,15 @@
  *             das erstellen des DOM-Baums beendet hat.
  **********************************************************************************/
 $(document).ready(function($) {
+	/* Das Hintergrundbild im div wird um 500 pixel nach links verschoben.
+	   Dokumentation zu TweenMax und allen unterstützen Optionen: http://www.greensock.com/tweenmax/ */
 	var backgroundTween = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
-	var cloudOneTween = TweenMax.to(".cloud.one", 1, {left: "-15%", ease: Linear.easeNone});
-	var cloudTwoTween = TweenMax.to(".cloud.two", 1, {left: "-25%", ease: Linear.easeNone});
-	var cloudThreeTween = TweenMax.to(".cloud.three", 1, {left: "10%", ease: Linear.easeNone});
-	var cloudFourTween = TweenMax.to(".cloud.four", 1, {left: "25%", ease: Linear.easeNone});
+	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
+	   Die unterschiedlichen Geschwindigkeiten entstehen dabei durch die unterschiedlichen Abstände zwischen Start- und Endposition. */
+	var cloudOneTween   = TweenMax.fromTo(".cloud.one", 1, {left: "50%"}, {left: "-15%", ease: Linear.easeNone});
+	var cloudTwoTween   = TweenMax.fromTo(".cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
+	var cloudThreeTween = TweenMax.fromTo(".cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
+	var cloudFourTween  = TweenMax.fromTo(".cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene definieren.
 	var timelineTween = new TimelineMax()

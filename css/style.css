@@ -50,20 +50,17 @@ body > footer {
 }
 
 .cloud.one {
-	left: 50%;
 	top: 125px;
 }
 
 .cloud.two {
-	left: 30%;
 	top: 25px;
 }
 
 .cloud.three {
-	left: 100%;
 	top: 60px;
 }
 
 .cloud.four {
-	left: 180%;
+	top: 5px;
 }
