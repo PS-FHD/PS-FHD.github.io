@@ -22,8 +22,8 @@ $(document).ready(function($) {
 		]);
 	
 	/* Die Scroll Magic Scene für die erste Introszene definieren.
-	   Sie soll ab #intro1 500px lang scrollen, wobei die position des Auslösers für diese Szene ganz an den Anfang gesetzt wird.*/
-	var scene = new ScrollScene({triggerElement: "#intro1", duration: 500, triggerHook: 0})
+	   Sie soll ab #intro1 1000px lang scrollen, wobei die position des Auslösers für diese Szene ganz an den Anfang gesetzt wird.*/
+	var scene = new ScrollScene({triggerElement: "#intro1", duration: 1000, triggerHook: 0})
 		.setTween(timelineTween)
 		.setPin("#intro1")
 		.addTo(controller);
