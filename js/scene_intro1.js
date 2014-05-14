@@ -8,7 +8,7 @@ $(document).ready(function($) {
 	var backgroundTween = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	var cloudOneTween = TweenMax.to(".cloud.one", 1, {left: "-15%", ease: Linear.easeNone});
 	var cloudTwoTween = TweenMax.to(".cloud.two", 1, {left: "-25%", ease: Linear.easeNone});
-	var cloudThreeTween = TweenMax.to(".cloud.three", 1, {left: "30%", ease: Linear.easeNone});
+	var cloudThreeTween = TweenMax.to(".cloud.three", 1, {left: "10%", ease: Linear.easeNone});
 	var cloudFourTween = TweenMax.to(".cloud.four", 1, {left: "25%", ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene definieren.
