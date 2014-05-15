@@ -77,10 +77,16 @@ body > footer {
 	bottom: 0px;
 }
 
-#intro1 .house.right{
+#intro1 .house.right {
 	left: 72%;
 }
 
-#intro1 .house.left{
+#intro1 .house.left {
 	left: 6%;
+}
+
+#intro1 .airplane {
+	position: absolute;
+	top: 20px;
+	left: -10%;
 }
