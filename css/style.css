@@ -48,7 +48,7 @@ body > footer {
 #intro1 .student {
 	position: absolute;
 	left: 50%;
-	bottom: 0px;
+	bottom: 0px;  /* ggf auf negativen Wert setzen, damit er nicht mehr schwebt, sondern auf dem Balken steht? */
 	margin-left: -58px; /* Die hälfte der Breite des Bildes abziehen, um es zu zentrieren. */
 }
 
@@ -70,4 +70,17 @@ body > footer {
 
 #intro1 .cloud.four {
 	top: 5px;
+}
+
+#intro1 .house {
+	position: absolute;
+	bottom: 0px;
+}
+
+#intro1 .house.right{
+	left: 72%;
+}
+
+#intro1 .house.left{
+	left: 6%;
 }
