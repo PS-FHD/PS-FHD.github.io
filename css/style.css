@@ -12,6 +12,8 @@ body > header {
 	left: 0px;
 	width: 100%; /* Immer so breit wie der Viewport des browsers. */
 	height: 70px;
+	box-shadow: 0px 10px 10px 00px rgba(0, 0, 0, 0.3);
+	z-index: 10;
 }
 
 body > footer {
@@ -21,6 +23,8 @@ body > footer {
 	width: 100%; /* Immer so breit wie der Viewport des browsers. */
 	top: 730px;
 	height: 70px;
+	box-shadow: 0px -10px 10px 00px rgba(0, 0, 0, 0.3);
+	z-index: 10;
 }
 
 #scrollContainer {
@@ -39,6 +43,7 @@ body > footer {
 	min-width: 1000px;
 	max-width: 2000px;
 	height: 100%; /* Immer so groß wie der Scrollcontainer. */
+	
 }
 
 #intro1 {
