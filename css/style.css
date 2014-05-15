@@ -5,7 +5,7 @@ body {
 }
 
 body > header {
-	/* Der Header (inkl. Navigationsmen¸) sollte immer zu sehen sein, daher
+	/* Der Header (inkl. Navigationsmen√º) sollte immer zu sehen sein, daher
 	   fixieren damit er beim Scrollen stehen bleibt.*/
 	position: fixed; 
 	top: 0px;
@@ -25,7 +25,7 @@ body > footer {
 
 #scrollContainer {
 	height: 660px;
-	background-color: magenta; /* Eventuelle l¸cken sollten gut Sichtbar sein. */
+	background-color: magenta; /* Eventuelle l√ºcken sollten gut Sichtbar sein. */
 	position: absolute;
 	top: 70px;
 	left: 0px;
@@ -38,7 +38,7 @@ body > footer {
 	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
 	min-width: 1000px;
 	max-width: 2000px;
-	height: 100%; /* Immer so groﬂ wie der Scrollcontainer. */
+	height: 100%; /* Immer so gro√ü wie der Scrollcontainer. */
 }
 
 #intro1 {
