@@ -45,6 +45,13 @@ body > footer {
 	background-image: url(../img/einl+selbstst_bg_2500x660.jpg);
 }
 
+#intro1 .student {
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	margin-left: -58px; /* Die hälfte der Breite des Bildes abziehen, um es zu zentrieren. */
+}
+
 .cloud {
 	position: absolute;
 }
