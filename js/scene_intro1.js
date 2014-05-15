@@ -14,7 +14,8 @@ $(document).ready(function($) {
 	var cloudTwoTween   = TweenMax.fromTo(".cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
 	var cloudThreeTween = TweenMax.fromTo(".cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
 	var cloudFourTween  = TweenMax.fromTo(".cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
-	var airplane = TweenMax.fromTo(".airplane", 1 , {left: "-20%"}, {left: "75%", ease: Linear.easeNone});
+	var airplane = TweenMax.fromTo(".airplane", 1, {left: "-25%"}, {left: "75%", ease: Linear.easeNone});
+	var headlines = TweenMax.fromTo("#intro1_textbox", 1, {top: "-30%"}, {top: "3%", ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene definieren.
 	var timelineTween = new TimelineMax()
@@ -24,7 +25,7 @@ $(document).ready(function($) {
 			cloudTwoTween,
 			cloudThreeTween,
 			cloudFourTween,	
-				airplane
+			airplane
 			]);
 	
 	/* Die Scroll Magic Scene für die erste Introszene definieren.

@@ -90,3 +90,13 @@ body > footer {
 	top: 20px;
 	left: -10%;
 }
+
+#intro1 #intro1_textbox {
+	position: absolute;
+	margin-left: 40px;
+	margin-top: 30px;
+	line-height: 0.8;
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+}
