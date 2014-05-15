@@ -52,22 +52,22 @@ body > footer {
 	margin-left: -58px; /* Die hälfte der Breite des Bildes abziehen, um es zu zentrieren. */
 }
 
-.cloud {
+#intro1 .cloud {
 	position: absolute;
 }
 
-.cloud.one {
+#intro1 .cloud.one {
 	top: 125px;
 }
 
-.cloud.two {
+#intro1 .cloud.two {
 	top: 25px;
 }
 
-.cloud.three {
+#intro1 .cloud.three {
 	top: 60px;
 }
 
-.cloud.four {
+#intro1 .cloud.four {
 	top: 5px;
 }
