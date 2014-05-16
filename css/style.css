@@ -106,3 +106,31 @@ body > footer {
 	font-weight: 400;
 	letter-spacing: 0.2em;
 }
+
+#intro1 .introtext {
+	
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	color: #4169e1;
+	position: absolute;	
+}
+
+#intro1 .introtext.one {
+	
+	
+}
+
+#intro1 .introtext.two{
+	
+	
+
+}
+
+#intro1 .introtext.three{
+	font-size: 0.6em;
+
+
+}
+
+
