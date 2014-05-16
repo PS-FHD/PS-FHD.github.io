@@ -4,34 +4,38 @@ body {
 	padding: 0px;
 }
 
-body > header {
+body > section {
+  height: 100%;
+}
+
+body > section > header {
 	/* Der Header (inkl. Navigationsmenü) sollte immer zu sehen sein, daher
 	   fixieren damit er beim Scrollen stehen bleibt.*/
-	position: fixed; 
+	/*position: fixed; 
 	top: 0px;
-	left: 0px;
+	left: 0px;*/
 	width: 100%; /* Immer so breit wie der Viewport des browsers. */
-	height: 70px;
+	height: 8.75%;
 	box-shadow: 0px 10px 10px 00px rgba(0, 0, 0, 0.3);
 	z-index: 10;
 }
 
-body > footer {
+body > section > footer {
 	/* Der Footer sollte immer zu sehen sein, daher fixieren damit er beim Scrollen 
 	   stehen bleibt.*/
-	position: fixed;
+	/*position: fixed;
+	top: 91.25%;*/
 	width: 100%; /* Immer so breit wie der Viewport des browsers. */
-	top: 730px;
-	height: 70px;
+	height: 8.75%;
 	box-shadow: 0px -10px 10px 00px rgba(0, 0, 0, 0.3);
 	z-index: 10;
 }
 
 #scrollContainer {
-	height: 660px;
+	height: 82%;
 	background-color: magenta; /* Eventuelle lücken sollten gut Sichtbar sein. */
-	position: absolute;
-	top: 70px;
+	/*position: absolute;*/
+	/*top: 8.75%;*/
 	left: 0px;
 	white-space: nowrap;
 }
@@ -48,12 +52,14 @@ body > footer {
 
 #intro1 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
+	background-size: auto 100%;
 }
 
 #intro1 .student {
 	position: absolute;
 	bottom: 0px;
 	left: 50%;
+	height: 66%;
 	margin-left: 0 auto; /* Zentriert das Element. */
 }
 
@@ -62,19 +68,23 @@ body > footer {
 }
 
 #intro1 .cloud.one {
-	top: 125px;
+	top: 1.9%;
+	height: 18.63%
 }
 
 #intro1 .cloud.two {
-	top: 25px;
+	top: 3.78%;
+	height: 25.75%;
 }
 
 #intro1 .cloud.three {
-	top: 60px;
+	top: 20px;
+	height: 22.72%;
 }
 
 #intro1 .cloud.four {
 	top: 5px;
+	height: 25.75%;
 }
 
 #intro1 .house {
@@ -84,16 +94,19 @@ body > footer {
 
 #intro1 .house.right {
 	left: 72%;
+	height: 43.78%;
 }
 
 #intro1 .house.left {
 	left: 6%;
+	height: 32.87%;
 }
 
 #intro1 .airplane {
 	position: absolute;
 	top: 20px;
 	left: -10%;
+	height: 13.18%;
 }
 
 #intro1 #intro1_textbox {
