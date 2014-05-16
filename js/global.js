@@ -7,5 +7,5 @@ var controller;
  */
 $(document).ready(function($) {
 	// Erstellen des Scroll Magic controllers und horizontales Scrollen konfigurieren.
-	controller = new ScrollMagic({vertical: false});
+	controller = new ScrollMagic({vertical: false, loglevel: 3});
 });

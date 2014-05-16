@@ -38,9 +38,16 @@ $(document).ready(function($) {
 	var textStudentOut 	= TweenMax.fromTo(".introtext.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });
 	
 	
-		
 	
-	// Die Zeitleiste der Szene definieren.
+	/* zweiter Screen */
+	
+	var einstiegHeadIN 	= TweenMax.fromTo("#einstieg_head", 0.65, {top: "-50%"}, { top:"7%", left:"0%",  ease: Linear.easeNone});
+//	var einstiegHeadOut	= TweenMax.to("#einstieg_head", 0.3, {top: "-80%", ease:Linear.easeNone});
+
+	var einstiegTextIN 	= TweenMax.fromTo(".einstiegtext", 0.65, {left: "2%", top: "100%"}, { left:"2%", top:"35%", ease: Linear.easeNone});
+//	var einstiegTextOut	= TweenMax.to(".einstiegtext", 0.3, {top: "-80%", ease:Linear.easeNone});
+	
+	// Die Zeitleiste= TweenMax.fromTo("#intro2_textbox", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });kgrvar text2In	=	TweenMax.fromTo("#intro2_textbox", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });
 	var timelineTween = new TimelineMax()
 		.add([
 			backgroundTween,
@@ -52,13 +59,18 @@ $(document).ready(function($) {
 			headlineOut,
 			textYESOut,
 			textOmgOut,
-			textStudentOut
+			textStudentOut,
+			einstiegHeadIN,
+			einstiegTextIN
 			]);
 	
 	/* Die Scroll Magic Scene für die erste Introszene definieren.
 	   Sie soll ab #intro1 1000px lang scrollen, wobei die position des Auslösers für diese Szene ganz an den Anfang gesetzt wird.*/
-	var scene = new ScrollScene({triggerElement: "#intro1", duration: 1000, triggerHook: 0})
+	var scene = new ScrollScene({triggerElement: "#intro1", duration: 1000, triggerHook: 0, loglevel: 3})
 		.setTween(timelineTween)
 		.setPin("#intro1")
 		.addTo(controller);
+		
+		//DIENT DER DEBUGFUNKTION
+		scene.addIndicators();
 });

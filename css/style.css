@@ -100,11 +100,11 @@ body > footer {
 	position: absolute;
 	margin-left: 40px;
 	margin-top: 30px;
-	line-height: 0.8;
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
+	line-height: 0.8;	
 	font-weight: 400;
 	letter-spacing: 0.2em;
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
 }
 
 #intro1 .introtext {
@@ -116,21 +116,23 @@ body > footer {
 	position: absolute;	
 }
 
-#intro1 .introtext.one {
-	
-	
-}
-
-#intro1 .introtext.two{
-	
-	
-
-}
-
 #intro1 .introtext.three{
 	font-size: 0.6em;
-
-
 }
 
+#intro1 #einstieg_head {
+	position: absolute;
+	margin-left: 40px;
+	margin-top: 30px;
+	line-height: 0.8;	
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+}
 
+#intro1 .einstiegtext {
+	position: absolute;
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+}
