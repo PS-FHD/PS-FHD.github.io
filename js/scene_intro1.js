@@ -26,8 +26,8 @@ $(document).ready(function($) {
 	var headlineOut = TweenMax.to("#intro1_textbox", 0.3, {left: "-50%", ease: Linear.easeNone});
 	
 	/* Der OMG Text wird mittels slala eingeblendet, dazu kommt eine rotation. Hierbei gibt rotation: die Drehung in Grad an*/
-	var textOmgIn 	= TweenMax.fromTo(".introtext.one", 0.5, {left: "7%", top: "37%", scale: 0}, {left: "7%", top: "30%", scale:1, rotation:342});
-	var textOmgOut 	= TweenMax.fromTo(".introtext.one", 0.3, {left: "7%", top: "37%"}, {left: "7%", top: "30%", rotation:-10, scale: 0});	
+	var textOmgIn 	= TweenMax.fromTo(".introtext.one", 0.5, {left: "7%", top: "37%", scale: 0}, {left: "7%", top: "37%", scale:1, rotation:342});
+	var textOmgOut 	= TweenMax.fromTo(".introtext.one", 0.3, {left: "7%", top: "37%"}, {left: "7%", top: "37%", scale:1, rotation:-180, scale: 0});	
 		
 	/* Der Text YES!! fliegt von links in das Bild beim Laden der Seite */
 	var textYESIn 	= TweenMax.to(".introtext.two", 0.5, { top:"40%", left:"30%", rotation:390, ease:Back.easeInOut});
