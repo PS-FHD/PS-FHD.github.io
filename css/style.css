@@ -1,7 +1,3 @@
-html, body {
-	height: 100%;
-}
-
 body {
 	background-color: black;
 	margin: 0px;
@@ -9,7 +5,7 @@ body {
 
 #scrollContainer {
 	background-color: black;
-	height: 100%; /* Immer so hoch wie der body. */
+	height: 100vh; /* Immer so hoch wie der Viewport des Browsers. */
 	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch 
 	   die Breite des body. */
 	display: inline-block;
@@ -34,7 +30,7 @@ body {
 
 #sceneContainer {
 	height: 82%;
-	white-space: nowrap;
+	white-space: nowrap; /* Szenen sollen hintereinander gestapelt werden, keine Umbrüche. */
 }
 
 .scene {
