@@ -1,39 +1,61 @@
+/* Mediaquery für das Setzen einer fixen der Schriftgröße bis zu einer Höhe von 399px. */
+@media (max-height: 399px) {
+	body {
+		font-size: 7px;
+	}
+}
+
+/* Mediaquery für das Setzen der Schriftgröße ab einer Höhe von 400px bis 800px. */
+@media (min-height: 400px) and (max-height: 800px) {
+	body {
+		/* Schriftgröße entspricht 1.8% der höhe des Viewports des Browsers. 
+	   Alle anderen Schriftgrößen sollten em oder % als Maßeinheit verwenden um stets relativ zu der 
+		 hier festgelegten Größe zu sein. */
+		font-size: 1.8vh;
+	}
+}
+
+/* Mediaquery für das Setzen einer fixen Schriftgröße ab einer Höhe von 801px. */
+@media (min-height: 801px) {
+	body {
+		font-size: 14.5px;
+	}
+}
+
+/* Schriftgröße wird per Javascript dynamisch gesetzt. */
 body {
 	background-color: black;
 	margin: 0px;
-	padding: 0px;
-}
-
-body > header {
-	/* Der Header (inkl. Navigationsmenü) sollte immer zu sehen sein, daher
-	   fixieren damit er beim Scrollen stehen bleibt.*/
-	position: fixed; 
-	top: 0px;
-	left: 0px;
-	width: 100%; /* Immer so breit wie der Viewport des browsers. */
-	height: 70px;
-	box-shadow: 0px 10px 10px 00px rgba(0, 0, 0, 0.3);
-	z-index: 10;
-}
-
-body > footer {
-	/* Der Footer sollte immer zu sehen sein, daher fixieren damit er beim Scrollen 
-	   stehen bleibt.*/
-	position: fixed;
-	width: 100%; /* Immer so breit wie der Viewport des browsers. */
-	top: 730px;
-	height: 70px;
-	box-shadow: 0px -10px 10px 00px rgba(0, 0, 0, 0.3);
-	z-index: 10;
 }
 
 #scrollContainer {
-	height: 660px;
-	background-color: magenta; /* Eventuelle lücken sollten gut Sichtbar sein. */
-	position: absolute;
-	top: 70px;
-	left: 0px;
-	white-space: nowrap;
+	background-color: black;
+	height: 96vh; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
+	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch 
+	   die Breite des body. */
+	display: inline-block;
+	min-height: 400px;
+	max-height: 800px;
+}
+
+#scrollContainer > header, #scrollContainer > footer {
+	background-color: black;
+	height: 8.75%;
+	position: relative; /* Muss positionierung haben um z-index zu setzen. */
+	z-index: 10; /* Damit liegen header und footer (und deren Schatten) über dem Scrollcontainer. */
+}
+
+#scrollContainer > header {
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+#scrollContainer > footer {
+	box-shadow: 0px -10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+#sceneContainer {
+	height: 82%;
+	white-space: nowrap; /* Szenen sollen hintereinander gestapelt werden, keine Umbrüche. */
 }
 
 .scene {
@@ -43,7 +65,7 @@ body > footer {
 	min-width: 1000px;
 	max-width: 2000px;
 	height: 100%; /* Immer so groß wie der Scrollcontainer. */
-	
+	overflow: hidden;
 }
 
 #intro1 {
@@ -54,7 +76,8 @@ body > footer {
 	position: absolute;
 	bottom: 0px;
 	left: 50%;
-	margin-left: 0 auto; /* Zentriert das Element. */
+	height: 66%;
+	margin: 0 auto; /* Zentriert das Element. */
 }
 
 #intro1 .cloud {
@@ -62,19 +85,23 @@ body > footer {
 }
 
 #intro1 .cloud.one {
-	top: 125px;
+	top: 1.9%;
+	height: 18.63%;
 }
 
 #intro1 .cloud.two {
-	top: 25px;
+	top: 3.78%;
+	height: 25.75%;
 }
 
 #intro1 .cloud.three {
-	top: 60px;
+	top: 20px;
+	height: 22.72%;
 }
 
 #intro1 .cloud.four {
 	top: 5px;
+	height: 25.75%;
 }
 
 #intro1 .house {
@@ -84,16 +111,19 @@ body > footer {
 
 #intro1 .house.right {
 	left: 72%;
+	height: 43.78%;
 }
 
 #intro1 .house.left {
 	left: 6%;
+	height: 32.87%;
 }
 
 #intro1 .airplane {
 	position: absolute;
 	top: 20px;
 	left: -10%;
+	height: 13.18%;
 }
 
 #intro1 #intro1_textbox {
