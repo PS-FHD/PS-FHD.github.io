@@ -10,7 +10,7 @@
 	body {
 		/* Schriftgröße entspricht 1.8% der höhe des Viewports des Browsers. 
 	   Alle anderen Schriftgrößen sollten em oder % als Maßeinheit verwenden um stets relativ zu der 
-		 hier festgelegten Größe zu sein. */
+	   hier festgelegten Größe zu sein. */
 		font-size: 1.8vh;
 	}
 }
