@@ -87,9 +87,9 @@ body {
 
 #intro1 .student {
 	position: absolute;
-	bottom: 0px;
-	left: 50%;
+	bottom: 0%;
 	height: 66%;
+	left: 50%;
 	margin: 0 auto; /* Zentriert das Element. */
 }
 
@@ -193,4 +193,10 @@ body {
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
-
+#intro2 .students {
+	position: absolute;
+	bottom: 0%;
+	height: 65.9%;
+	left: 50%;
+	margin: 0 -29.6%; /* Zentriert das Element. */
+}
