@@ -80,5 +80,14 @@ $(document).ready(function($) {
 	   Sie geht von 0px bis 1000px.*/
 	var scene = new ScrollScene({duration: 1000, loglevel: 3})
 		.setTween(timelineTween)
-		.addTo(controller);
+		.addTo(controller)
+		/*	update-Event wird von ScrollMagic beim Scrollen gefeuert. target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
+		Parent von ScrollScene ist ScrollMagic. Und die info("scrollDirection") ueber die Scrollrichtung liefert FORWARD REVERSE oder PAUSED. */
+		.on("update", function (event)	{
+											// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
+											if (event.target.parent().info("scrollDirection") == "REVERSE") 
+												$(".airplane").attr({src: "img/Einleitung/dummy.png"});
+											else if (event.target.parent().info("scrollDirection") == "FORWARD")
+												$('.airplane').attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
+										});
 });
