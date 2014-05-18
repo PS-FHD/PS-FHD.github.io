@@ -1,14 +1,14 @@
-/* Mediaquery für das Setzen einer fixen der Schriftgröße bis zu einer Höhe von 399px. */
+/* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
 @media (max-height: 399px) {
 	body {
 		font-size: 7px;
 	}
 }
 
-/* Mediaquery für das Setzen der Schriftgröße ab einer Höhe von 400px bis 800px. */
+/* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
 @media (min-height: 400px) and (max-height: 800px) {
 	body {
-		/* Schriftgröße entspricht 1.8% der höhe des Viewports des Browsers. 
+		/* Schriftgroesse entspricht 1.8% der höhe des Viewports des Browsers. 
 	   Alle anderen Schriftgrößen sollten em oder % als Maßeinheit verwenden um stets relativ zu der 
 	   hier festgelegten Größe zu sein. */
 		font-size: 1.8vh;
@@ -197,6 +197,45 @@ body {
 	position: absolute;
 	bottom: 0%;
 	height: 65.9%;
-	left: 50%;
+	left: 55%;
 	margin: 0 -29.6%; /* Zentriert das Element. */
 }
+
+
+
+
+
+#intro2 .shine {
+	position: absolute;	
+	bottom: 7%;
+	left: 26.5%;
+	margin-left: 0 auto; /* Zentriert das Element. */
+}
+
+#intro2 .kommilitonen_head {
+	position: absolute;		
+	margin-left: 40px;
+	margin-top: 30px;
+	line-height: 0.8;	
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+}
+
+#intro2 .kommilitonen_text {
+	position: absolute;		
+	font-size: 1.8em;
+	font-family: 'Oswald', sans-serif;
+}
+
+
+#intro2 .einstieg_head {
+	position: absolute;		
+}
+
+#intro2 .einstiegtext {
+	position: absolute;		
+}
+
+
