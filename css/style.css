@@ -207,8 +207,9 @@ body {
 
 #intro2 .shine {
 	position: absolute;	
-	bottom: 7%;
-	left: 26.5%;
+	bottom: -3.3%;
+	left: 23%;
+	height: 100%;
 	margin-left: 0 auto; /* Zentriert das Element. */
 }
 
