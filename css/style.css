@@ -55,17 +55,30 @@ body {
 
 #sceneContainer {
 	height: 82%;
-	white-space: nowrap; /* Szenen sollen hintereinander gestapelt werden, keine Umbrüche. */
+	overflow: hidden;
 }
 
 .scene {
-	display: inline-block; /* Szenen sollten sich inline hintereinander Ausrichten. */
 	background-color: white;
 	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
 	min-width: 1000px;
 	max-width: 2000px;
-	height: 100%; /* Immer so groß wie der Scrollcontainer. */
+	height: 100%; /* Immer so groß wie der Scenecontainer. */
 	overflow: hidden;
+	position: relative;
+}
+
+.sceneChange {
+	position: absolute;
+	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
+	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
+	left: 100vw;
+}
+
+#intro1 > .sceneChange {
+	width: 1000px;
+	background-image: url(../img/Einleitung/einl_vg_szenenwechsel_1000x660.png);
+	height: 100%;
 }
 
 #intro1 {
@@ -166,3 +179,18 @@ body {
 	font-size: 1.8em;
 	font-family: 'Oswald', sans-serif;
 }
+
+#intro1 .trigger.sceneChange {
+	left: 75%;
+	top: 20%;
+}
+
+#intro2 {
+	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
+	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
+	left: 100vw;
+	position: absolute;
+	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
+}
+
+

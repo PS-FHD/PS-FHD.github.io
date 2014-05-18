@@ -3,10 +3,10 @@
  *    
  *    Hinweis: ready ist ein jQuery Ereignis das aufgerufen wird, sobald der Browser
  *             das erstellen des DOM-Baums beendet hat.
+ *    Dokumentation zu TweenMax und allen unterstützen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
-	/* Das Hintergrundbild im div wird um 500 pixel nach links verschoben.
-	   Dokumentation zu TweenMax und allen unterstützen Optionen: http://www.greensock.com/tweenmax/ */
+	// Das Hintergrundbild im div wird um 500 pixel nach links verschoben.
 	var backgroundTween = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
 	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
@@ -16,8 +16,8 @@ $(document).ready(function($) {
 	var cloudThreeTween = TweenMax.fromTo(".cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
 	var cloudFourTween  = TweenMax.fromTo(".cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
 	
-	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an H�he und schrumpft bis es nicht mehr zu sehen ist
-	   Hierbei gibt scale den Vergr��erungsfaktor an. Bei scale:0 ist das Flugzeug nicht mehr sichtbar	*/
+	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Höhe und schrumpft bis es nicht mehr zu sehen ist
+	   Hierbei gibt scale den Vergrößerungsfaktor an. Bei scale:0 ist das Flugzeug nicht mehr sichtbar	*/
 	var airplane 	= TweenMax.fromTo(".airplane", 1, {left: "-25%", top: "150px",scale:2}, {left: "125%", top: "-15px", scale:0, ease: Linear.easeNone});	
 	
 	/*headline kommt ONLOAD von oben und bounced mittels  ease: Bounce.easeOut
@@ -47,7 +47,15 @@ $(document).ready(function($) {
 	var einstiegTextIN 	= TweenMax.fromTo(".einstiegtext", 0.65, {left: "2%", top: "100%"}, { left:"2%", top:"35%", ease: Linear.easeNone});
 //	var einstiegTextOut	= TweenMax.to(".einstiegtext", 0.3, {top: "-80%", ease:Linear.easeNone});
 	
-	// Die Zeitleiste= TweenMax.fromTo("#intro2_textbox", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });kgrvar text2In	=	TweenMax.fromTo("#intro2_textbox", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });
+	var sceneChangeElement = $("#intro1 > .sceneChange");
+	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
+	var actualSceneWidth = actualSceneWidth = parseInt($("#intro1").css("width"), 10);
+	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
+	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
+	var sceneChangeBuilding = TweenMax.to("#intro1 > .sceneChange", 0.15, {left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	var nextSceneIn = TweenMax.to("#intro2", 0.15, {left: "0px", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	
+	// Die Zeitleiste definieren.
 	var timelineTween = new TimelineMax()
 		.add([
 			backgroundTween,
@@ -62,15 +70,15 @@ $(document).ready(function($) {
 			textStudentOut,
 			einstiegHeadIN,
 			einstiegTextIN
-			]);
+		])
+		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
+		.insertMultiple(
+			[sceneChangeBuilding, nextSceneIn], 0.85
+		);
 	
 	/* Die Scroll Magic Scene für die erste Introszene definieren.
-	   Sie soll ab #intro1 1000px lang scrollen, wobei die position des Auslösers für diese Szene ganz an den Anfang gesetzt wird.*/
-	var scene = new ScrollScene({triggerElement: "#intro1", duration: 1000, triggerHook: 0, loglevel: 3})
+	   Sie geht von 0px bis 1000px.*/
+	var scene = new ScrollScene({duration: 1000, loglevel: 3})
 		.setTween(timelineTween)
-		.setPin("#intro1")
 		.addTo(controller);
-		
-		//DIENT DER DEBUGFUNKTION
-		scene.addIndicators();
 });

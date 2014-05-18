@@ -12,12 +12,11 @@
 		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.debug.js"></script>
 		<script type="text/javascript" src="js/global.js"></script>
 		<script type="text/javascript" src="js/scene_intro1.js"></script>
+		<script type="text/javascript" src="js/scene_intro2.js"></script>
 		
 		<!--SideScrolling JQuery Plugin-->
 		<script src="js/HorizontalScrolling/jquery.mousewheel.js"></script>
 		<script src="js/HorizontalScrolling/horizontal.scrolling.js"></script>
-		
-		
 	</head>
 	<body>
 		<div id="scrollContainer">
@@ -59,10 +58,10 @@
 						Menge Spa&szlig; und viel Interessantes!
 					</div>
 					
-				</div>
-				
-				<div id="intro2" class="scene">
-					
+					<!-- Die nächste Szene wird immer innerhalb der alten definiert um diese sauber einscrollen zu können. -->
+					<div id="intro2" class="scene"></div>
+					<!-- Das Bild das für die Szenenänderung genutzt wird sollte immer am Ende der Szene stehen. -->
+					<img class="sceneChange">
 				</div>
 			</div>
 			<footer><!--schwarzer Balken--></footer>
