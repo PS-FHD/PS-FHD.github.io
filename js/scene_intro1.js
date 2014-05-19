@@ -37,7 +37,7 @@ $(document).ready(function($) {
 	var textStudentIN 	= TweenMax.to(".introtext.three", 1, {rotation:15, scale:3, ease:Back.easeInOut });
 	var textStudentOut 	= TweenMax.fromTo(".introtext.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation:-40, scale:0 });
 	
-	
+var student = TweenMax.to(".student", 1, {left: "50%"});	
 	
 	/* zweiter Screen */
 	
@@ -54,6 +54,7 @@ $(document).ready(function($) {
 	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
 	var sceneChangeBuilding = TweenMax.to("#intro1 > .sceneChange", 0.15, {left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
 	var nextSceneIn = TweenMax.to("#intro2", 0.15, {left: "0px", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+
 	
 	// Die Zeitleiste definieren.
 	var timelineTween = new TimelineMax()
@@ -62,7 +63,7 @@ $(document).ready(function($) {
 			cloudOneTween,
 			cloudTwoTween,
 			cloudThreeTween,
-			cloudFourTween,	
+			cloudFourTween,
 			airplane,
 			headlineOut,
 			textYESOut,
@@ -82,12 +83,17 @@ $(document).ready(function($) {
 		.setTween(timelineTween)
 		.addTo(controller)
 		/*	update-Event wird von ScrollMagic beim Scrollen gefeuert. target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
-		Parent von ScrollScene ist ScrollMagic. Und die info("scrollDirection") ueber die Scrollrichtung liefert FORWARD REVERSE oder PAUSED. */
+			Parent von ScrollScene ist ScrollMagic.
+			info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an. 
+			info("scrollPos") liefert die aktuelle ScrollPosition als Ganzzahl. */
 		.on("update", function (event)	{
+											var scrollDirection = event.target.parent().info("scrollDirection");
+											var scrollPosition	= event.target.parent().info("scrollPos");
+											
 											// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
-											if (event.target.parent().info("scrollDirection") == "REVERSE") 
+											if (scrollDirection == "REVERSE") 
 												$(".airplane").attr({src: "img/Einleitung/dummy.png"});
-											else if (event.target.parent().info("scrollDirection") == "FORWARD")
-												$('.airplane').attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
+											else if (scrollDirection == "FORWARD")
+												$(".airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
 										});
 });
