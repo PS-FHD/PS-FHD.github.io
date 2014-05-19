@@ -85,7 +85,7 @@ body {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 }
 
-#intro1 .student {
+#intro1 > .student {
 	position: absolute;
 	bottom: 0%;
 	height: 66%;
@@ -93,46 +93,46 @@ body {
 	margin: 0 auto; /* Zentriert das Element. */
 }
 
-#intro1 .cloud {
+#intro1 > .cloud {
 	position: absolute;
 }
 
-#intro1 .cloud.one {
+#intro1 > .cloud.one {
 	top: 1.9%;
 	height: 18.63%;
 }
 
-#intro1 .cloud.two {
+#intro1 > .cloud.two {
 	top: 3.78%;
 	height: 25.75%;
 }
 
-#intro1 .cloud.three {
+#intro1 > .cloud.three {
 	top: 20px;
 	height: 22.72%;
 }
 
-#intro1 .cloud.four {
+#intro1 > .cloud.four {
 	top: 5px;
 	height: 25.75%;
 }
 
-#intro1 .house {
+#intro1 > .house {
 	position: absolute;
 	bottom: 0px;
 }
 
-#intro1 .house.right {
+#intro1 > .house.right {
 	left: 72%;
 	height: 43.78%;
 }
 
-#intro1 .house.left {
+#intro1 > .house.left {
 	left: 6%;
 	height: 32.87%;
 }
 
-#intro1 .airplane {
+#intro1 > .airplane {
 	position: absolute;
 	top: 20px;
 	left: -10%;
@@ -150,7 +150,7 @@ body {
 	font-family: 'Oswald', sans-serif;
 }
 
-#intro1 .introtext {
+#intro1 > .introtext {
 	
 	font-size: 1.8em;
 	font-family: 'Oswald', sans-serif;
@@ -159,7 +159,7 @@ body {
 	position: absolute;	
 }
 
-#intro1 .introtext.three{
+#intro1 > .introtext.three{
 	font-size: 0.6em;
 }
 
@@ -174,13 +174,13 @@ body {
 	font-family: 'Oswald', sans-serif;
 }
 
-#intro1 .einstiegtext {
+#intro1 > .einstiegtext {
 	position: absolute;
 	font-size: 1.8em;
 	font-family: 'Oswald', sans-serif;
 }
 
-#intro1 .trigger.sceneChange {
+#intro1 > .trigger.sceneChange {
 	left: 75%;
 	top: 20%;
 }
@@ -193,7 +193,7 @@ body {
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
-#intro2 .students {
+#intro2 > .students {
 	position: absolute;
 	bottom: 0%;
 	height: 65.9%;

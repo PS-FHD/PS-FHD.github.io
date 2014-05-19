@@ -11,10 +11,10 @@ $(document).ready(function($) {
 	
 	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
 	   Die unterschiedlichen Geschwindigkeiten entstehen dabei durch die unterschiedlichen Abstände zwischen Start- und Endposition. */
-	var cloudOneTween   = TweenMax.fromTo(".cloud.one", 1, {left: "50%"}, {left: "-15%", ease: Linear.easeNone});
-	var cloudTwoTween   = TweenMax.fromTo(".cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
-	var cloudThreeTween = TweenMax.fromTo(".cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
-	var cloudFourTween  = TweenMax.fromTo(".cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
+	var cloudOneTween   = TweenMax.fromTo("#intro1 > .cloud.one", 1, {left: "50%"}, {left: "-15%", ease: Linear.easeNone});
+	var cloudTwoTween   = TweenMax.fromTo("#intro1 > .cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
+	var cloudThreeTween = TweenMax.fromTo("#intro1 > .cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
+	var cloudFourTween  = TweenMax.fromTo("#intro1 > .cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
 	
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Höhe und schrumpft bis es nicht mehr zu sehen ist
 	   Hierbei gibt scale den Vergrößerungsfaktor an. Bei scale:0 ist das Flugzeug nicht mehr sichtbar	*/
