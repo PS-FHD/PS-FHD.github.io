@@ -231,7 +231,7 @@ body {
 	position: absolute;		
 }
 
-#intro2 .einstiegtext {
+#intro2 > .einstiegtext {
 	position: absolute;		
 }
 
