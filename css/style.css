@@ -201,11 +201,7 @@ body {
 	margin: 0 -29.6%; /* Zentriert das Element. */
 }
 
-
-
-
-
-#intro2 .shine {
+#intro2 > .shine {
 	position: absolute;	
 	bottom: -3.3%;
 	left: 23%;
@@ -213,7 +209,7 @@ body {
 	margin-left: 0 auto; /* Zentriert das Element. */
 }
 
-#intro2 .kommilitonen_head {
+#intro2 > .kommilitonen_head {
 	position: absolute;		
 	margin-left: 40px;
 	margin-top: 30px;
@@ -224,14 +220,14 @@ body {
 	font-family: 'Oswald', sans-serif;
 }
 
-#intro2 .kommilitonen_text {
+#intro2 > .kommilitonen_text {
 	position: absolute;		
 	font-size: 1.8em;
 	font-family: 'Oswald', sans-serif;
 }
 
 
-#intro2 .einstieg_head {
+#intro2 > .einstieg_head {
 	position: absolute;		
 }
 
