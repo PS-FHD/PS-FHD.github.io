@@ -86,13 +86,13 @@ var student = TweenMax.to(".student", 1, {left: "50%"});
 			Parent von ScrollScene ist ScrollMagic.
 			info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an. 
 			info("scrollPos") liefert die aktuelle ScrollPosition als Ganzzahl. */
-		.on("update", function (event)	{
+		.on("update", function (event) {
 			var scrollDirection = event.target.parent().info("scrollDirection");
 			var scrollPosition	= event.target.parent().info("scrollPos");
 			
 			// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
 			if (scrollDirection == "REVERSE") 
-				$("#intro1 > .airplane").attr({src: "img/Einleitung/dummy.png"});
+				$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_239x87.png"});
 			else if (scrollDirection == "FORWARD")
 				$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
 		});
