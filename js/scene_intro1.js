@@ -49,7 +49,7 @@ var student = TweenMax.to(".student", 1, {left: "50%"});
 	
 	var sceneChangeElement = $("#intro1 > .sceneChange");
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
-	var actualSceneWidth = actualSceneWidth = parseInt($("#intro1").css("width"), 10);
+	var actualSceneWidth = parseInt($("#intro1").css("width"), 10);
 	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
 	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
 	var sceneChangeBuilding = TweenMax.to("#intro1 > .sceneChange", 0.15, {left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
@@ -87,13 +87,13 @@ var student = TweenMax.to(".student", 1, {left: "50%"});
 			info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an. 
 			info("scrollPos") liefert die aktuelle ScrollPosition als Ganzzahl. */
 		.on("update", function (event)	{
-											var scrollDirection = event.target.parent().info("scrollDirection");
-											var scrollPosition	= event.target.parent().info("scrollPos");
-											
-											// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
-											if (scrollDirection == "REVERSE") 
-												$(".airplane").attr({src: "img/Einleitung/dummy.png"});
-											else if (scrollDirection == "FORWARD")
-												$(".airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
-										});
+			var scrollDirection = event.target.parent().info("scrollDirection");
+			var scrollPosition	= event.target.parent().info("scrollPos");
+			
+			// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
+			if (scrollDirection == "REVERSE") 
+				$("#intro1 > .airplane").attr({src: "img/Einleitung/dummy.png"});
+			else if (scrollDirection == "FORWARD")
+				$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
+		});
 });
