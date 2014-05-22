@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift für Fließtext */
+@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift für Überschriften und Highlights */
+
 /* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
 @media (max-height: 399px) {
 	body {
@@ -8,7 +11,7 @@
 /* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
 @media (min-height: 400px) and (max-height: 800px) {
 	body {
-		/* Schriftgroesse entspricht 1.8% der höhe des Viewports des Browsers. 
+		/* Schriftgroesse entspricht 1.8% der Höhe des Viewports des Browsers. 
 	   Alle anderen Schriftgrößen sollten em oder % als Maßeinheit verwenden um stets relativ zu der 
 	   hier festgelegten Größe zu sein. */
 		font-size: 1.8vh;
@@ -24,9 +27,36 @@
 
 /* Schriftgröße wird per Javascript dynamisch gesetzt. */
 body {
-	background-color: black;
-	margin: 0px;
+	background-color: #000;
+	font-family: 'Source Sans Pro';
+	margin: 0;
 }
+
+/* Überschriften definieren */
+h1 {
+	font-family: 'Oswald';
+	font-size: 200%;
+	letter-spacing: 0.05em;
+}
+
+h2 {
+	font-family: 'Oswald';
+	font-size: 140%;
+	letter-spacing: 0.05em;
+}
+
+h3 {
+	font-family: 'Oswald';
+	font-size: 110%;
+	letter-spacing: 0.05em;
+}
+
+/* Klassen zur Änderung der Schriftgröße, muss noch festgestellt werden, welche wieder weg können */
+.s200 { font-size: 200%; }
+.s150 { font-size: 150%; }
+.s120 { font-size: 120%; }
+.s80 { font-size: 80%; }
+.s40 { font-size: 40%; }
 
 #scrollContainer {
 	background-color: black;
@@ -41,197 +71,153 @@ body {
 #scrollContainer > header, #scrollContainer > footer {
 	background-color: black;
 	height: 8.75%;
-	position: relative; /* Muss positionierung haben um z-index zu setzen. */
+	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
 	z-index: 10; /* Damit liegen header und footer (und deren Schatten) über dem Scrollcontainer. */
 }
 
 #scrollContainer > header {
-	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 #scrollContainer > footer {
-	box-shadow: 0px -10px 10px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px -10px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 #sceneContainer {
 	height: 82%;
+	font-size: 1.8em;
 	overflow: hidden;
 }
 
 .scene {
-	background-color: white;
 	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
 	min-width: 1000px;
 	max-width: 2000px;
 	height: 100%; /* Immer so groß wie der Scenecontainer. */
 	overflow: hidden;
-	position: relative;
+	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden können */
+}
+
+.scene > * {
+	position: absolute; /* Alle direkten Unter-Elemente einer Szene werden absolut positioniert */
+}
+
+.scene > *.fixed {
+	position: fixed; /* Außer es handelt sich um Texte, diese müssen mit der Klasse .fixed deklariert werden. */
 }
 
 .sceneChange {
-	position: absolute;
 	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
 	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
 	left: 100vw;
 }
 
-#intro1 > .sceneChange {
-	width: 1000px;
-	height: 100%;
-}
-
+/********************************
+** Erste Szene des Intros
+********************************/
 #intro1 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 }
 
+#intro1 > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+/* !!! Allgemeine Info für Bilder
+** Immer max-height nehmen und diese so setzen, dass nicht in normaler (unverkleinerter)
+** Ansicht schon runtergerechnet werden muss, damit es nicht verpixelt aussieht.
+*/
+
+/* !!! 
+** Bilder können glaub ich nicht voll mittig platziert werden. 
+** Hier ist es mittig, so lange nicht verkleinert werden muss. */
+
 #intro1 > .student {
-	position: absolute;
-	bottom: 0%;
-	height: 66%;
-	left: 50%;
-	margin: 0 auto; /* Zentriert das Element. */
+	bottom: 0; /* Bild wird unten festgemacht */
+	max-height: 66.3%;
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -58px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
 }
 
-#intro1 > .cloud {
-	position: absolute;
-}
-
+/* Wolken positionieren */
 #intro1 > .cloud.one {
 	top: 1.9%;
-	height: 18.63%;
+	max-height: 18.7%;
 }
 
 #intro1 > .cloud.two {
 	top: 3.78%;
-	height: 25.75%;
+	max-height: 25.8%;
 }
 
 #intro1 > .cloud.three {
 	top: 20px;
-	height: 22.72%;
+	max-height: 22.8%;
 }
 
 #intro1 > .cloud.four {
 	top: 5px;
-	height: 25.75%;
+	max-height: 25.8%;
 }
 
+/* Häuser positionieren */
 #intro1 > .house {
-	position: absolute;
-	bottom: 0px;
+	bottom: 0; /* Bilder werden unten festgemacht */
 }
 
 #intro1 > .house.right {
 	left: 72%;
-	height: 43.78%;
+	max-height: 44%;
 }
 
 #intro1 > .house.left {
 	left: 6%;
-	height: 32.87%;
+	max-height: 33%;
 }
 
+/* Flugzeug positionieren */
 #intro1 > .airplane {
-	position: absolute;
 	top: 20px;
 	left: -10%;
-	height: 13.18%;
+	max-height: 13.2%;
 }
 
-#intro1 #intro1_textbox {
-	position: absolute;
-	margin-left: 40px;
-	margin-top: 30px;
-	line-height: 0.8;	
-	font-weight: 400;
-	letter-spacing: 0.2em;
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-}
-
-#intro1 > .introtext {
-	
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-	font-weight: 400;
+/* Routierende Texte der ersten Szene */
+#intro1 > .intro.bit {
+	font-family: 'Oswald';
 	color: #4169e1;
-	position: absolute;	
+	font-weight: bold;
 }
 
-#intro1 > .introtext.three{
-	font-size: 0.6em;
-}
-
-#intro1 #einstieg_head {
-	position: absolute;
-	margin-left: 40px;
-	margin-top: 30px;
-	line-height: 0.8;	
-	font-weight: 400;
-	letter-spacing: 0.1em;
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-}
-
-#intro1 > .einstiegtext {
-	position: absolute;
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-}
-
+/* Trigger für den Szenenwechsel */
 #intro1 > .trigger.sceneChange {
 	left: 75%;
 	top: 20%;
 }
 
+
+/********************************
+** Zweite Szene des Intros
+********************************/
 #intro2 {
 	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
 	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
 	left: 100vw;
-	position: absolute;
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
 #intro2 > .students {
-	position: absolute;
-	bottom: 0%;
-	height: 65.9%;
-	left: 55%;
-	margin: 0 -29.6%; /* Zentriert das Element. */
+	max-height: 66.3%;
+	bottom: 0; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
 }
 
 #intro2 > .shine {
-	position: absolute;	
-	bottom: -3.3%;
-	left: 23%;
 	height: 100%;
-	margin-left: 0 auto; /* Zentriert das Element. */
+	bottom: -3.3%; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
 }
-
-#intro2 > .kommilitonen_head {
-	position: absolute;		
-	margin-left: 40px;
-	margin-top: 30px;
-	line-height: 0.8;	
-	font-weight: 400;
-	letter-spacing: 0.1em;
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-}
-
-#intro2 > .kommilitonen_text {
-	position: absolute;		
-	font-size: 1.8em;
-	font-family: 'Oswald', sans-serif;
-}
-
-
-#intro2 > .einstieg_head {
-	position: absolute;		
-}
-
-#intro2 > .einstiegtext {
-	position: absolute;		
-}
-
-
