@@ -74,7 +74,7 @@ h3 {
 	   die Breite des body. */
 	display: inline-block;
 	min-height: 400px;
-	max-height: 800px;
+	max-height: 800px;		
 }
 
 #scrollContainer > header, #scrollContainer > footer {
@@ -292,3 +292,4 @@ h3 {
 #lecture > .row, .front {
 	width: 90%;
 }
+

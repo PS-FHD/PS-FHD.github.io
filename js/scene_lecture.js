@@ -19,6 +19,20 @@ $(document).ready(function($) {
 	
 	var prof = TweenMax.fromTo(".prof", 1, {left: "90%", top: "37%"}, {left:"29%"});
 	
+	// Personen Reihe 1
+	var prow1_1 = TweenMax.fromTo(".ppl1.first", 1, {left: "10%", top:"63.5%"}, {left:"7%"});
+	var prow1_2 = TweenMax.fromTo(".ppl1.second", 1, {left: "30%", top:"63.5%"}, {left:"27%"});
+	var prow1_3 = TweenMax.fromTo(".ppl1.third", 1, {left: "50%", top:"63.5%"}, {left:"47%"});
+	var prow1_4 = TweenMax.fromTo(".ppl1.fourth", 1, {left: "90%", top:"63.5%"}, {left:"87%"});
+	// Personen Reihe 2
+	var prow2_1 = TweenMax.fromTo(".ppl2.first", 1, {left: "20%", top:"68%"}, {left:"15%"});
+	var prow2_2 = TweenMax.fromTo(".ppl2.second", 1, {left: "80%", top:"68%"}, {left:"75%"});
+	var prow2_3 = TweenMax.fromTo(".ppl2.third", 1, {left: "90%", top:"68%"}, {left:"85%"});
+	// personen Reihe 3
+	var prow3_1 = TweenMax.fromTo(".ppl3.first", 1, {left: "40%", top:"75%"}, {left:"33%"});
+	var prow3_2 = TweenMax.fromTo(".ppl3.second", 1, {left: "50%", top:"75%"}, {left:"43%"});
+	
+	
 	
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
 	// var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
@@ -37,7 +51,10 @@ $(document).ready(function($) {
 		      	row1,
 		      	row2,
 		      	row3,
-		      	front 
+		      	front,
+		      	prow1_1,prow1_2,prow1_3,prow1_4,
+		      	prow2_1,prow2_2,prow2_3,
+		      	prow3_1,prow3_2
 				]);
 		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
 		// .insertMultiple(
