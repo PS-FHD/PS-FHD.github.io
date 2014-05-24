@@ -58,6 +58,15 @@ h3 {
 .s80 { font-size: 80%; }
 .s40 { font-size: 40%; }
 
+/* Klassen zur Änderung der Schriftfarbe */
+.ccyan { color: #4169e1; }
+.cwhite { color: #FFFFFF; }
+/* Ergänzende Farbwerte für die Navigation */
+.cred { color: #AA261D; }
+.cblue { color: #1D3072; }
+.cgreen { color: #49922F; }
+.cgrey { color: #C7C7C7; }
+
 #scrollContainer {
 	background-color: black;
 	height: 96vh; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
@@ -187,7 +196,6 @@ h3 {
 /* Routierende Texte der ersten Szene */
 #intro1 > .intro.bit {
 	font-family: 'Oswald';
-	color: #4169e1;
 	font-weight: bold;
 }
 
@@ -208,6 +216,12 @@ h3 {
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
+#intro2 > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
 #intro2 > .students {
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
@@ -220,4 +234,61 @@ h3 {
 	bottom: -3.3%; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
 	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafÃ¼r, dass es ganz mittig ist */
+}
+
+
+/* Trigger fÃ¼r den Szenenwechsel */
+#intro2 > .trigger.sceneChange {
+	left: 75%;
+	top: 20%;
+}
+
+/********************************
+** erste Szene der Vorlesung
+********************************/
+#lecture {
+	left: 100vw;
+	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
+	/*background-image: url(../img/Vorlesungen/vl_mg.png);*/
+	position: relative;
+	/*z-index: 1;*/
+}
+
+
+#lecture > .lectureroom {
+	left: -10%;
+	/*lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
+}
+
+#lecture > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+#lecture > .trunk {
+	height: 100%;
+	bottom: -3.3%; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafÃ¼r, dass es ganz mittig ist */
+}
+
+/* Trigger fÃ¼r den Szenenwechsel */
+#lecture > .trigger.sceneChange {
+	left: 75%;
+	top: 20%;
+}
+
+#lecture > .wall.right {
+	right: 0px;
+	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+}
+
+#lecture > .wall.left {
+	left: 0px;
+	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+}
+
+#lecture > .row, .front {
+	width: 90%;
 }
