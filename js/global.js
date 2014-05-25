@@ -13,7 +13,7 @@ $(document).ready(function($) {
 	controller = new ScrollMagic({vertical: false, loglevel: 3});
 	
 	// Eine Scroll Magic Szene die nur dazu dient, #intro1 ueber die gesamte Dauer des scrollings zu pinnen.
-	var pinScene = new ScrollScene({triggerElement: "#intro1", duration: totalScrollDuration, triggerHook: 0, loglevel: 3})
+	var pinScene = new ScrollScene({duration: totalScrollDuration, loglevel: 3})
 		.setPin("#intro1")
 		.addTo(controller);
 });
