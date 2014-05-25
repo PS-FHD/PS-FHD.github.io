@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift für Fließtext */
-@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift für Überschriften und Highlights */
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift fuer Fliesstext */
+@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Überschriften und Highlights */
 
 /* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
 @media (max-height: 399px) {
@@ -11,21 +11,21 @@
 /* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
 @media (min-height: 400px) and (max-height: 800px) {
 	body {
-		/* Schriftgroesse entspricht 1.8% der Höhe des Viewports des Browsers. 
-	   Alle anderen Schriftgrößen sollten em oder % als Maßeinheit verwenden um stets relativ zu der 
-	   hier festgelegten Größe zu sein. */
+		/* Schriftgroesse entspricht 1.8% der Hoehe des Viewports des Browsers. 
+	   Alle anderen Schriftgroessen sollten em oder % als Masseinheit verwenden um stets relativ zu der 
+	   hier festgelegten Groesse zu sein. */
 		font-size: 1.8vh;
 	}
 }
 
-/* Mediaquery für das Setzen einer fixen Schriftgröße ab einer Höhe von 801px. */
+/* Mediaquery fuer das Setzen einer fixen Schriftgroesse ab einer Hoehe von 801px. */
 @media (min-height: 801px) {
 	body {
 		font-size: 14.5px;
 	}
 }
 
-/* Schriftgröße wird per Javascript dynamisch gesetzt. */
+/* Schriftgroesse wird per Javascript dynamisch gesetzt. */
 body {
 	background-color: #000;
 	font-family: 'Source Sans Pro';
@@ -51,7 +51,7 @@ h3 {
 	letter-spacing: 0.05em;
 }
 
-/* Klassen zur Änderung der Schriftgröße, muss noch festgestellt werden, welche wieder weg können */
+/* Klassen zur Änderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
 .s200 { font-size: 200%; }
 .s150 { font-size: 150%; }
 .s120 { font-size: 120%; }
@@ -61,7 +61,7 @@ h3 {
 /* Klassen zur �nderung der Schriftfarbe */
 .ccyan { color: #4169e1; }
 .cwhite { color: #FFFFFF; }
-/* Erg�nzende Farbwerte f�r die Navigation */
+/* Erg�nzende Farbwerte fuer die Navigation */
 .cred { color: #AA261D; }
 .cblue { color: #1D3072; }
 .cgreen { color: #49922F; }
@@ -81,7 +81,7 @@ h3 {
 	background-color: black;
 	height: 8.75%;
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
-	z-index: 10; /* Damit liegen header und footer (und deren Schatten) über dem Scrollcontainer. */
+	z-index: 10; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
 }
 
 #scrollContainer > header {
@@ -102,9 +102,9 @@ h3 {
 	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
 	min-width: 1000px;
 	max-width: 2000px;
-	height: 100%; /* Immer so groß wie der Scenecontainer. */
+	height: 100%; /* Immer so gross wie der Scenecontainer. */
 	overflow: hidden;
-	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden können */
+	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
 }
 
 .scene > * {
@@ -112,12 +112,12 @@ h3 {
 }
 
 .scene > *.fixed {
-	position: fixed; /* Außer es handelt sich um Texte, diese müssen mit der Klasse .fixed deklariert werden. */
+	position: fixed; /* Ausser es handelt sich um Texte, diese muessen mit der Klasse .fixed deklariert werden. */
 }
 
 .sceneChange {
-	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
-	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
 	left: 100vw;
 }
 
@@ -134,20 +134,20 @@ h3 {
 	height: 100%;
 }
 
-/* !!! Allgemeine Info für Bilder
+/* !!! Allgemeine Info fuer Bilder
 ** Immer max-height nehmen und diese so setzen, dass nicht in normaler (unverkleinerter)
 ** Ansicht schon runtergerechnet werden muss, damit es nicht verpixelt aussieht.
 */
 
 /* !!! 
-** Bilder können glaub ich nicht voll mittig platziert werden. 
+** Bilder koennen glaub ich nicht voll mittig platziert werden. 
 ** Hier ist es mittig, so lange nicht verkleinert werden muss. */
 
 #intro1 > .student {
 	bottom: 0; /* Bild wird unten festgemacht */
 	max-height: 66.3%;
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -58px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
+	margin-left: -58px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
 /* Wolken positionieren */
@@ -171,7 +171,7 @@ h3 {
 	max-height: 25.8%;
 }
 
-/* Häuser positionieren */
+/* Haeuser positionieren */
 #intro1 > .house {
 	bottom: 0; /* Bilder werden unten festgemacht */
 }
@@ -199,7 +199,7 @@ h3 {
 	font-weight: bold;
 }
 
-/* Trigger für den Szenenwechsel */
+/* Trigger fuer den Szenenwechsel */
 #intro1 > .trigger.sceneChange {
 	left: 75%;
 	top: 20%;
@@ -210,8 +210,8 @@ h3 {
 ** Zweite Szene des Intros
 ********************************/
 #intro2 {
-	/* Wird später per JS geändert, dieser Wert dient erstmal nur dazu, das Element auß dem sichtbaren 
-	   Bereich heraus zu schieben, damit es später wieder eingeschoben werden kann. */
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
 	left: 100vw;
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
@@ -226,18 +226,18 @@ h3 {
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
+	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
 #intro2 > .shine {
 	height: 100%;
 	bottom: -3.3%; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
 
-/* Trigger für den Szenenwechsel */
+/* Trigger fuer den Szenenwechsel */
 #intro2 > .trigger.sceneChange {
 	left: 75%;
 	top: 20%;
@@ -270,10 +270,10 @@ h3 {
 	height: 100%;
 	bottom: -3.3%; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafür, dass es ganz mittig ist */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
-/* Trigger für den Szenenwechsel */
+/* Trigger fuer den Szenenwechsel */
 #lecture > .trigger.sceneChange {
 	left: 75%;
 	top: 20%;
