@@ -25,7 +25,7 @@
 	}
 }
 
-/* Schriftgroesse wird per Javascript dynamisch gesetzt. */
+/* Schriftgroesse wird per Javascript dynamisch gesetzt (spaeter). */
 body {
 	background-color: #000;
 	font-family: 'Source Sans Pro';
@@ -194,17 +194,10 @@ h3 {
 }
 
 /* Routierende Texte der ersten Szene */
-#intro1 > .intro.bit {
+#intro1 > .bit {
 	font-family: 'Oswald';
 	font-weight: bold;
 }
-
-/* Trigger fuer den Szenenwechsel */
-#intro1 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
-}
-
 
 /********************************
 ** Zweite Szene des Intros
@@ -236,28 +229,21 @@ h3 {
 	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
-
-/* Trigger fuer den Szenenwechsel */
-#intro2 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
-}
-
 /********************************
-** erste Szene der Vorlesung
+** Erste Szene der Vorlesung
 ********************************/
 #lecture {
 	left: 100vw;
 	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
-	/*background-image: url(../img/Vorlesungen/vl_mg.png);*/
+	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
 	position: relative;
-	/*z-index: 1;*/
+	/* z-index: 1;*/
 }
 
 
 #lecture > .lectureroom {
 	left: -10%;
-	/*lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
+	/* lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
 }
 
 #lecture > .sceneChange {
@@ -271,12 +257,6 @@ h3 {
 	bottom: -3.3%; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
 	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
-}
-
-/* Trigger fuer den Szenenwechsel */
-#lecture > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
 }
 
 #lecture > .wall.right {
