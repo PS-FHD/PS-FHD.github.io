@@ -1,0 +1,316 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift fuer Fliesstext */
+@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Ueberschriften und Highlights */
+
+/* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
+@media (max-height: 399px) {
+	body {
+		font-size: 7px;
+	}
+}
+
+/* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
+@media (min-height: 400px) and (max-height: 800px) {
+	body {
+		/* Schriftgroesse entspricht 1.8% der Hoehe des Viewports des Browsers. 
+	   Alle anderen Schriftgroessen sollten em oder % als Masseinheit verwenden um stets relativ zu der 
+	   hier festgelegten Groesse zu sein. */
+		font-size: 1.8vh;
+	}
+}
+
+/* Mediaquery fuer das Setzen einer fixen Schriftgroesse ab einer Hoehe von 801px. */
+@media (min-height: 801px) {
+	body {
+		font-size: 14.5px;
+	}
+}
+
+/* Schriftgroesse wird per Javascript dynamisch gesetzt (spaeter). */
+body {
+	background-color: #000;
+	font-family: 'Source Sans Pro';
+	margin: 0;
+}
+
+/* Ueberschriften definieren */
+h1 {
+	font-family: 'Oswald';
+	font-size: 200%;
+	letter-spacing: 0.05em;
+}
+
+h2 {
+	font-family: 'Oswald';
+	font-size: 140%;
+	letter-spacing: 0.05em;
+	margin-bottom: 12px;
+}
+
+h3 {
+	font-family: 'Oswald';
+	font-size: 110%;
+	letter-spacing: 0.05em;
+}
+
+p {
+	margin-top: 12px;
+}
+
+/* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
+.s200 { font-size: 200%; }
+.s150 { font-size: 150%; }
+.s120 { font-size: 120%; }
+.s80 { font-size: 80%; }
+.s40 { font-size: 40%; }
+
+/* Klassen zur Aenderung der Schriftfarbe */
+.ccyan { color: #4169e1; }
+.cwhite { color: #FFFFFF; }
+/* Ergaenzende Farbwerte fuer die Navigation */
+.cred { color: #AA261D; }
+.cblue { color: #1D3072; }
+.cgreen { color: #49922F; }
+.cgrey { color: #C7C7C7; }
+
+#scrollContainer {
+	background-color: black;
+	height: 96vh; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
+	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch 
+	   die Breite des body. */
+	display: inline-block;
+	min-height: 400px;
+	max-height: 800px;		
+}
+
+#scrollContainer > header, #scrollContainer > footer {
+	background-color: black;
+	height: 8.75%;
+	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
+	z-index: 10; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
+}
+
+#scrollContainer > header {
+	box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+}
+
+#scrollContainer > footer {
+	box-shadow: 0px -10px 10px 3px rgba(0, 0, 0, 0.3);
+}
+
+#sceneContainer {
+	height: 82%;
+	font-size: 1.8em;
+	overflow: hidden;
+}
+
+.scene {
+	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
+	min-width: 1000px;
+	max-width: 2000px;
+	height: 100%; /* Immer so gross wie der Scenecontainer. */
+	overflow: hidden;
+	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
+}
+
+.scene > * {
+	position: absolute; /* Alle direkten Unter-Elemente einer Szene werden absolut positioniert */
+}
+
+.scene > *.fixed {
+	position: fixed; /* Ausser es handelt sich um Texte, diese muessen mit der Klasse .fixed deklariert werden. */
+}
+
+.scene .textblock {
+	min-width: 350px;
+	max-width: 600px;
+	width: 45%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
+	height: 100%; /* So hoch wie die Szene selbst, damit sich innere % Angaben auf die Szenenhoehe beziehen. */
+}
+
+.scene .textblock * {
+	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden koennen. */
+}
+
+.sceneChange {
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
+	left: 100vw;
+}
+
+/********************************
+** Erste Szene des Intros
+********************************/
+#intro1 {
+	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
+}
+
+#intro1 > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+/* !!! Allgemeine Info fuer Bilder
+** Immer max-height nehmen und diese so setzen, dass nicht in normaler (unverkleinerter)
+** Ansicht schon runtergerechnet werden muss, damit es nicht verpixelt aussieht.
+*/
+
+/* !!! 
+** Bilder koennen glaub ich nicht voll mittig platziert werden. 
+** Hier ist es mittig, so lange nicht verkleinert werden muss. */
+
+#intro1 > .student {
+	bottom: 0; /* Bild wird unten festgemacht */
+	max-height: 66.3%;
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -58px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+}
+
+/* Wolken positionieren */
+#intro1 > .cloud.one {
+	top: 1.9%;
+	max-height: 18.7%;
+}
+
+#intro1 > .cloud.two {
+	top: 3.78%;
+	max-height: 25.8%;
+}
+
+#intro1 > .cloud.three {
+	top: 20px;
+	max-height: 22.8%;
+}
+
+#intro1 > .cloud.four {
+	top: 5px;
+	max-height: 25.8%;
+}
+
+/* Haeuser positionieren */
+#intro1 > .house {
+	bottom: 0; /* Bilder werden unten festgemacht */
+}
+
+#intro1 > .house.right {
+	left: 72%;
+	max-height: 44%;
+}
+
+#intro1 > .house.left {
+	left: 6%;
+	max-height: 33%;
+}
+
+/* Flugzeug positionieren */
+#intro1 > .airplane {
+	top: 20px;
+	left: -10%;
+	max-height: 13.2%;
+}
+
+/* Routierende Texte der ersten Szene */
+#intro1 > .bit {
+	font-family: 'Oswald';
+	font-weight: bold;
+}
+
+#intro1 > .textblock {
+	left: 2%;
+}
+
+#intro1 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro1 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
+}
+
+/********************************
+** Zweite Szene des Intros
+********************************/
+#intro2 {
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
+	left: 100vw;
+	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
+}
+
+#intro2 > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+#intro2 > .students {
+	max-height: 66.3%;
+	bottom: 0; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -265px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+}
+
+#intro2 > .shine {
+	height: 100%;
+	bottom: -3.3%; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+}
+
+#intro2 > .textblock {
+	left: 2%;
+	width: 35%;
+}
+
+#intro2 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro2 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
+}
+
+/********************************
+** Erste Szene der Vorlesung
+********************************/
+#lecture {
+	left: 100vw;
+	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
+	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
+	position: relative;
+	/* z-index: 1;*/
+}
+
+
+#lecture > .lectureroom {
+	left: -10%;
+	/* lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
+}
+
+#lecture > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+#lecture > .trunk {
+	height: 100%;
+	bottom: -3.3%; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+}
+
+#lecture > .wall.right {
+	right: 0px;
+	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+}
+
+#lecture > .wall.left {
+	left: 0px;
+	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+}
+
+#lecture > .row, .front {
+	width: 90%;
+}
+
