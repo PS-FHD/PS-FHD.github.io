@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift fuer Fliesstext */
-@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Ãœberschriften und Highlights */
+@import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Ueberschriften und Highlights */
 
 /* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
 @media (max-height: 399px) {
@@ -32,7 +32,7 @@ body {
 	margin: 0;
 }
 
-/* Ãœberschriften definieren */
+/* Ueberschriften definieren */
 h1 {
 	font-family: 'Oswald';
 	font-size: 200%;
@@ -51,17 +51,17 @@ h3 {
 	letter-spacing: 0.05em;
 }
 
-/* Klassen zur Ã„nderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
+/* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
 .s200 { font-size: 200%; }
 .s150 { font-size: 150%; }
 .s120 { font-size: 120%; }
 .s80 { font-size: 80%; }
 .s40 { font-size: 40%; }
 
-/* Klassen zur Änderung der Schriftfarbe */
+/* Klassen zur Aenderung der Schriftfarbe */
 .ccyan { color: #4169e1; }
 .cwhite { color: #FFFFFF; }
-/* Ergänzende Farbwerte fuer die Navigation */
+/* Ergaenzende Farbwerte fuer die Navigation */
 .cred { color: #AA261D; }
 .cblue { color: #1D3072; }
 .cgreen { color: #49922F; }
