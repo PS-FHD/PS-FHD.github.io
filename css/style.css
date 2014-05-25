@@ -25,7 +25,7 @@
 	}
 }
 
-/* Schriftgroesse wird per Javascript dynamisch gesetzt. */
+/* Schriftgroesse wird per Javascript dynamisch gesetzt (spaeter). */
 body {
 	background-color: #000;
 	font-family: 'Source Sans Pro';
@@ -43,12 +43,17 @@ h2 {
 	font-family: 'Oswald';
 	font-size: 140%;
 	letter-spacing: 0.05em;
+	margin-bottom: 12px;
 }
 
 h3 {
 	font-family: 'Oswald';
 	font-size: 110%;
 	letter-spacing: 0.05em;
+}
+
+p {
+	margin-top: 12px;
 }
 
 /* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
@@ -115,6 +120,17 @@ h3 {
 
 .scene > *.fixed {
 	position: fixed; /* Ausser es handelt sich um Texte, diese muessen mit der Klasse .fixed deklariert werden. */
+}
+
+.scene .textblock {
+	min-width: 350px;
+	max-width: 600px;
+	width: 40%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
+	height: 100%; /* So hoch wie die Szene selbst, damit sich innere % Angaben auf die Szenenhoehe beziehen. */
+}
+
+.scene .textblock * {
+	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden koennen. */
 }
 
 .sceneChange {
@@ -196,17 +212,22 @@ h3 {
 }
 
 /* Routierende Texte der ersten Szene */
-#intro1 > .intro.bit {
+#intro1 > .bit {
 	font-family: 'Oswald';
 	font-weight: bold;
 }
 
-/* Trigger fuer den Szenenwechsel */
-#intro1 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
+#intro1 > .textblock {
+	left: 2%;
 }
 
+#intro1 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro1 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
+}
 
 /********************************
 ** Zweite Szene des Intros
@@ -228,7 +249,7 @@ h3 {
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	margin-left: -265px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
 #intro2 > .shine {
@@ -238,36 +259,37 @@ h3 {
 	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
-/* Trigger fuer den Szenenwechsel */
-#intro2 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
+#intro2 > .textblock {
+	left: 2%;
+	width: 35%;
+}
+
+#intro2 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro2 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
 }
 
 /********************************
-** erste Szene der Vorlesung
+** Erste Szene der Vorlesung
 ********************************/
 #lecture {
 	left: 100vw;
 	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
-	/*background-image: url(../img/Vorlesungen/vl_mg.png);*/
+	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
 }
 
 #lecture > .lectureroom {
 	left: -10%;
-	/*lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
+	/* lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
 }
 
 #lecture > .sceneChange {
 	width: 1000px;
 	top: 0;
 	height: 100%;
-}
-
-/* Trigger fuer den Szenenwechsel */
-#lecture > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
 }
 
 #lecture > .wall.right {
