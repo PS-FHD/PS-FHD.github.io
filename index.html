@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>FHD | Parallax Scrolling Projekt</title>
+		
+		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="js/ScrollMagic/js/_dependent/greensock/TweenMax.min.js"></script>
+		<script type="text/javascript" src="js/ScrollMagic/js/_dependent/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.js"></script>
+		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.debug.js"></script>
+		<!-- Javascript-Dateien werden spaeter zusammengefasst. -->
+		<script type="text/javascript" src="js/global.js"></script>
+		<script type="text/javascript" src="js/scene_intro1.js"></script>
+		<script type="text/javascript" src="js/scene_intro2.js"></script>
+		
+		<!--SideScrolling JQuery Plugin-->
+		<script src="js/HorizontalScrolling/jquery.mousewheel.js"></script>
+		<script src="js/HorizontalScrolling/horizontal.scrolling.js"></script>
+	</head>
+	<body>
+		<div id="scrollContainer">
+			<header><!-- Navigation etc. --></header>
+			<div id="sceneContainer">
+				<section id="intro1" class="scene">
+					<img class="cloud one" src="img/einl_selbstst_hg_wolke2_260x123.png" alt="Wolke" />
+					<img class="cloud two" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+					<img class="airplane" src="img/Einleitung/einl_hg_flugzeug_239x87.png" alt="Flugzeug" />
+					<img class="cloud three" src="img/einl_selbstst_hg_wolke1_315x150.png" alt="Wolke" />
+					<img class="cloud four" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+					<img class="student" src="img/Einleitung/typ_116x435.png" alt="Student" />
+					<img class="house right" src="img/Einleitung/einl_mg_hausR_345x289.png" alt="FH Geb&auml;ude" />
+					<img class="house left" src="img/Einleitung/einl_mg_hausL_351x217.png" alt="Haus" />
+					
+					<h1 class="mainheadline">HAH! GESCHAFFT!<br> ENDLICH STUDENT!</h1>
+					<div class="bit one s200 ccyan">
+						OMG!!!
+					</div>
+					<div class="bit two s150 ccyan">
+						YES!!1!
+					</div>
+					<div class="bit three s40 ccyan">
+						STUDENT-STATUS!
+					</div>
+					
+					<section class="textblock">
+						<h2>Aber jeder Einstieg ist schwer. Besonders dieser!</h2>
+						<p>
+							Das Studium ist etwas komplett anderes als deine vorherige Arbeit oder Schule. Mehr Stress, weniger 
+							Zeit, aber auch 'ne Menge Spa&szlig; und viel Interessantes!
+						</p>
+					</section>
+					
+					<!-- Die naechste Szene wird immer innerhalb der alten definiert um diese sauber einscrollen zu koennen. -->
+					<section id="intro2" class="scene">
+						<img class="shine" src="img/Einleitung/einl_mg_shine_500x500.png" alt="shine" />
+						<img class="students" src="img/Einleitung/einl_mg_gruppe_592x435.png" alt="Kommilitonen und Freundschaften" />
+						
+						<section class="textblock">
+							<h2>Such dir Kommilitonen, mit denen du klar kommst!</h2>
+							<p>
+								Kommilitonen sind existenziell! Von ihnen bekommst du wichtige Informationen, die nicht offiziell gesagt
+								wurden oder du kannst dir Mitschriften aus der Vorlesung geben lassen, die du verpasst hast!
+								Aber denk immer daran: Geben ist besser als nehmen!
+							</p>
+						</section>
+					</section> <!-- Ende Szene 2 -->
+					
+					<img class="sceneChange" src="img/Einleitung/einl_vg_szenenwechsel_1000x660.png" alt="Geb&auml;ude">
+				</section><!-- Ende Szene 1-->
+			</div>
+			<footer><!-- Schwarzer Balken --></footer>
+		</div>
+	</body>
+</html>
