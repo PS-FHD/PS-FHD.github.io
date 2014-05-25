@@ -16,10 +16,10 @@ $(document).ready(function($) {
 	var kom_head = TweenMax.to("#intro2 > .textblock h2", 0.65, {top: "15%",  ease: Linear.easeNone});
 	var kom_text = TweenMax.to("#intro2 > .textblock p", 0.65, {top: "15%", ease: Linear.easeNone});
 	
-	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
+	// Die tatsaechlich errechnete Breite der ersten Szene ermitteln.
 	var actualSceneWidth = parseInt($("#intro2").css("width"), 10);
 	var sceneChangeElement = $("#intro2 > .sceneChange");
-	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
+	/* Beide tweens für den Szenenwechsel, einmal das Gebaeude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
 	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
 	var sceneChangeBuilding = TweenMax.to("#intro2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
 	var nextSceneIn = TweenMax.to("#lecture", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});

@@ -128,7 +128,7 @@ p {
 }
 
 .scene .textblock * {
-	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden können. */
+	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden koennen. */
 }
 
 .sceneChange {
