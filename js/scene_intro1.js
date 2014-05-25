@@ -22,26 +22,26 @@ $(document).ready(function($) {
 	
 	/* headline kommt ONLOAD von oben und bounced mittels ease: Bounce.easeOut
 	   per scroll nach links aus dem bild. */
-	var headlineIn 	= TweenMax.fromTo("#intro1 > header.intro", 0.8, {top: "-30%",left:"2%"}, {top: "3%", ease: Bounce.easeOut});
-	var headlineOut = TweenMax.to("#intro1 > header.intro", 0.3, {left: "-50%", ease: Linear.easeNone});
+	var headlineIn  = TweenMax.fromTo("#intro1 > .mainheadline", 0.8, {top: "-30%", left: "2%"}, {top: "3%", ease: Bounce.easeOut});
+	var headlineOut = TweenMax.to("#intro1 > .mainheadline", 0.3, {left: "-50%", ease: Linear.easeNone});
 	
 	/* Der OMG Text wird mittels slala eingeblendet, dazu kommt eine rotation. Hierbei gibt rotation: die Drehung in Grad an. */
-	var textOmgIn 	= TweenMax.fromTo("#intro1 > .bit.one", 0.5, {left: "7%", top: "37%", scale: 0}, {left: "7%", top: "37%", scale: 1, rotation: 342});
-	var textOmgOut 	= TweenMax.fromTo("#intro1 > .bit.one", 0.3, {left: "7%", top: "37%"}, {left: "7%", top: "37%", scale:1, rotation:-180, scale: 0});	
+	var textOmgIn  = TweenMax.fromTo("#intro1 > .bit.one", 0.5, {left: "7%", top: "37%", scale: 0}, {left: "7%", top: "37%", scale: 1, rotation: 342});
+	var textOmgOut = TweenMax.fromTo("#intro1 > .bit.one", 0.3, {left: "7%", top: "37%"}, {left: "7%", top: "37%", scale: 1, rotation: -180, scale: 0});	
 	
 	/* Der Text YES!! fliegt von links in das Bild beim Laden der Seite. */
-	var textYESIn 	= TweenMax.to("#intro1 > .bit.two", 0.5, {top: "40%", left: "30%", rotation: 390, ease:Back.easeInOut});
-	var textYESOut 	= TweenMax.to("#intro1 > .bit.two", 0.3, {top: "-80%", ease:Linear.easeNone});
+	var textYESIn  = TweenMax.to("#intro1 > .bit.two", 0.5, {top: "40%", left: "30%", rotation: 390, ease:Back.easeInOut});
+	var textYESOut = TweenMax.to("#intro1 > .bit.two", 0.3, {top: "-80%", ease: Linear.easeNone});
 	
 	/* Der Student-Status Text wird mittels easeIn eingbunden und dreht sich ein wenig. */
-	var textStudentIN 	= TweenMax.to("#intro1 > .bit.three", 1, {rotation:15, scale:3, ease:Back.easeInOut });
-	var textStudentOut 	= TweenMax.fromTo("#intro1 > .bit.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation: -40, scale: 0});
+	var textStudentIN  = TweenMax.to("#intro1 > .bit.three", 1, {rotation:15, scale:3, ease:Back.easeInOut });
+	var textStudentOut = TweenMax.fromTo("#intro1 > .bit.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation: -40, scale: 0});
 	
 	var student = TweenMax.to("#intro1 > .student", 1, {left: "50%"});	
 	
 	/* Zweiter Textblock. */
-	var einstiegHeadIN 	= TweenMax.fromTo("#intro1 > header.gettingstarted", 0.65, {top: "-50%", left:"2%"}, {top:"17%", left:"2%", ease: Linear.easeNone});
-	var einstiegTextIN 	= TweenMax.fromTo("#intro1 > section.gettingstarted", 0.65, {left: "2%", top: "100%"}, {left:"2%", top:"35%", ease: Linear.easeNone});
+	var einstiegHeadIN = TweenMax.to("#intro1 > .textblock h2", 0.65, {top: "15%", ease: Linear.easeNone});
+	var einstiegTextIN = TweenMax.to("#intro1 > .textblock p", 0.65, {top: "15%", ease: Linear.easeNone});
 	
 	var sceneChangeElement = $("#intro1 > .sceneChange");
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.

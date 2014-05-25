@@ -13,8 +13,8 @@ $(document).ready(function($) {
 	var shineFadeIn   = TweenMax.fromTo("#intro2 > .shine", 0.2, {autoAlpha: 0}, {autoAlpha: 1, ease: Linear.easeNone});	
 	var shineFadeOut  = TweenMax.to("#intro2 > .shine", 0.2, {autoAlpha: 0, delay: 0.7, ease: Linear.easeNone});
 	
-	var kom_head = TweenMax.fromTo("#intro2 > header", 0.65, {top: "-50%", left:"2%"}, {top: "17%", left: "2%",  ease: Linear.easeNone});
-	var kom_text = TweenMax.fromTo("#intro2 > section", 0.65, {left: "2%", top: "100%"}, {left: "2%", top: "35%", ease: Linear.easeNone});
+	var kom_head = TweenMax.to("#intro2 > .textblock h2", 0.65, {top: "15%",  ease: Linear.easeNone});
+	var kom_text = TweenMax.to("#intro2 > .textblock p", 0.65, {top: "15%", ease: Linear.easeNone});
 	
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
 	var actualSceneWidth = parseInt($("#intro2").css("width"), 10);

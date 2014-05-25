@@ -43,12 +43,17 @@ h2 {
 	font-family: 'Oswald';
 	font-size: 140%;
 	letter-spacing: 0.05em;
+	margin-bottom: 12px;
 }
 
 h3 {
 	font-family: 'Oswald';
 	font-size: 110%;
 	letter-spacing: 0.05em;
+}
+
+p {
+	margin-top: 12px;
 }
 
 /* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
@@ -113,6 +118,17 @@ h3 {
 
 .scene > *.fixed {
 	position: fixed; /* Ausser es handelt sich um Texte, diese muessen mit der Klasse .fixed deklariert werden. */
+}
+
+.scene .textblock {
+	min-width: 350px;
+	max-width: 600px;
+	width: 45%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
+	height: 100%; /* So hoch wie die Szene selbst, damit sich innere % Angaben auf die Szenenhoehe beziehen. */
+}
+
+.scene .textblock * {
+	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden können. */
 }
 
 .sceneChange {
@@ -199,6 +215,18 @@ h3 {
 	font-weight: bold;
 }
 
+#intro1 > .textblock {
+	left: 2%;
+}
+
+#intro1 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro1 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
+}
+
 /********************************
 ** Zweite Szene des Intros
 ********************************/
@@ -219,7 +247,7 @@ h3 {
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	margin-left: -265px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
 }
 
 #intro2 > .shine {
@@ -227,6 +255,19 @@ h3 {
 	bottom: -3.3%; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
 	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+}
+
+#intro2 > .textblock {
+	left: 2%;
+	width: 35%;
+}
+
+#intro2 > .textblock > h2 {
+	top: -33%; /* Startposition außerhalb der Szene. */
+}
+
+#intro2 > .textblock > p {
+	top: 80%; /* Startposition außerhalb der Szene. */
 }
 
 /********************************
