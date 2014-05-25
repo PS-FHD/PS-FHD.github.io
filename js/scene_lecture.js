@@ -11,11 +11,18 @@ $(document).ready(function($) {
 	
 	var backgroundSky = TweenMax.to(".sky", 1, {left: "-840px", ease: Linear.easeNone});
 	
-
+	// Baum
+	var orangeLeaves = TweenMax.fromTo(".tree.leaves.orange", 0.5, {left: "75px", top: "55px", autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.4});
+	var redLeaves	 = TweenMax.fromTo(".tree.leaves.red", 0.75, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
+	
+	// Schnee
+	var snow = TweenMax.fromTo(".snow", 1, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
+	
+	// Sitzreihen
 	var row1 = TweenMax.fromTo(".row.first", 1, {left: "10%", top:"79%"}, {left:"-5%", ease: Linear.easeNone});
 	var row2 = TweenMax.fromTo(".row.second", 1, {left: "10%", top:"79%"}, {left:"-10%", ease: Linear.easeNone});
 	var row3 = TweenMax.fromTo(".row.third", 1, {left: "10%", top:"90%"}, {left:"-15%", ease: Linear.easeNone});
-	var front = TweenMax.fromTo(".front", 1, {left: "0%", top:"85%"}, {left:"-20%", ease: Linear.easeNone});
+	var front = TweenMax.fromTo(".front", 1, {left: "10%", top:"85%"}, {left:"-20%", ease: Linear.easeNone});
 	
 	var prof = TweenMax.fromTo(".prof", 1, {left: "90%", top: "37%"}, {left:"29%"});
 	
@@ -35,18 +42,21 @@ $(document).ready(function($) {
 	
 	
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
-	// var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
-	// var sceneChangeElement = $("#lecture > .sceneChange");
+	 var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
+	 var sceneChangeElement = $("#lecture > .sceneChange");
 	
 	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
 	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	// var sceneChangeBuilding = TweenMax.to("#intro2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	// var nextSceneIn = TweenMax.to("#selfstudy1", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	 var sceneChangeBuilding = TweenMax.to("#lecture > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	 var nextSceneIn = TweenMax.to("#selfstudy1", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
 	
 	// Die Zeitleiste
 	var timelineTween3 = new TimelineMax()
 		.add([
 		      	backgroundSky,
+		      	orangeLeaves,
+		      	redLeaves,
+		      	snow,
 		      	prof,
 		      	row1,
 		      	row2,
@@ -55,11 +65,11 @@ $(document).ready(function($) {
 		      	prow1_1,prow1_2,prow1_3,prow1_4,
 		      	prow2_1,prow2_2,prow2_3,
 		      	prow3_1,prow3_2
-				]);
+				])
 		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		// .insertMultiple(
-			// [sceneChangeBuilding, nextSceneIn], 0.85
-		// );
+		 .insertMultiple(
+			 [sceneChangeBuilding, nextSceneIn], 0.85
+		 );
 	
 	
 	/* Die Scroll Magic Scene für die zweite Introszene definieren.
