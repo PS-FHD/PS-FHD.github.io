@@ -9,16 +9,21 @@ $(document).ready(function() {
 	var step = 160;
 	// Die laenge in Sekunden die eine Scrollanimation insgesamt dauern kann. 
 	var duration = 1;
+	
+	// Unterstuezt der Browser ueberhaupt das Setzen der Scrollposition ueber bekannte Elemente? 
+	if (typeof fd_pageScrollElement == "undefined")
+		return;
+	
 	/* Das Tween das zum animieren des Scrollvorganges benutzt wird. Dieses bezieht sich stets auf
 	   eigenschaften des HTML-Elements und hat eine feste Dauer. Es nutzt ausserdem eine easing-function
 	   fuer einen schoeneren Scrolleffekt. */
-	var scrollTween = new TweenMax($("html"), duration, {ease: Power2.easeOut});
+	var scrollTween = new TweenMax(fd_pageScrollElement, duration, {ease: Power2.easeOut});
 	
 	/* Die horizontale Scrolleiste kann ueblicherweise nicht mittels Mausrad gescrollt werden, daher
 	   muss dieses Verhalten emuliert werden. 
 	   Einen event Handler an das mousewheel-Ereignis binden, welches vom jQuery 
 	   Mousewheel Plugin (siehe jquery.mousewheel.js) zur Verfuegung gestellt wird. */
-	$("html").mousewheel(html_mouseWheel);
+	fd_pageScrollElement.mousewheel(html_mouseWheel);
 	
 	/****************************************************************************************************
 	 * Event-Handler fuer ein mousewheel Ereignis (siehe jquery.mousewheel.js).
