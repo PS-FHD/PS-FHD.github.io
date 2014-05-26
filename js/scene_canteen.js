@@ -28,11 +28,11 @@ $(document).ready(function($) {
 	
 	var dessert = TweenMax.fromTo(".dessert", 0.3, {left: "120%", top:"25%"}, {left:"70%",delay: 0.4 ,ease: Linear.easeNone});
 	
-	var lamp1 = TweenMax.fromTo(".lamp.first", 0.3, {left: "20%", top:"0%"}, {ease: Linear.easeNone});
-	var lamp2 = TweenMax.fromTo(".lamp.second", 0.3, {left: "50%", top:"0%"}, {ease: Linear.easeNone});
-	var lamp3 = TweenMax.fromTo(".lamp.third", 0.3, {left: "80%", top:"0%"}, {ease: Linear.easeNone});	
+	var lamp1 = TweenMax.fromTo(".lamp.first", 1, {left: "20%", top:"0%"}, {left: "15%",ease: Linear.easeNone});
+	var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {left: "45%",ease: Linear.easeNone});
+	var lamp3 = TweenMax.fromTo(".lamp.third", 1, {left: "80%", top:"0%"}, {left: "75%",ease: Linear.easeNone});	
 	
-	
+
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
 //	var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
 //	var sceneChangeElement = $("#lecture > .sceneChange");
@@ -61,7 +61,7 @@ $(document).ready(function($) {
 		      food2,
 		      food3,
 		      arrow,
-		      dessert
+		      dessert		     
 			]);
 		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
 		// .insertMultiple(

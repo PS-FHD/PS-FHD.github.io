@@ -11,9 +11,11 @@ $(document).ready(function($) {
 	
 	var backgroundBooks = TweenMax.to("#selfstudy1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
+	
+	var bookshelf =  TweenMax.fromTo(".bookshelfBG", 0.5, {bottom: "0%", left:"120%"}, { left:"-70%",  ease: Linear.easeNone});
 
-	var self1_headIn =  TweenMax.fromTo("header.self1", 0.3, {top: "10%", right:"-80%"}, { right:"2%",  ease: Linear.easeNone});
-	var self1_textIn =  TweenMax.fromTo("section.self1", 0.3, {top: "28%", right: "-80%" }, { right:"2%",  ease: Linear.easeNone});
+	var self1_headIn =  TweenMax.fromTo("header.self1", 0.5, {top: "10%", right:"-80%"}, { right:"2%",  ease: Linear.easeNone});
+	var self1_textIn =  TweenMax.fromTo("section.self1", 0.5, {top: "28%", right: "-80%" }, { right:"2%",  ease: Linear.easeNone});
 	
 	var self1_headOut = TweenMax.to("header.self1", 0.1, {autoAlpha:0, delay:0.7});
 	var self1_textOut = TweenMax.to("section.self1", 0.2, {autoAlpha:0, delay:0.7});
@@ -34,7 +36,8 @@ $(document).ready(function($) {
 		      	self1_headIn,
 		      	self1_textIn,
 		      	self1_headOut,
-		      	self1_textOut
+		      	self1_textOut,
+		      	bookshelf
 				])
 		// Die zwei Tweens fuer den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
 		 .insertMultiple(
