@@ -1,5 +1,5 @@
 // Die Scrolldauer fuer alle Szenen insgesamt.
-var totalScrollDuration = 5000;
+var totalScrollDuration = 7000;
 
 var controller;
 /***********************************************************************************

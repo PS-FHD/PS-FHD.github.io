@@ -31,13 +31,13 @@ $(document).ready(function($) {
 	
 	
 	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
-//	var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
-//	var sceneChangeElement = $("#lecture > .sceneChange");
+	var actualSceneWidth = parseInt($("#selfstudy2").css("width"), 10);
+	var sceneChangeElement = $("#selfstudy2 > .sceneChange");
 	
 	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
 	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	// var sceneChangeBuilding = TweenMax.to("#intro2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	// var nextSceneIn = TweenMax.to("#selfstudy1", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	 var sceneChangeBuilding = TweenMax.to("#selfstudy2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
+	 var nextSceneIn = TweenMax.to("#selfstudy3", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
 	
 	// Die Zeitleiste
 	var timelineTween5 = new TimelineMax()
@@ -52,11 +52,11 @@ $(document).ready(function($) {
 		      self2_a_textIn,
 		      self2_bit_textIn,
 		      crabWalk
-			]);
+				])
 		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		// .insertMultiple(
-			// [sceneChangeBuilding, nextSceneIn], 0.85
-		// );
+		 .insertMultiple(
+			 [sceneChangeBuilding, nextSceneIn], 0.85
+		 );
 	
 	
 	/* Die Scroll Magic Scene für die zweite Introszene definieren.

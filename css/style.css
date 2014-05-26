@@ -365,3 +365,63 @@ p {
 	left: 75%;
 	top: 20%;
 }
+
+
+
+/********************************
+** dritte Szene des Selbststudiums - Eigenheim
+********************************/
+#selfstudy3 {
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
+	left: 100vw;
+
+}
+
+#selfstudy3 > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+/* Trigger fuer den Szenenwechsel */
+#selfstudy3 > .trigger.sceneChange {
+	left: 75%;
+	top: 20%;
+}
+
+
+
+/********************************
+** erste Szene der Mensa 
+********************************/
+#canteen {
+	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
+	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
+	left: 100vw;
+
+}
+
+#canteen > .sceneChange {
+	width: 1000px;
+	top: 0;
+	height: 100%;
+}
+
+/* Trigger fuer den Szenenwechsel */
+#canteen > .trigger.sceneChange {
+	left: 75%;
+	top: 20%;
+}
+
+#canteen > .serving-table.first{
+	bottom: 0; /* Bild wird unten festgemacht */
+}
+
+#canteen > .serving-table.second{
+	top: 40%; /* Bild wird unten festgemacht */
+}
+
+#canteen > .canteenbg{
+	top: 0%;
+}
