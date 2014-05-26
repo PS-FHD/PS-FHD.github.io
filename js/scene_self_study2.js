@@ -18,7 +18,7 @@ $(document).ready(function($) {
 	var cloudOneTween = TweenMax.fromTo("#selfstudy2 > .cloud.one", 1, {left: "80%"}, {left: "-15%", ease: Linear.easeNone});
 	var cloudTwoTween = TweenMax.fromTo("#selfstudy2 > .cloud.two", 1, {left: "60%"}, {left: "-25%", ease: Linear.easeNone});
 		
-	var foreground = TweenMax.fromTo("#selfstudy2 > .foreground", 1, { left: "100%", top: "67%", scale: 0.6}, {left: "-105%", ease: Linear.easeNone, delay:0.5});
+	var foreground = TweenMax.fromTo("#selfstudy2 > .foreground", 1, { left: "100%", top: "67%", scale: 0.6}, {left: "-105%", ease: Linear.easeNone});
 	
 	
 	var self2_headIn 	= TweenMax.fromTo("header.self2", 0.3, {top: "10%", left:"-40%"}, { left:"2%",  ease: Linear.easeNone});

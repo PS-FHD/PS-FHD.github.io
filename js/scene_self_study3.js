@@ -10,7 +10,7 @@ $(document).ready(function($) {
 	
 	
 	
-	var day_night = TweenMax.fromTo(".daynight", 2.5, {right: "-20%", top:"18%"}, {right: "60%", ease: Linear.easeNone});
+	var day_night = TweenMax.fromTo(".daynight", 1, {right: "-15%", top:"18%"}, {right: "22%", ease: Linear.easeNone});
 	
 	var table1Out = TweenMax.fromTo(".table.first", 0.1, {right: "20%", bottom:"0%"}, {autoAlpha:0, delay:0.3, ease: Linear.easeNone});
 	var table2In = TweenMax.fromTo(".table.second", 0.1, {right: "20%", bottom:"0%", autoAlpha:0}, {autoAlpha:1, delay:0.3, ease: Linear.easeNone});

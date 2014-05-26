@@ -16,7 +16,7 @@ $(document).ready(function($) {
 	var redLeaves	 = TweenMax.fromTo(".tree.leaves.red", 0.75, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
 	
 	// Schnee
-	var snow = TweenMax.fromTo(".snow", 1, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
+	var snow = TweenMax.fromTo(".snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
 	
 	// Sitzreihen
 	var row1 = TweenMax.fromTo(".row.first", 1, {left: "10%", top:"79%"}, {left:"-5%", ease: Linear.easeNone});
