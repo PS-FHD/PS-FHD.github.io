@@ -94,6 +94,7 @@ $(document).ready(function($) {
 	 ***************************************************************************************************/
 	function window_resize() {
 		var bodyElement = $("body");
+		var scrollContainer = $("#scrollContainer");
 		/* Beim Aendern der groesse muss leider wieder an den Anfang gescrollt werden, sonst ergeben sich manchmal eigenartige 
 		   fehler bei der Berechnung der Hoehe.
 		   Zudem ist es schwierig die Szenenbereite richtig anzupassen waehrend sie gerade "abespielt" wird. */
@@ -101,10 +102,16 @@ $(document).ready(function($) {
 			fd_pageScrollElement.scrollLeft(0);
 		
 		// Berechnete Hoehe des Scrollcontainers ermitteln.
-		var scrollContainerHeight = parseInt($("#scrollContainer").css("height"), 10);
+		var scrollContainerHeight = parseInt(scrollContainer.css("height"), 10);
 		
 		// Die Schrift soll relativ zur hoehe des scrollContainers ausgerichtet werden.
 		var newFontSize = scrollContainerHeight * 0.03;
 		bodyElement.css("font-size", newFontSize + "px");
+		
+		var viewportWidth = $(window).width();
+		if (viewportWidth > 2000) {
+			var extraMargin = ((viewportWidth - 2000) / 2);
+			scrollContainer.css("margin", "auto " + extraMargin + "px");
+		}
 	}
 });
