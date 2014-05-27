@@ -8,8 +8,6 @@ var controller;
 var sceneWidth;
 
 /* ** Variablen die Ergebnisse zur Browser Feature Detection speichern. ** */
-// Gibt an, ob der Browser Viewport einheiten wie vh, vw richtig Unterstuetzt.
-var fd_supportsViewportUnits;
 /* Gibt das jQuery-Element an, fuer das die Scrollposition der Seite gesetzt 
    werden kann. Dabei handelt es sich normalerweise um das BODY-Element, manche 
    Browser nutzen dafuer aber das HTML-Element (Safari z.B.).
@@ -63,7 +61,7 @@ $(document).ready(function($) {
 	 *    entsprechende Workarounds an um diese Probleme zu umgehen.  
 	 **********************************************************************************/
 	function browserFeatureDetection() {
-		// Pruefen ob die Scrollposition der Seite ueber das HTML-Element oder Body-Element gesetzt werden kann.
+		// Pruefen ob die Scrollposition der Seite ueber das HTML-Element oder BODY-Element gesetzt werden kann.
 		var htmlElement = $("html");
 		var bodyElement = $("body");
 		
@@ -85,6 +83,12 @@ $(document).ready(function($) {
 	 *    koennen.
 	 ***************************************************************************************************/
 	function window_resize() {
+		var bodyElement = $("body");
+		// Berechnete Hoehe des Scrollcontainers ermitteln.
+		var scrollContainerHeight = parseInt($("#scrollContainer").css("height"), 10);
 		
+		// Die Schrift soll relativ zur hoehe des scrollContainers ausgerichtet werden.
+		var newFontSize = scrollContainerHeight * 0.03;
+		bodyElement.css("font-size", newFontSize + "px");
 	}
 });

@@ -1,31 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift fuer Fliesstext */
 @import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Ueberschriften und Highlights */
 
-/* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
-@media (max-height: 399px) {
-	body {
-		font-size: 7px;
-	}
-}
-
-/* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
-@media (min-height: 400px) and (max-height: 800px) {
-	body {
-		/* Schriftgroesse entspricht 1.8% der Hoehe des Viewports des Browsers. 
-	   Alle anderen Schriftgroessen sollten em oder % als Masseinheit verwenden um stets relativ zu der 
-	   hier festgelegten Groesse zu sein. */
-		font-size: 1.8vh;
-	}
-}
-
-/* Mediaquery fuer das Setzen einer fixen Schriftgroesse ab einer Hoehe von 801px. */
-@media (min-height: 801px) {
-	body {
-		font-size: 14.5px;
-	}
-}
-
-/* Schriftgroesse wird per Javascript dynamisch gesetzt (spaeter). */
+/* Schriftgroesse wird per Javascript dynamisch gesetzt. */
 body {
 	background-color: #000;
 	font-family: 'Source Sans Pro';
@@ -85,7 +61,6 @@ p {
 	width: 100%;
 	min-height: 400px;
 	max-height: 800px;
-	font-size: 1.8em;
 }
 
 /* Werden per Javascript so gross wie der gesamte Scrollbereich. */
