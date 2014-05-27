@@ -76,19 +76,24 @@ p {
 
 #scrollContainer {
 	background-color: black;
-	height: 96vh; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
-	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch 
-	   die Breite des body. */
+	height: 100%; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
+	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch die Breite des Body. 
+	   Dadurch ist er so lang wie alle Szenen, was fuer ein richtiges Ausrichten des Header und Footer 
+	   notwendig ist. */
 	display: inline-block;
+	/* Eigentlich nicht notwendig, aber ein noetiges Workaround um einen bekannten Webkit Bug: 
+	   https://bugs.webkit.org/show_bug.cgi?id=26559 */
+	position: absolute;
 	min-height: 400px;
-	max-height: 800px;		
+	max-height: 800px;
+	font-size: 1.8em;
 }
 
 #scrollContainer > header, #scrollContainer > footer {
 	background-color: black;
 	height: 8.75%;
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
-	z-index: 10; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
+	z-index: 20; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
 }
 
 #scrollContainer > header {
@@ -99,17 +104,11 @@ p {
 	box-shadow: 0px -10px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
-#sceneContainer {
-	height: 82%;
-	font-size: 1.8em;
-	overflow: hidden;
-}
-
 .scene {
 	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
 	min-width: 1000px;
 	max-width: 2000px;
-	height: 100%; /* Immer so gross wie der Scenecontainer. */
+	height: 100%; /* Immer so gross wie der Scrollcontainer. */
 	overflow: hidden;
 	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
 }
@@ -144,6 +143,7 @@ p {
 ********************************/
 #intro1 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
+	height: 82%;
 }
 
 #intro1 > .sceneChange {

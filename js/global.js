@@ -53,18 +53,15 @@ $(document).ready(function($) {
 		/* Der Scene-Container ist Unterelement eines Blockelements welches mit einer Hoehe in vh 
 		   ausgerichtet wird. Hat nun das besagte Unterelement eine Groesse von 0px, bedeuted das, dass
 		   der Browser nicht richtig mit den Viewport-Masseinheiten rechnen kann. */
-		fd_supportsViewportUnits = ($("#sceneContainer").css("height") != "0px");
+		fd_supportsViewportUnits = false; //($("#scrollContainer").css("height") != "0px");
 		
 		/* Falls der Browser Viewport-Masseinheiten wie vh, vw nicht richtig Unterstuezt, dann ein paar Werte
 		   fuer den resize Event-Handler cachen. */
 		if (!fd_supportsViewportUnits) {
 			var someSceneElement = $("#intro1");
-			var scrollContainerElement = $("#scrollContainer");
 			
 			sceneMinWidth = parseInt(someSceneElement.css("min-width"), 10);
 			sceneMaxWidth = parseInt(someSceneElement.css("max-width"), 10);
-			scrollContainerMinHeight = parseInt(scrollContainerElement.css("min-height"), 10);
-			scrollContainerMaxHeight = parseInt(scrollContainerElement.css("max-height"), 10);
 		}
 		
 		// Pruefen ob die Scrollposition der Seite ueber das HTML-Element oder Body-Element gesetzt werden kann.
@@ -92,16 +89,12 @@ $(document).ready(function($) {
 		// Falls der Browser Viewport-Masseinheiten wie vh, vw nicht richtig Unterstuezt.
 		if (!fd_supportsViewportUnits) {
 			var viewportWidth = $(window).width();
-			var viewportHeight = $(window).height();
 			
 			// Alle Elemente updaten die eigentlich Viewport-Masseinheiten verwenden.
 			var newSceneWidth = Math.max(sceneMinWidth, Math.min(sceneMaxWidth, viewportWidth));
 			$(".scene").css("width", newSceneWidth + "px");
 			$(".scene:not(#intro1)").css("left", newSceneWidth + "px");
 			$(".sceneChange").css("left", newSceneWidth + "px");
-			
-			var newViewportHeight = Math.max(scrollContainerMinHeight, Math.min(scrollContainerMaxHeight, viewportHeight * 0.96));
-			$("#scrollContainer").css("height", newViewportHeight + "px");
 		}
 	}
 });
