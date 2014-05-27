@@ -87,7 +87,8 @@ $(document).ready(function($) {
 		/* Beim Aendern der groesse muss leider wieder an den Anfang gescrollt werden, sonst ergeben sich manchmal eigenartige 
 		   fehler bei der Berechnung der Hoehe.
 		   Zudem ist es schwierig die Szenenbereite richtig anzupassen waehrend sie gerade "abespielt" wird. */
-		fd_pageScrollElement.scrollLeft(0);
+		// Wird erstmal auskommentiert, da man so viel besser die Szenen auf Groessenaenderungen testen kann.
+		//fd_pageScrollElement.scrollLeft(0);
 		
 		// Berechnete Hoehe des Scrollcontainers ermitteln.
 		var scrollContainerHeight = parseInt($("#scrollContainer").css("height"), 10);
