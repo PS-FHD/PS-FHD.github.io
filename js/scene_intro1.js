@@ -43,15 +43,6 @@ $(document).ready(function($) {
 	var einstiegHeadIN = TweenMax.to("#intro1 > .textblock h2", 0.65, {top: "15%", ease: Linear.easeNone});
 	var einstiegTextIN = TweenMax.to("#intro1 > .textblock p", 0.65, {top: "15%", ease: Linear.easeNone});
 	
-	var sceneChangeElement = $("#intro1 > .sceneChange");
-	// Die tatsaechlich errechnete Breite der ersten Szene ermitteln.
-	var actualSceneWidth = parseInt($("#intro1").css("width"), 10);
-	/* Beide tweens fuer den Szenenwechsel, einmal das Gebaeude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
-	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	var sceneChangeBuilding = TweenMax.to("#intro1 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	var nextSceneIn = TweenMax.to("#intro2", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-
-	
 	// Die Zeitleiste mit allen Tweens definieren.
 	var timelineTween = new TimelineMax()
 		.add([
@@ -68,10 +59,8 @@ $(document).ready(function($) {
 			einstiegHeadIN,
 			einstiegTextIN
 		])
-		// Die zwei Tweens fuer den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		.insertMultiple(
-			[sceneChangeBuilding, nextSceneIn], 0.85
-		);
+		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
+		.addSceneChange($("#intro1 > .sceneChange"), $("#intro2"));
 	
 	/* Die Scroll Magic Scene fuer die erste Introszene definieren.
 	   Sie geht von 0px bis 1000px. */

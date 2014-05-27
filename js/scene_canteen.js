@@ -32,41 +32,29 @@ $(document).ready(function($) {
 	var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {left: "45%",ease: Linear.easeNone});
 	var lamp3 = TweenMax.fromTo(".lamp.third", 1, {left: "80%", top:"0%"}, {left: "75%",ease: Linear.easeNone});	
 	
-
-	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
-//	var actualSceneWidth = parseInt($("#lecture").css("width"), 10);
-//	var sceneChangeElement = $("#lecture > .sceneChange");
-	
-	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
-	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	// var sceneChangeBuilding = TweenMax.to("#intro2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	// var nextSceneIn = TweenMax.to("#selfstudy1", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	
 	// Die Zeitleiste
 	var timelineTween7 = new TimelineMax()
 		.add([
-		      souce1,
-		      souce2,
-		      souce3,
-		      food1,
-		      student1,
-		      student2,
-		      student3,
-		      student4,
-		      student5,
-		      lamp1,
-		      lamp2,
-		      lamp3,
-		      food1,
-		      food2,
-		      food3,
-		      arrow,
-		      dessert		     
-			]);
-		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		// .insertMultiple(
-			// [sceneChangeBuilding, nextSceneIn], 0.85
-		// );
+			souce1,
+			souce2,
+			souce3,
+			food1,
+			student1,
+			student2,
+			student3,
+			student4,
+			student5,
+			lamp1,
+			lamp2,
+			lamp3,
+			food1,
+			food2,
+			food3,
+			arrow,
+			dessert		     
+		]);
+		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
+		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
 	
 	
 	/* Die Scroll Magic Scene für die zweite Introszene definieren.

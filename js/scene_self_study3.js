@@ -37,48 +37,32 @@ $(document).ready(function($) {
 	
 	var self3_b_headIn 	= TweenMax.fromTo("header.self3_b", 0.2, {top: "10%", left:"-80%"}, { delay:0.5 , left:"2%" ,ease: Linear.easeNone});
 	var self3_b_textIn 	= TweenMax.fromTo("section.self3_b", 0.2, {top: "28%", left: "-80%" }, { delay: 0.5, left:"2%",  ease: Linear.easeNone});
-	
-	
-	var done =  TweenMax.fromTo(".self3.bit", 0.2, {top: "45%", left: "45%", rotation:-15, autoAlpha: 0 }, { autoAlpha:1 ,delay: 0.5, ease: Linear.easeNone});
-	
-	// Die tatsaechlich errechnete Breite der ersten Szene ermitteln.
-	var actualSceneWidth = parseInt($("#selfstudy3").css("width"), 10);
-	var sceneChangeElement = $("#selfstudy3 > .sceneChange");
-	
-	/* Beide tweens fuer den Szenenwechsel, einmal das Gebaeude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
-	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	 var sceneChangeBuilding = TweenMax.to("#selfstudy3 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	 var nextSceneIn = TweenMax.to("#canteen", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	
+
 	// Die Zeitleiste
 	var timelineTween6 = new TimelineMax()
 		.add([
-		      day_night,
-		      table1Out,
-		      table2In,
-		      table2Out,
-		      table3In,
-		      cups1,
-		      cups2,
-		      cups3,
-		      cups4,
-		      self3_headIn,
-		      self3_textIn,
-		      self3_headOut,
-		      self3_textOut,
-		      self3_a_headIn,
-		      self3_a_textIn,
-		      self3_a_headOut,
-		      self3_a_textOut,
-		      self3_b_headIn,
-		      self3_b_textIn,
-		      done
-		      
-			])
-	//	Die zwei Tweens fuer den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		.insertMultiple(
-			[sceneChangeBuilding, nextSceneIn], 0.85
-		);
+			day_night,
+			table1Out,
+			table2In,
+			table2Out,
+			table3In,
+			cups1,
+			cups2,
+			cups3,
+			cups4,
+			self3_headIn,
+			self3_textIn,
+			self3_headOut,
+			self3_textOut,
+			self3_a_headIn,
+			self3_a_textIn,
+			self3_a_headOut,
+			self3_a_textOut,
+			self3_b_headIn,
+			self3_b_textIn
+		])
+		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
+		.addSceneChange($("#selfstudy3 > .sceneChange"), $("#canteen"));
 	
 	
 	/* Die Scroll Magic Scene fuer die zweite Introszene definieren.

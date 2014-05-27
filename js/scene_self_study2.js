@@ -30,37 +30,24 @@ $(document).ready(function($) {
 	var self2_bit_textIn =  TweenMax.fromTo(".self2.bit", 0.3, {top:"580px", left: "-80%", rotation: -2.2 }, { left:"2%",  delay:0.4 ,ease: Linear.easeNone});
 	
 	var crabWalk = TweenMax.fromTo("#selfstudy2 > .crab", 1, {top: "84%", left: "95%"}, {left: "75%", ease: Linear.easeNone});
-	
-	
-	
-	// Die tatsächlich errechnete Breite der ersten Szene ermitteln.
-	var actualSceneWidth = parseInt($("#selfstudy2").css("width"), 10);
-	var sceneChangeElement = $("#selfstudy2 > .sceneChange");
-	
-	/* Beide tweens für den Szenenwechsel, einmal das Gebäude welches am Ende der ersten Szene startet und dann ganz links wieder hinaus scrollt,
-	   und einmal die Szene die sich kurz dahinter mit durch schiebt. */
-	 var sceneChangeBuilding = TweenMax.to("#selfstudy2 > .sceneChange", 0.15, {top: "0", left: "-" + sceneChangeElement.css("width"), startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	 var nextSceneIn = TweenMax.to("#selfstudy3", 0.15, {top: "0", left: "0", startAt: {left: actualSceneWidth + "px"}, ease: Linear.easeNone});
-	
+
 	// Die Zeitleiste
 	var timelineTween5 = new TimelineMax()
 		.add([
-		      backgroundTween,
-		      cloud1,
-		      cloud2,
-		      cloud3,
-		      foreground,
-		      self2_headIn,
-		      self2_textIn,
-		      self2_textOut,
-		      self2_a_textIn,
-		      self2_bit_textIn,
-		      crabWalk
-				])
-		// Die zwei Tweens für den Szenenwechsel. Werden erst am 85% der Szene abgespielt.
-		 .insertMultiple(
-			 [sceneChangeBuilding, nextSceneIn], 0.85
-		 );
+			backgroundTween,
+			cloud1,
+			cloud2,
+			cloud3,
+			foreground,
+			self2_headIn,
+			self2_textIn,
+			self2_textOut,
+			self2_a_textIn,
+			self2_bit_textIn,
+			crabWalk
+		])
+		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
+		.addSceneChange($("#selfstudy2 > .sceneChange"), $("#selfstudy3"));
 	
 	
 	/* Die Scroll Magic Scene für die zweite Introszene definieren.
