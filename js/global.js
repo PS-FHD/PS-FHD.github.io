@@ -4,9 +4,10 @@ var totalScrollDuration = 7000;
 // Der globale Scroll Magic Controller.
 var controller;
 
+// Die breite einer Szene (fuer jede Szene gleich).
+var sceneWidth;
+
 /* ** Variablen die Ergebnisse zur Browser Feature Detection speichern. ** */
-// Gibt an, ob der Browser Viewport einheiten wie vh, vw richtig Unterstuetzt.
-var fd_supportsViewportUnits;
 /* Gibt das jQuery-Element an, fuer das die Scrollposition der Seite gesetzt 
    werden kann. Dabei handelt es sich normalerweise um das BODY-Element, manche 
    Browser nutzen dafuer aber das HTML-Element (Safari z.B.).
@@ -39,10 +40,20 @@ $(document).ready(function($) {
 		// Erstellen des Scroll Magic Controllers und horizontales Scrollen konfigurieren.
 		controller = new ScrollMagic({vertical: false, loglevel: 3});
 		
-		// Eine Scroll Magic Szene die nur dazu dient, #intro1 ueber die gesamte Dauer des scrollings zu Pinnen.
+		/* Eine Scroll Magic Szene die nur dazu dient, #intro1 ueber die gesamte Dauer des scrollings zu Pinnen.
+		   Hinweis: Durch einen Pin wird die Szene quasi auf dem Bildschirm fixiert. Da die erste Szene alle weiteren
+		   Szenen enthaelt, kann diese einfach dauerhaft Gepinnt werden. Neue Szenen schieben sich dann nach und nach
+		   ueber die Erste. Achtung: Als Ersatz kann hier nicht der scrollContainer verwendet werden, da dieser 
+		   absolut positioniert sein muss. */
 		new ScrollScene({duration: totalScrollDuration, loglevel: 3})
 			.setPin("#intro1")
 			.addTo(controller);
+		
+		// Allgemeine Breite einer Szene feststellen, wobei jede Szene nach CSS immer so Breit wie der Scrollcontainer ist. 
+		sceneWidth = parseInt($("#scrollContainer").css("width"), 10);
+		
+		// Header und Footer ueber die gesamte Scrolllaenge strecken.
+		$("#scrollContainer > header, #scrollContainer > footer").css("width", totalScrollDuration + sceneWidth + "px");
 	}
 	
 	/***********************************************************************************
@@ -50,24 +61,7 @@ $(document).ready(function($) {
 	 *    entsprechende Workarounds an um diese Probleme zu umgehen.  
 	 **********************************************************************************/
 	function browserFeatureDetection() {
-		/* Der Scene-Container ist Unterelement eines Blockelements welches mit einer Hoehe in vh 
-		   ausgerichtet wird. Hat nun das besagte Unterelement eine Groesse von 0px, bedeuted das, dass
-		   der Browser nicht richtig mit den Viewport-Masseinheiten rechnen kann. */
-		fd_supportsViewportUnits = ($("#sceneContainer").css("height") != "0px");
-		
-		/* Falls der Browser Viewport-Masseinheiten wie vh, vw nicht richtig Unterstuezt, dann ein paar Werte
-		   fuer den resize Event-Handler cachen. */
-		if (!fd_supportsViewportUnits) {
-			var someSceneElement = $("#intro1");
-			var scrollContainerElement = $("#scrollContainer");
-			
-			sceneMinWidth = parseInt(someSceneElement.css("min-width"), 10);
-			sceneMaxWidth = parseInt(someSceneElement.css("max-width"), 10);
-			scrollContainerMinHeight = parseInt(scrollContainerElement.css("min-height"), 10);
-			scrollContainerMaxHeight = parseInt(scrollContainerElement.css("max-height"), 10);
-		}
-		
-		// Pruefen ob die Scrollposition der Seite ueber das HTML-Element oder Body-Element gesetzt werden kann.
+		// Pruefen ob die Scrollposition der Seite ueber das HTML-Element oder BODY-Element gesetzt werden kann.
 		var htmlElement = $("html");
 		var bodyElement = $("body");
 		
@@ -85,23 +79,21 @@ $(document).ready(function($) {
 
 	/****************************************************************************************************
 	 *    Event-Handler fuer das window.resize Ereignis.
-	 *    Passt Elemente an den Viewport des Browsers neu an die mittels CSS nicht ausreichend angepasst
-	 *    werden koennen.
+	 *    Passt Elemente in ihrer groesse neu an die mittels CSS nur unzureichend Konfiguriert werden
+	 *    koennen.
 	 ***************************************************************************************************/
 	function window_resize() {
-		// Falls der Browser Viewport-Masseinheiten wie vh, vw nicht richtig Unterstuezt.
-		if (!fd_supportsViewportUnits) {
-			var viewportWidth = $(window).width();
-			var viewportHeight = $(window).height();
-			
-			// Alle Elemente updaten die eigentlich Viewport-Masseinheiten verwenden.
-			var newSceneWidth = Math.max(sceneMinWidth, Math.min(sceneMaxWidth, viewportWidth));
-			$(".scene").css("width", newSceneWidth + "px");
-			$(".scene:not(#intro1)").css("left", newSceneWidth + "px");
-			$(".sceneChange").css("left", newSceneWidth + "px");
-			
-			var newViewportHeight = Math.max(scrollContainerMinHeight, Math.min(scrollContainerMaxHeight, viewportHeight * 0.96));
-			$("#scrollContainer").css("height", newViewportHeight + "px");
-		}
+		var bodyElement = $("body");
+		/* Beim Aendern der groesse muss leider wieder an den Anfang gescrollt werden, sonst ergeben sich manchmal eigenartige 
+		   fehler bei der Berechnung der Hoehe.
+		   Zudem ist es schwierig die Szenenbereite richtig anzupassen waehrend sie gerade "abespielt" wird. */
+		fd_pageScrollElement.scrollLeft(0);
+		
+		// Berechnete Hoehe des Scrollcontainers ermitteln.
+		var scrollContainerHeight = parseInt($("#scrollContainer").css("height"), 10);
+		
+		// Die Schrift soll relativ zur hoehe des scrollContainers ausgerichtet werden.
+		var newFontSize = scrollContainerHeight * 0.03;
+		bodyElement.css("font-size", newFontSize + "px");
 	}
 });

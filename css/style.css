@@ -1,31 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* Einbinden der Schrift fuer Fliesstext */
 @import url(http://fonts.googleapis.com/css?family=Oswald&subset=latin,latin-ext); /* Einbinden der Schrift fuer Ueberschriften und Highlights */
 
-/* Mediaquery fuer das Setzen einer fixen der Schriftgroesse bis zu einer Hoehe von 399px. */
-@media (max-height: 399px) {
-	body {
-		font-size: 7px;
-	}
-}
-
-/* Mediaquery fuer das Setzen der Schriftgroesse ab einer Hoehe von 400px bis 800px. */
-@media (min-height: 400px) and (max-height: 800px) {
-	body {
-		/* Schriftgroesse entspricht 1.8% der Hoehe des Viewports des Browsers. 
-	   Alle anderen Schriftgroessen sollten em oder % als Masseinheit verwenden um stets relativ zu der 
-	   hier festgelegten Groesse zu sein. */
-		font-size: 1.8vh;
-	}
-}
-
-/* Mediaquery fuer das Setzen einer fixen Schriftgroesse ab einer Hoehe von 801px. */
-@media (min-height: 801px) {
-	body {
-		font-size: 14.5px;
-	}
-}
-
-/* Schriftgroesse wird per Javascript dynamisch gesetzt (spaeter). */
+/* Schriftgroesse wird per Javascript dynamisch gesetzt. */
 body {
 	background-color: #000;
 	font-family: 'Source Sans Pro';
@@ -72,23 +48,27 @@ p {
 .cgreen { color: #49922F; }
 .cgrey { color: #C7C7C7; }
 /* Text alignment*/
-.aright { text-align:right; }
+.aright { text-align: right; }
 
 #scrollContainer {
 	background-color: black;
-	height: 96vh; /* Immer so hoch wie der Viewport des Browsers + 4% pufferzone. */
-	/* Hiermit wird der Scrollcontainer anhand seines Inhalts ausgerichtet, nicht durch 
-	   die Breite des body. */
-	display: inline-block;
+	/* Eigentlich nicht notwendig (man haette das Element auch relativ zur groesse des html/body ohne positionierung 
+	   ausrichten koennen, aber durch einen bekannten Webkit Bug fuer Safari nicht anders moeglich: 
+     https://bugs.webkit.org/show_bug.cgi?id=26559 */
+  position: absolute;
+	/* Immer so groß wie der Viewport des Browsers. */
+	height: 100%;
+	width: 100%;
 	min-height: 400px;
-	max-height: 800px;		
+	max-height: 800px;
 }
 
+/* Werden per Javascript so gross wie der gesamte Scrollbereich. */
 #scrollContainer > header, #scrollContainer > footer {
 	background-color: black;
 	height: 8.75%;
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
-	z-index: 10; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
+	z-index: 20; /* Damit liegen header und footer (und deren Schatten) ueber dem Scrollcontainer. */
 }
 
 #scrollContainer > header {
@@ -99,23 +79,24 @@ p {
 	box-shadow: 0px -10px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
-#sceneContainer {
-	height: 82%;
-	font-size: 1.8em;
-	overflow: hidden;
-}
-
 .scene {
-	width: 100vw; /* 100vw entspricht 100% der breite des Viewports des Browsers. */
+	/* Fuer die erste Szene gilt somit, dass sie so breit wie der Scrollcontainer ist, weitere Szenen
+	   sind damit alle immer genau so Breit wie die erste Szene => Alle Szenen so gross wie der Viewport des
+	   Browsers. */
+	width: 100%;
+	height: 100%; /* Immer so gross wie die uebergeordnete Szene. Wird fuer die erste Szene ueberschrieben! */
 	min-width: 1000px;
 	max-width: 2000px;
-	height: 100%; /* Immer so gross wie der Scenecontainer. */
+	/* In Szenen wird gerne einiges von den Seiten heraus eingeflogen, diese Elemente sollen außerhalb der Szene
+	   nicht Sichtbar sein. */
 	overflow: hidden;
 	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
+	/* Die Szene direkt hinter die Aktuelle platzieren. Wird fuer die erste Szene ueberschrieben! */
+  left: 100%;
 }
 
 .scene > * {
-	position: absolute; /* Alle direkten Unter-Elemente einer Szene werden absolut positioniert */
+	position: absolute; /* Alle direkten Unter-Elemente einer Szene werden absolut positioniert um animierbar zu sein. */
 }
 
 .scene > *.fixed {
@@ -136,7 +117,7 @@ p {
 .sceneChange {
 	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
 	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
+	left: 100%;
 }
 
 /********************************
@@ -144,6 +125,10 @@ p {
 ********************************/
 #intro1 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
+	/* Eigentlich nimmt eine Szene 100% der uebergeordneten Szene ein, ausser die erste Szene, diese muss so gross wie der 
+	   scrollContainer minus header und footer sein. */
+	height: 82%;
+	left: 0%; /* Im Gegensatz zu allen anderen Szenen ist diese von anfang an sichtbar. */
 }
 
 #intro1 > .sceneChange {
@@ -233,9 +218,6 @@ p {
 ** Zweite Szene des Intros
 ********************************/
 #intro2 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
@@ -276,7 +258,6 @@ p {
 ** Erste Szene der Vorlesung
 ********************************/
 #lecture {
-	left: 100vw;
 	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
 	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
 }
@@ -311,9 +292,6 @@ p {
 ** erste Szene des Selbststudiums - Biblio
 ********************************/
 #selfstudy1 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/Selbststudium/Biblio/selbstst_hg_2500x660.jpg);
 }
 
@@ -348,9 +326,6 @@ p {
 ** zweite Szene des Selbststudiums - Urlaub
 ********************************/
 #selfstudy2 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 }
 
@@ -372,10 +347,7 @@ p {
 ** dritte Szene des Selbststudiums - Eigenheim
 ********************************/
 #selfstudy3 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
-
+	
 }
 
 #selfstudy3 > .sceneChange {
@@ -402,10 +374,7 @@ p {
 ** erste Szene der Mensa 
 ********************************/
 #canteen {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
-
+  
 }
 
 #canteen > .sceneChange {
