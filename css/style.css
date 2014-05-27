@@ -91,6 +91,8 @@ p {
 	   nicht Sichtbar sein. */
 	overflow: hidden;
 	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
+	/* Die Szene direkt hinter die Aktuelle platzieren. Wird fuer die erste Szene ueberschrieben! */
+  left: 100%;
 }
 
 .scene > * {
@@ -115,7 +117,7 @@ p {
 .sceneChange {
 	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
 	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
+	left: 100%;
 }
 
 /********************************
@@ -126,6 +128,7 @@ p {
 	/* Eigentlich nimmt eine Szene 100% der uebergeordneten Szene ein, ausser die erste Szene, diese muss so gross wie der 
 	   scrollContainer minus header und footer sein. */
 	height: 82%;
+	left: 0%; /* Im Gegensatz zu allen anderen Szenen ist diese von anfang an sichtbar. */
 }
 
 #intro1 > .sceneChange {
@@ -215,9 +218,6 @@ p {
 ** Zweite Szene des Intros
 ********************************/
 #intro2 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
 }
 
@@ -258,7 +258,6 @@ p {
 ** Erste Szene der Vorlesung
 ********************************/
 #lecture {
-	left: 100vw;
 	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
 	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
 }
@@ -293,9 +292,6 @@ p {
 ** erste Szene des Selbststudiums - Biblio
 ********************************/
 #selfstudy1 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/Selbststudium/Biblio/selbstst_hg_2500x660.jpg);
 }
 
@@ -330,9 +326,6 @@ p {
 ** zweite Szene des Selbststudiums - Urlaub
 ********************************/
 #selfstudy2 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 }
 
@@ -354,10 +347,7 @@ p {
 ** dritte Szene des Selbststudiums - Eigenheim
 ********************************/
 #selfstudy3 {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
-
+	
 }
 
 #selfstudy3 > .sceneChange {
@@ -384,10 +374,7 @@ p {
 ** erste Szene der Mensa 
 ********************************/
 #canteen {
-	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
-	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
-	left: 100vw;
-
+  
 }
 
 #canteen > .sceneChange {
