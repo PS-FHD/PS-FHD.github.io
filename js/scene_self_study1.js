@@ -36,7 +36,7 @@ $(document).ready(function($) {
 	
 	/* Die Scroll Magic Scene fuer die zweite Introszene definieren.
 	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 3000, duration: 1000, loglevel: 3})
+	var scene = new ScrollScene({offset: 3000, duration: 1000})
 	//	.setTween(backgroundTween)
 		.setTween(timelineTween4)
 		.addTo(controller);

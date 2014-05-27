@@ -64,7 +64,7 @@ $(document).ready(function($) {
 	
 	/* Die Scroll Magic Scene fuer die erste Introszene definieren.
 	   Sie geht von 0px bis 1000px. */
-	var scene = new ScrollScene({duration: 1000, loglevel: 3})
+	var scene = new ScrollScene({duration: 1000})
 		.setTween(timelineTween)
 		.addTo(controller)
 		//  Update-Event wird von ScrollMagic beim Scrollen gefeuert.

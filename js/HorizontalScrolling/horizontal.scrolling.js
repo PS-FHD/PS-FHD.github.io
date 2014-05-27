@@ -11,7 +11,7 @@ $(document).ready(function() {
 	var duration = 1;
 	
 	// Unterstuezt der Browser ueberhaupt das Setzen der Scrollposition ueber bekannte Elemente? 
-	if (typeof fd_pageScrollElement == "undefined")
+	if (typeof fd_pageScrollElement === "undefined")
 		return;
 	
 	/* Das Tween das zum animieren des Scrollvorganges benutzt wird. Dieses bezieht sich stets auf

@@ -1,3 +1,6 @@
+// Debug flag, fuers Testen auf true belassen, fuer Releases auf false setzen.
+var DEBUG = true;
+
 // Die Scrolldauer fuer alle Szenen insgesamt.
 var totalScrollDuration = 7000;
 
@@ -38,14 +41,21 @@ $(document).ready(function($) {
 	 **********************************************************************************/    
 	function setupScrollMagic() {
 		// Erstellen des Scroll Magic Controllers und horizontales Scrollen konfigurieren.
-		controller = new ScrollMagic({vertical: false, loglevel: 3});
+		controller = new ScrollMagic({
+				vertical: false, 
+				loglevel: DEBUG ? 3 : 0,
+				globalSceneOptions: {
+					loglevel: DEBUG ? 3 : 0
+				}
+			}
+		);
 		
 		/* Eine Scroll Magic Szene die nur dazu dient, #intro1 ueber die gesamte Dauer des scrollings zu Pinnen.
 		   Hinweis: Durch einen Pin wird die Szene quasi auf dem Bildschirm fixiert. Da die erste Szene alle weiteren
 		   Szenen enthaelt, kann diese einfach dauerhaft Gepinnt werden. Neue Szenen schieben sich dann nach und nach
 		   ueber die Erste. Achtung: Als Ersatz kann hier nicht der scrollContainer verwendet werden, da dieser 
 		   absolut positioniert sein muss. */
-		new ScrollScene({duration: totalScrollDuration, loglevel: 3})
+		new ScrollScene({duration: totalScrollDuration})
 			.setPin("#intro1")
 			.addTo(controller);
 		
@@ -87,8 +97,8 @@ $(document).ready(function($) {
 		/* Beim Aendern der groesse muss leider wieder an den Anfang gescrollt werden, sonst ergeben sich manchmal eigenartige 
 		   fehler bei der Berechnung der Hoehe.
 		   Zudem ist es schwierig die Szenenbereite richtig anzupassen waehrend sie gerade "abespielt" wird. */
-		// Wird erstmal auskommentiert, da man so viel besser die Szenen auf Groessenaenderungen testen kann.
-		//fd_pageScrollElement.scrollLeft(0);
+		if (!DEBUG)
+			fd_pageScrollElement.scrollLeft(0);
 		
 		// Berechnete Hoehe des Scrollcontainers ermitteln.
 		var scrollContainerHeight = parseInt($("#scrollContainer").css("height"), 10);
