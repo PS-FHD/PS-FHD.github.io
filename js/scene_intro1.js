@@ -34,7 +34,7 @@ $(document).ready(function($) {
 	var textYESOut = TweenMax.to("#intro1 > .bit.two", 0.3, {top: "-80%", ease: Linear.easeNone});
 	
 	/* Der Student-Status Text wird mittels easeIn eingbunden und dreht sich ein wenig. */
-	var textStudentIN  = TweenMax.to("#intro1 > .bit.three", 1, {rotation:15, scale:3, ease:Back.easeInOut });
+	var textStudentIN  = TweenMax.to("#intro1 > .bit.three", 1, {rotation: 15, scale: 1, ease:Back.easeInOut });
 	var textStudentOut = TweenMax.fromTo("#intro1 > .bit.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation: -40, scale: 0});
 	
 	var student = TweenMax.to("#intro1 > .student", 1, {left: "50%"});	
