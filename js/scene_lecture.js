@@ -3,7 +3,7 @@
  *    
  *    Hinweis: ready ist ein jQuery Ereignis das aufgerufen wird, sobald der Browser
  *             das erstellen des DOM-Baums beendet hat.
- *    Dokumentation zu TweenMax und allen unterstÃ¼tzen Optionen: http://www.greensock.com/tweenmax/
+ *    Dokumentation zu TweenMax und allen unterstützen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
@@ -39,6 +39,29 @@ $(document).ready(function($) {
 	var prow3_1 = TweenMax.fromTo(".ppl3.first", 1, {left: "40%", top:"75%",autoAlpha:1}, {left:"33%", autoAlpha:0});
 	var prow3_2 = TweenMax.fromTo(".ppl3.second", 1, {left: "50%", top:"75%"}, {left:"43%"});
 	
+	
+	// erster head und text  rein und raus
+	var lecture_headIn = TweenMax.fromTo("header.lecture", 0.3, {top: "130%", left:"70%"}, { top: "20%" ,  ease: Linear.easeNone});
+	var lecture_textIn = TweenMax.fromTo("section.lecture", 0.3, {top: "28%", left: "130%" }, { left:"70%",  ease: Linear.easeNone});
+	var lecture_headOut = TweenMax.to("header.lecture", 0.2, {autoAlpha:0, delay:0.3});
+	var lecture_textOut = TweenMax.to("section.lecture", 0.2, {autoAlpha:0, delay:0.3});
+
+	// zweiter head und text  rein und raus
+	var lecture1_headIn 	= TweenMax.fromTo("header.lecture1", 0.3, {top: "130%", left:"70%"}, { delay:0.2 , top:"20%" ,ease: Linear.easeNone});
+	var lecture1_textIn 	= TweenMax.fromTo("section.lecture1", 0.3, {top: "28%", left: "130%" }, { delay: 0.2, left:"70%",  ease: Linear.easeNone});
+	var lecture1_headOut = TweenMax.to("header.lecture1", 0.2, {autoAlpha:0, delay:0.6});
+	var lecture1_textOut = TweenMax.to("section.lecture1", 0.2, {autoAlpha:0, delay:0.6});
+	
+	// dritter head und text  rein 
+	var lecture2_headIn 	= TweenMax.fromTo("header.lecture2", 0.2, {top: "130%", left:"70%"}, { delay:0.5 , top:"20%" ,ease: Linear.easeNone});
+	var lecture2_textIn 	= TweenMax.fromTo("section.lecture2", 0.2, {top: "28%", left: "130%" }, { delay: 0.5, left:"70%",  ease: Linear.easeNone});
+	
+	
+	
+	
+	
+	
+	
 	// Die Zeitleiste
 	var timelineTween3 = new TimelineMax()
 		.add([
@@ -53,13 +76,18 @@ $(document).ready(function($) {
 			front,
 			prow1_1,prow1_2,prow1_3,prow1_4,
 			prow2_1,prow2_2,prow2_3,
-			prow3_1,prow3_2
+			prow3_1,prow3_2,
+			lecture_headIn, lecture_textIn,
+			lecture_headOut, lecture_textOut,
+			lecture1_headIn, lecture1_textIn,
+			lecture1_headOut, lecture1_textOut,
+			lecture2_headIn, lecture2_textIn
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#lecture > .sceneChange"), $("#selfstudy1"));
 	
 	
-	/* Die Scroll Magic Scene fÃ¼r die zweite Introszene definieren.
+	/* Die Scroll Magic Scene für die zweite Introszene definieren.
 	   Sie geht von 1000px bis 2000px.*/
 	var scene = new ScrollScene({offset: 2000, duration: 1000})
 	//	.setTween(backgroundTween)
