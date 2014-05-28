@@ -8,7 +8,7 @@
 $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
 	
-	var student1 = TweenMax.fromTo(".boy.first", 0.2,  {left:"10%", bottom:"0%"}, {left: "50%"});
+	var student1 = TweenMax.fromTo(".boy.first", 0.2,  {left:"50%", bottom:"0%"}, {ease: Linear.easeNone});
 	
 	var student2 = TweenMax.fromTo(".boy.second", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.2, autoAlpha:1});	
 	var student3 = TweenMax.fromTo(".boy.third", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.4, autoAlpha:1});	
@@ -17,12 +17,12 @@ $(document).ready(function($) {
 	
 	
 	var food1 = TweenMax.fromTo(".food.first", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone});
-	var food2 = TweenMax.fromTo(".food.second", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.05});
-	var food3 = TweenMax.fromTo(".food.third", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.1});
+	var food2 = TweenMax.fromTo(".food.second", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.07});
+	var food3 = TweenMax.fromTo(".food.third", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.14});
 	
-	var souce1 = TweenMax.fromTo(".souce.first", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", delay: 0.2, ease: Linear.easeNone});
-	var souce2 = TweenMax.fromTo(".souce.second", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.25});
-	var souce3 = TweenMax.fromTo(".souce.third", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.3});
+	var souce1 = TweenMax.fromTo(".souce.first", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", delay: 0.28, ease: Linear.easeNone});
+	var souce2 = TweenMax.fromTo(".souce.second", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.35});
+	var souce3 = TweenMax.fromTo(".souce.third", 0.7, {left: "110%", bottom:"35%"}, {left:"-10%", ease: Linear.easeNone, delay:0.42});
 	
 	var arrow = TweenMax.fromTo(".arrow", 0.3, {left: "90%", top:"-10%"}, {left: "70%", top: "15%", rotation : 698 , delay: 0.6  ,ease: Linear.easeNone});
 	
