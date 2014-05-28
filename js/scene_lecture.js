@@ -39,31 +39,24 @@ $(document).ready(function($) {
 	var prow3_1 = TweenMax.fromTo(".ppl3.first", 1, {left: "40%", top:"75%",autoAlpha:1}, {left:"33%", autoAlpha:0});
 	var prow3_2 = TweenMax.fromTo(".ppl3.second", 1, {left: "50%", top:"75%"}, {left:"43%"});
 	
+	// Textbloecke vorselektieren
+	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");
+	var secondTextblock = $("#lecture > .textblock:nth-of-type(2)");
+	var thirdTextblock  = $("#lecture > .textblock:nth-of-type(3)");
 	
-	// erster head und text  rein und raus
-	var lecture_headIn = TweenMax.fromTo("header.lecture", 0.3, {top: "130%", left:"70%"}, { top: "20%" ,  ease: Linear.easeNone});
-	var lecture_textIn = TweenMax.fromTo("section.lecture", 0.3, {top: "28%", left: "130%" }, { left:"70%",  ease: Linear.easeNone});
-	var lecture_headOut = TweenMax.to("header.lecture", 0.2, {autoAlpha:0, delay:0.3});
-	var lecture_textOut = TweenMax.to("section.lecture", 0.2, {autoAlpha:0, delay:0.3});
+	// Da die Tweens fuer die Textbloecke hintereinander Abgespielt werden, ist hier eine zusaetzliche Zeitleiste sinnvoll.
+	var textTimeline = new TimelineMax()
+		// Ab start der Zeitleiste den ersten Textblock ueber eine Dauer von 10% einblenden. 
+		.append(TweenMax.from(firstTextblock, 0.10, {right: "-40%", ease: Linear.easeNone}))
+		// .. danach 15% lang warten, dann den ersten Textblock ueber eine Dauer von 5% ausblenden.
+		.append(TweenMax.to(firstTextblock, 0.05, {delay: 0.15, autoAlpha: 0}))
+		// .. danach zweiten Textblock ueber eine Dauer von 10% einblenden etc.
+		.append(TweenMax.from(secondTextblock, 0.10, {right: "-40%", ease: Linear.easeNone}))
+		.append(TweenMax.to(secondTextblock, 0.05, {delay: 0.15, autoAlpha: 0}))
+		.append(TweenMax.from(thirdTextblock, 0.10, {right: "-40%", ease: Linear.easeNone}));
 
-	// zweiter head und text  rein und raus
-	var lecture1_headIn 	= TweenMax.fromTo("header.lecture1", 0.3, {top: "130%", left:"70%"}, { delay:0.2 , top:"20%" ,ease: Linear.easeNone});
-	var lecture1_textIn 	= TweenMax.fromTo("section.lecture1", 0.3, {top: "28%", left: "130%" }, { delay: 0.2, left:"70%",  ease: Linear.easeNone});
-	var lecture1_headOut = TweenMax.to("header.lecture1", 0.2, {autoAlpha:0, delay:0.6});
-	var lecture1_textOut = TweenMax.to("section.lecture1", 0.2, {autoAlpha:0, delay:0.6});
-	
-	// dritter head und text  rein 
-	var lecture2_headIn 	= TweenMax.fromTo("header.lecture2", 0.2, {top: "130%", left:"70%"}, { delay:0.5 , top:"20%" ,ease: Linear.easeNone});
-	var lecture2_textIn 	= TweenMax.fromTo("section.lecture2", 0.2, {top: "28%", left: "130%" }, { delay: 0.5, left:"70%",  ease: Linear.easeNone});
-	
-	
-	
-	
-	
-	
-	
-	// Die Zeitleiste
-	var timelineTween3 = new TimelineMax()
+	// Die Zeitleiste der Szene
+	var sceneTimeline = new TimelineMax()
 		.add([
 			backgroundSky,
 			orangeLeaves,
@@ -77,20 +70,13 @@ $(document).ready(function($) {
 			prow1_1,prow1_2,prow1_3,prow1_4,
 			prow2_1,prow2_2,prow2_3,
 			prow3_1,prow3_2,
-			lecture_headIn, lecture_textIn,
-			lecture_headOut, lecture_textOut,
-			lecture1_headIn, lecture1_textIn,
-			lecture1_headOut, lecture1_textOut,
-			lecture2_headIn, lecture2_textIn
+			textTimeline
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#lecture > .sceneChange"), $("#selfstudy1"));
 	
-	
-	/* Die Scroll Magic Scene für die zweite Introszene definieren.
-	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 2000, duration: 1000})
-	//	.setTween(backgroundTween)
-		.setTween(timelineTween3)
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 2000px bis 3000px abgespielt.
+	new ScrollScene({offset: 2000, duration: 1000})
+		.setTween(sceneTimeline)
 		.addTo(controller);
 });

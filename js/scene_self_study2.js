@@ -22,38 +22,31 @@ $(document).ready(function($) {
 		
 	var foreground = TweenMax.fromTo("#selfstudy2 > .foreground", 1, { left: "100%", top: "67%", scale: 0.6}, {left: "-105%", ease: Linear.easeNone});
 	
-	
-	var self2_headIn 	= TweenMax.fromTo("header.self2", 0.3, {top: "10%", left:"-40%"}, { left:"2%",  ease: Linear.easeNone});
-	var self2_textIn 	= TweenMax.fromTo("section.self2", 0.3, {top: "28%", left: "-80%" }, { left:"2%",  ease: Linear.easeNone});
-	var self2_textOut 	= TweenMax.to("section.self2", 0.2, {autoAlpha:0, delay:0.5});
-	var self2_a_textIn 	= TweenMax.fromTo("section.self2_a", 0.3, {top: "28%", left: "-80%" }, { delay: 0.4, left:"2%",  ease: Linear.easeNone});
-	var self2_bit_textIn =  TweenMax.fromTo(".self2.bit", 0.3, {top:"580px", left: "-80%", rotation: -2.2 }, { left:"2%",  delay:0.4 ,ease: Linear.easeNone});
-	
 	var crabWalk = TweenMax.fromTo("#selfstudy2 > .crab", 1, {top: "84%", left: "95%"}, {left: "75%", ease: Linear.easeNone});
+	
+	var textBlockIn = TweenMax.from("#selfstudy2 > .textblock", 0.3, {left: "-60%", ease: Linear.easeNone});
+	var textPara2In = TweenMax.from("#selfstudy2 > .textblock p:nth-of-type(2)", 0.3, {left: "-105%", delay: 0.4, ease: Linear.easeNone});
+	
+	var bit = TweenMax.fromTo("#selfstudy2 > .bit", 1, {top: "79%", left: "-40%", rotation: -1.5}, {left: "30%", top: "76%", ease: Linear.easeNone});
 
-	// Die Zeitleiste
-	var timelineTween5 = new TimelineMax()
+	// Die Zeitleiste der Szene
+	var sceneTimeline = new TimelineMax()
 		.add([
 			backgroundTween,
 			cloud1,
 			cloud2,
 			cloud3,
 			foreground,
-			self2_headIn,
-			self2_textIn,
-			self2_textOut,
-			self2_a_textIn,
-			self2_bit_textIn,
+			textBlockIn,
+			textPara2In,
+			bit,
 			crabWalk
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#selfstudy2 > .sceneChange"), $("#selfstudy3"));
 	
-	
-	/* Die Scroll Magic Scene für die zweite Introszene definieren.
-	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 4000, duration: 1000})
-	//	.setTween(backgroundTween)
-		.setTween(timelineTween5)
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 4000px bis 5000px abgespielt.
+	new ScrollScene({offset: 4000, duration: 1000})
+		.setTween(sceneTimeline)
 		.addTo(controller);
 });

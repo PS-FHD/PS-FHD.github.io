@@ -14,17 +14,15 @@ $(document).ready(function($) {
 	
 	var bookshelf =  TweenMax.fromTo(".bookshelfBG", 0.5, {bottom: "0%", left:"120%"}, { left:"-70%",  ease: Linear.easeNone});
 
-	var self1_headIn =  TweenMax.fromTo("header.self1", 0.5, {top: "10%", right:"-80%"}, { right:"2%",  ease: Linear.easeNone});
-	var self1_textIn =  TweenMax.fromTo("section.self1", 0.5, {top: "28%", right: "-80%" }, { right:"2%",  ease: Linear.easeNone});
+	var self1_textIn = TweenMax.fromTo("#selfstudy1 > .textblock", 0.4, {right: "-60%"}, {right: "2%", ease: Linear.easeNone});
 	
-	var self1_headOut = TweenMax.to("header.self1", 0.1, {autoAlpha:0, delay:0.7});
-	var self1_textOut = TweenMax.to("section.self1", 0.2, {autoAlpha:0, delay:0.7});
+	var self1_headOut = TweenMax.to("header.self1", 0.1, {autoAlpha: 0, delay: 0.7});
+	var self1_textOut = TweenMax.to("section.self1", 0.2, {autoAlpha: 0, delay: 0.7});
 
-	// Die Zeitleiste
-	var timelineTween4 = new TimelineMax()
+	// Die Zeitleiste der Szene
+	var sceneTimeline = new TimelineMax()
 		.add([
 			backgroundBooks,
-			self1_headIn,
 			self1_textIn,
 			self1_headOut,
 			self1_textOut,
@@ -33,11 +31,8 @@ $(document).ready(function($) {
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#selfstudy1 > .sceneChange"), $("#selfstudy2"));
 	
-	
-	/* Die Scroll Magic Scene fuer die zweite Introszene definieren.
-	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 3000, duration: 1000})
-	//	.setTween(backgroundTween)
-		.setTween(timelineTween4)
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 3000px bis 4000px abgespielt.
+	new ScrollScene({offset: 3000, duration: 1000})
+		.setTween(sceneTimeline)
 		.addTo(controller);
 });

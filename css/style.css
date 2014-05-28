@@ -56,7 +56,7 @@ p {
 	   ausrichten koennen, aber durch einen bekannten Webkit Bug fuer Safari nicht anders moeglich: 
 	   https://bugs.webkit.org/show_bug.cgi?id=26559 */
 	position: absolute;
-	/* Immer so groß wie der Viewport des Browsers. */
+	/* Immer so groï¿½ wie der Viewport des Browsers. */
 	height: 100%;
 	width: 100%;
 	min-height: 400px;
@@ -87,7 +87,7 @@ p {
 	height: 100%; /* Immer so gross wie die uebergeordnete Szene. Wird fuer die erste Szene ueberschrieben! */
 	min-width: 1000px;
 	max-width: 2000px;
-	/* In Szenen wird gerne einiges von den Seiten heraus eingeflogen, diese Elemente sollen außerhalb der Szene
+	/* In Szenen wird gerne einiges von den Seiten heraus eingeflogen, diese Elemente sollen auï¿½erhalb der Szene
 	   nicht Sichtbar sein. */
 	overflow: hidden;
 	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
@@ -104,14 +104,27 @@ p {
 }
 
 .scene .textblock {
+	left: 2%;
+	top: 9%;
+	width: 40%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
 	min-width: 350px;
 	max-width: 600px;
-	width: 40%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
-	height: 100%; /* So hoch wie die Szene selbst, damit sich innere % Angaben auf die Szenenhoehe beziehen. */
+	height: 82%;
+}
+
+.scene .textblock.right {
+	left: auto;
+	right: 2%;
+	text-align: right;
 }
 
 .scene .textblock * {
-	position: relative; /* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden koennen. */
+	/* Da nur positionierte Elemente verschoben (und somit mit Tweens animiert) werden koennen. */
+	position: relative;
+}
+
+.scene .textblock p, .scene .textblock h1, .scene .textblock h2, .scene .textblock h3 {
+	width: 100%; /* Innere Textelemente koennten sich sonst waehrend einer horizontalen animierten Bewegung in ihrer Groesse veraendern. */
 }
 
 .sceneChange {
@@ -202,18 +215,6 @@ p {
 	font-weight: bold;
 }
 
-#intro1 > .textblock {
-	left: 2%;
-}
-
-#intro1 > .textblock > h2 {
-	top: -33%; /* Startposition außerhalb der Szene. */
-}
-
-#intro1 > .textblock > p {
-	top: 80%; /* Startposition außerhalb der Szene. */
-}
-
 /********************************
 ** Zweite Szene des Intros
 ********************************/
@@ -242,16 +243,7 @@ p {
 }
 
 #intro2 > .textblock {
-	left: 2%;
 	width: 35%;
-}
-
-#intro2 > .textblock > h2 {
-	top: -33%; /* Startposition außerhalb der Szene. */
-}
-
-#intro2 > .textblock > p {
-	top: 80%; /* Startposition außerhalb der Szene. */
 }
 
 /********************************
@@ -287,6 +279,9 @@ p {
 	width: 90%;
 }
 
+#lecture > .textblock {
+	right: 10%;
+}
 
 /********************************
 ** erste Szene des Selbststudiums - Biblio
@@ -320,7 +315,9 @@ p {
 	left: 88%; 
 }
 
-
+#selfstudy1 > .textblock {
+	width: 60%;
+}
 
 /********************************
 ** zweite Szene des Selbststudiums - Urlaub
@@ -362,6 +359,9 @@ p {
 	top: 20%;
 }
 
+#selfstudy3 > .fixed {
+	color: white;
+}
 
 
 

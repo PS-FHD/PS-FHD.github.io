@@ -32,8 +32,8 @@ $(document).ready(function($) {
 	var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {left: "45%",ease: Linear.easeNone});
 	var lamp3 = TweenMax.fromTo(".lamp.third", 1, {left: "80%", top:"0%"}, {left: "75%",ease: Linear.easeNone});	
 	
-	// Die Zeitleiste
-	var timelineTween7 = new TimelineMax()
+	// Die Zeitleiste der Szene
+	var sceneTimeline = new TimelineMax()
 		.add([
 			souce1,
 			souce2,
@@ -56,11 +56,8 @@ $(document).ready(function($) {
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
 	
-	
-	/* Die Scroll Magic Scene für die zweite Introszene definieren.
-	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 6000, duration: 1000})
-	//	.setTween(backgroundTween)
-		.setTween(timelineTween7)
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 6000px bis 7000px abgespielt.
+	new ScrollScene({offset: 6000, duration: 1000})
+		.setTween(sceneTimeline)
 		.addTo(controller);
 });

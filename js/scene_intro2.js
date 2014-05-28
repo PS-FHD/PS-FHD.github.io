@@ -13,26 +13,24 @@ $(document).ready(function($) {
 	var shineFadeIn   = TweenMax.fromTo("#intro2 > .shine", 0.2, {autoAlpha: 0}, {autoAlpha: 1, ease: Linear.easeNone});	
 	var shineFadeOut  = TweenMax.to("#intro2 > .shine", 0.2, {autoAlpha: 0, delay: 0.7, ease: Linear.easeNone});
 	
-	var kom_head = TweenMax.to("#intro2 > .textblock h2", 0.65, {top: "15%",  ease: Linear.easeNone});
-	var kom_text = TweenMax.to("#intro2 > .textblock p", 0.65, {top: "15%", ease: Linear.easeNone});
+	var textBlockHead = TweenMax.from("#intro2 > .textblock h2", 0.35, {top: "-40%", ease: Linear.easeNone});
+	var textBlockPara = TweenMax.from("#intro2 > .textblock p", 0.35, {top: "90%", ease: Linear.easeNone});
 	
-	// Die Zeitleiste
-	var timelineTween2 = new TimelineMax()
+	// Die Zeitleiste der Szene
+	var sceneTimeline = new TimelineMax()
 		.add([
 			backgroundTween,
 			shineRotation,
 			shineFadeIn,
 			shineFadeOut,
-			kom_head,
-			kom_text
+			textBlockHead,
+			textBlockPara
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#intro2 > .sceneChange"), $("#lecture"));
 	
-	
-	/* Die Scroll Magic Scene fuer die zweite Introszene definieren.
-	   Sie geht von 1000px bis 2000px.*/
-	var scene = new ScrollScene({offset: 1000, duration: 1000})
-		.setTween(timelineTween2)
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 1000px bis 2000px abgespielt.
+	new ScrollScene({offset: 1000, duration: 1000})
+		.setTween(sceneTimeline)
 		.addTo(controller);
 });
