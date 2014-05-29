@@ -32,6 +32,23 @@ $(document).ready(function($) {
 	var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {left: "45%",ease: Linear.easeNone});
 	var lamp3 = TweenMax.fromTo(".lamp.third", 1, {left: "80%", top:"0%"}, {left: "75%",ease: Linear.easeNone});	
 	
+	var headIn 	= TweenMax.fromTo("header.canteen", 0.4, {top: "15%", left:"-40%"}, { left:"15%", delay: 0.1, ease: Linear.easeNone});
+	var textIn 	= TweenMax.fromTo("section.canteen", 0.4, {top: "23%", left: "-80%" }, { left:"15%", delay: 0.1, ease: Linear.easeNone});
+	
+	//texte für food
+	var pommes 	= TweenMax.fromTo(".food1txt", 0.7, {left: "110%", bottom:"34%"}, {left:"-10%", ease: Linear.easeNone});
+	var bifteki	= TweenMax.fromTo(".food2txt", 0.7, {left: "110%", bottom:"34%"}, {left:"-10%", ease: Linear.easeNone, delay:0.07});
+	var gemuese	= TweenMax.fromTo(".food3txt",  0.7, {left: "110%", bottom:"34%"}, {left:"-10%", ease: Linear.easeNone, delay:0.14});
+	
+	var foodSub	= TweenMax.fromTo(".foodsubtxt",  0.7, {left: "85%", bottom:"30%", autoAlpha: 0}, {left:"-10%", autoAlpha: 1, ease: Linear.easeNone, delay:0.14});
+	
+	// texte für souce
+	var curry = TweenMax.fromTo(".souce1txt", 0.7, {left: "110%", bottom:"34%"}, {left:"-10%", delay: 0.28, ease: Linear.easeNone});
+	var pesto = TweenMax.fromTo(".souce2txt", 0.7, {left: "110%", bottom:"34%"}, {left:"-10%", ease: Linear.easeNone, delay:0.29});
+	var tomato = TweenMax.fromTo(".souce3txt", 0.7, {left: "110%", bottom:"34%"}, {left:"-10%", ease: Linear.easeNone, delay:0.3});
+	
+	var souceSub = TweenMax.fromTo(".soucesubtxt",  0.7, {left: "85%", bottom:"30%", autoAlpha: 0}, {left:"-10%",autoAlpha:1, ease: Linear.easeNone, delay:0.3});
+	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
 		.add([
@@ -51,7 +68,17 @@ $(document).ready(function($) {
 			food2,
 			food3,
 			arrow,
-			dessert		     
+			dessert,
+			headIn,
+			textIn,
+			pommes,
+			bifteki,
+			gemuese,
+			foodSub,
+			curry,
+			pesto,
+			tomato,
+			souceSub
 		]);
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
