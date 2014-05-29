@@ -31,8 +31,8 @@ $(document).ready(function($) {
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#selfstudy1 > .sceneChange"), $("#selfstudy2"));
 	
-	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 3000px bis 4000px abgespielt.
-	new ScrollScene({offset: 3000, duration: 1000})
+	// Die Scroll Magic Szene definieren. Sie wird in einem Scrollbereich von 7500px bis 10000px abgespielt.
+	new ScrollScene({offset: 7500, duration: 2500})
 		.setTween(sceneTimeline)
 		.addTo(controller);
 });

@@ -6,7 +6,7 @@
  **********************************************************************************/
 $(document).ready(function() {
 	// Legt die Anzahl an Pixeln fest, die pro "klick" des Mausrads gescrollt werden.
-	var step = 160;
+	var step = 350;
 	// Die laenge in Sekunden die eine Scrollanimation insgesamt dauern kann. 
 	var duration = 1;
 	
