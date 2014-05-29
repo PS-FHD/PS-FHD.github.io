@@ -187,6 +187,11 @@ p {
 	max-height: 25.8%;
 }
 
+#intro1 > .scrollhint {
+	top: 35%;
+	left: 75%;
+}
+
 /* Haeuser positionieren */
 #intro1 > .house {
 	bottom: 0; /* Bilder werden unten festgemacht */

@@ -6,21 +6,27 @@
  *    Dokumentation zu TweenMax und allen unterstuetzten Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
+	// Der Hinweis zum Scrollen wird nach drei Sekunden ueber eine Zeitspanne von einer Sekunde eingeblendet.
+	var scrollHintIn = TweenMax.from("#intro1 > .scrollhint", 1, {autoAlpha: 0, delay: 3, ease: Linear.easeNone});
+	/* Nach einer Zeitspanne von fuenf Sekunden, wird eine Daueranimation (repeat: -1) gestartet die staendig vor- und zurueck abgespielt
+	   (yoyo) wird. Da keine explizite Easing-Function angegeben wurde, wird Quad.easeOut verwendet. */
+	var scrollHintBounce = TweenMax.to("#intro1 > .scrollhint", 1, {left: "78%", repeat: -1, yoyo: true, delay: 5});
+	
 	// Das Hintergrundbild im div wird um 500 pixel nach links verschoben.
 	var backgroundTween = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
 	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
 	   Die unterschiedlichen Geschwindigkeiten entstehen dabei durch die unterschiedlichen Abstaende zwischen Start- und Endposition. */
-	var cloudOneTween   = TweenMax.fromTo("#intro1 > .cloud.one", 1, {left: "50%"}, {left: "-15%", ease: Linear.easeNone});
-	var cloudTwoTween   = TweenMax.fromTo("#intro1 > .cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
-	var cloudThreeTween = TweenMax.fromTo("#intro1 > .cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
-	var cloudFourTween  = TweenMax.fromTo("#intro1 > .cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
+	var cloudOne   = TweenMax.fromTo("#intro1 > .cloud.one", 1, {left: "50%"}, {left: "-15%", ease: Linear.easeNone});
+	var cloudTwo   = TweenMax.fromTo("#intro1 > .cloud.two", 1, {left: "30%"}, {left: "-25%", ease: Linear.easeNone});
+	var cloudThree = TweenMax.fromTo("#intro1 > .cloud.three", 1, {left: "100%"}, {left: "10%", ease: Linear.easeNone});
+	var cloudFour  = TweenMax.fromTo("#intro1 > .cloud.four", 1, {left: "180%"}, {left: "25%", ease: Linear.easeNone});
 	
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
-	   Hierbei gibt scale den Vergroeßerungsfaktor an. Bei scale:0 ist das Flugzeug nicht mehr sichtbar. */
+	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
 	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-25%", top: "150px", scale: 2}, {left: "125%", top: "-15px", scale: 0, ease: Linear.easeNone});
 	
-	// headline kommt ONLOAD von oben und bounced mittels ease: Bounce.easeOut per scroll nach links aus dem bild.
+	// Headline kommt von Oben und "huepft" mittels ease: Bounce.easeOut per scroll nach links aus dem bild.
 	var headlineIn  = TweenMax.fromTo("#intro1 > .mainheadline", 0.8, {top: "-30%", left: "2%"}, {top: "3%", ease: Bounce.easeOut});
 	var headlineOut = TweenMax.to("#intro1 > .mainheadline", 0.3, {left: "-50%", ease: Linear.easeNone});
 	
@@ -46,10 +52,7 @@ $(document).ready(function($) {
 	var sceneTimeline = new TimelineMax()
 		.add([
 			backgroundTween,
-			cloudOneTween,
-			cloudTwoTween,
-			cloudThreeTween,
-			cloudFourTween,
+			cloudOne, cloudTwo, cloudThree, cloudFour,
 			airplane,
 			headlineOut,
 			textYESOut,
@@ -65,19 +68,35 @@ $(document).ready(function($) {
 	new ScrollScene({duration: 2500})
 		.setTween(sceneTimeline)
 		.addTo(controller)
-		//  Update-Event wird von ScrollMagic beim Scrollen gefeuert.
-		.on("update", function (event) {
-			/* target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
-			   Parent von ScrollScene ist ScrollMagic.
-			   info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an.
-			   info("scrollPos") liefert die aktuelle ScrollPosition als Ganzzahl. */
-			var scrollDirection = event.target.parent().info("scrollDirection");
-			var scrollPosition	= event.target.parent().info("scrollPos");
-			
-			// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
-			if (scrollDirection == "REVERSE") 
-				$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_239x87.png"});
-			else if (scrollDirection == "FORWARD")
-				$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
-		});
+		.on("enter", scene_enter)
+		.on("update", scene_update);
+	
+	/***********************************************************************************
+	 *    Event-Handler der beim Starten der Szene aufgerufen wird.
+	 *    
+	 *    @param event Die Ereignisdaten.
+	 **********************************************************************************/
+	function scene_enter(event) {
+		scrollHintIn.duration(0.25);
+		scrollHintIn.reverse();
+		scrollHintBounce.pause();
+	}
+	
+	/***********************************************************************************
+	 *    Event-Handler der beim Scrollen der Szene aufgerufen wird.
+	 *    
+	 *    @param event Die Ereignisdaten.
+	 **********************************************************************************/
+	function scene_update(event) {
+		/* target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
+		   Parent von ScrollScene ist ScrollMagic.
+		   info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an. */
+		var scrollDirection = event.target.parent().info("scrollDirection");
+		
+		// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
+		if (scrollDirection == "REVERSE") 
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_239x87.png"});
+		else if (scrollDirection == "FORWARD")
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
+	}
 });
