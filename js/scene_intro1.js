@@ -11,9 +11,39 @@ $(document).ready(function($) {
 	/* Nach einer Zeitspanne von fuenf Sekunden, wird eine Daueranimation (repeat: -1) gestartet die staendig vor- und zurueck abgespielt
 	   (yoyo) wird. Da keine explizite Easing-Function angegeben wurde, wird Quad.easeOut verwendet. */
 	var scrollHintBounce = TweenMax.to("#intro1 > .scrollhint", 1, {left: "78%", repeat: -1, yoyo: true, delay: 5});
+
+	// Der erste Textblock wird ueber 10% der Szene durch Skalierung von 0 auf 1 eingeblendet.
+	var textBlockOneIn = TweenMax.from("#intro1 > .textblock:nth-of-type(1)", 0.1, {top: "-10%", scale: 0, ease: Linear.easeNone});
+	// ... und wieder ausgeblendet.
+	var textBlockOneOut = TweenMax.to("#intro1 > .textblock:nth-of-type(1)", 0.05, {top: "-10%", scale: 0});
 	
-	// Das Hintergrundbild im div wird um 500 pixel nach links verschoben.
-	var backgroundTween = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
+	// Die einzelnen Woerter werden jeweils durch Skalierung sowie Drehung eingeblendet.
+	var bitOneIn = TweenMax.fromTo("#intro1 > .bit.one", 0.1, {left: "2%", top: "37%", scale: 0, rotation: 160}, {scale: 1, rotation: 342});
+	var bitTwoIn = TweenMax.fromTo("#intro1 > .bit.two", 0.1, {left: "29%", top: "45%", scale: 0, rotation: 40}, {scale: 1, rotation: 390});
+	var bitThreeIn = TweenMax.fromTo("#intro1 > .bit.three", 0.1, {left: "15%", top: "60%", scale: 0}, {scale: 1, rotation: 15});
+	// ... und genau so wieder ausgeblendet.
+	var bitOneOut = TweenMax.to("#intro1 > .bit.one", 0.05, {scale: 0, rotation: 160});
+	var bitTwoOut = TweenMax.to("#intro1 > .bit.two", 0.05, {scale: 0, rotation: 40});
+	var bitThreeOut = TweenMax.to("#intro1 > .bit.three", 0.05, {scale: 0, rotation: 15});
+	
+	// Der zweite Textblock wird durch alpha-blending animiert.
+	var textBlockTwoIn = TweenMax.from("#intro1 > .textblock:nth-of-type(2)", 0.1, {autoAlpha: 0, ease: Linear.easeNone}); 
+	
+	// Zusaetzliche Zeitleiste fuer die Elemente die nacheinander Abgespielt werden sollen.
+	var sequenceTimeline = new TimelineMax()
+		.append(textBlockOneIn, 0.15) // Ab 15%, ersten Textblock einblenden.
+		.append(bitOneIn, 0.005) // ... danach jeweils im Abstand von 0.5% die einzelnen Woerter.
+		.append(bitTwoIn, 0.005)
+		.append(bitThreeIn, 0.005)
+		// Nach weiteren 6%, gleichzeitig den ersten Textblock und die Woerter ausblenden und den Zweiten einblenden.
+		.append([
+			textBlockOneOut, 
+			bitOneOut, bitTwoOut, bitThreeOut,
+			textBlockTwoIn,
+		], 0.06);
+
+	// Das Hintergrundbild der Szene wird um 500 pixel nach links verschoben.
+	var background = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
 	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
 	   Die unterschiedlichen Geschwindigkeiten entstehen dabei durch die unterschiedlichen Abstaende zwischen Start- und Endposition. */
@@ -24,42 +54,16 @@ $(document).ready(function($) {
 	
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
 	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
-	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-25%", top: "150px", scale: 2}, {left: "125%", top: "-15px", scale: 0, ease: Linear.easeNone});
-	
-	// Headline kommt von Oben und "huepft" mittels ease: Bounce.easeOut per scroll nach links aus dem bild.
-	var headlineIn  = TweenMax.fromTo("#intro1 > .mainheadline", 0.8, {top: "-30%", left: "2%"}, {top: "3%", ease: Bounce.easeOut});
-	var headlineOut = TweenMax.to("#intro1 > .mainheadline", 0.3, {left: "-50%", ease: Linear.easeNone});
-	
-	// Der OMG Text wird mittels slala eingeblendet, dazu kommt eine rotation. Hierbei gibt rotation: die Drehung in Grad an.
-	var textOmgIn  = TweenMax.fromTo("#intro1 > .bit.one", 0.5, {left: "7%", top: "37%", scale: 0}, {left: "7%", top: "37%", scale: 1, rotation: 342});
-	var textOmgOut = TweenMax.fromTo("#intro1 > .bit.one", 0.3, {left: "7%", top: "37%"}, {left: "7%", top: "37%", scale: 1, rotation: -180, scale: 0});	
-	
-	// Der Text YES!! fliegt von links in das Bild beim Laden der Seite.
-	var textYESIn  = TweenMax.to("#intro1 > .bit.two", 0.5, {top: "40%", left: "30%", rotation: 390, ease:Back.easeInOut});
-	var textYESOut = TweenMax.to("#intro1 > .bit.two", 0.3, {top: "-80%", ease: Linear.easeNone});
-	
-	// Der Student-Status Text wird mittels easeIn eingbunden und dreht sich ein wenig.
-	var textStudentIN  = TweenMax.to("#intro1 > .bit.three", 1, {rotation: 15, scale: 1, ease:Back.easeInOut });
-	var textStudentOut = TweenMax.fromTo("#intro1 > .bit.three", 0.3, {left: "25%", top: "60%"}, {left: "25%", top: "60%", rotation: -40, scale: 0});
-	
-	var student = TweenMax.to("#intro1 > .student", 1, {left: "50%"});	
-	
-	// Textblock
-	var textBlockHead = TweenMax.from("#intro1 > .textblock h2", 0.35, {top: "-40%", ease: Linear.easeNone});
-	var textBlockPara = TweenMax.from("#intro1 > .textblock p", 0.35, {top: "90%", ease: Linear.easeNone});
+	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.5, ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
+		// Tweens hinzufuegen die parallel Abgespielt werden sollen. 
 		.add([
-			backgroundTween,
-			cloudOne, cloudTwo, cloudThree, cloudFour,
-			airplane,
-			headlineOut,
-			textYESOut,
-			textOmgOut,
-			textStudentOut,
-			textBlockHead,
-			textBlockPara
+			sequenceTimeline,  
+			background, 
+			cloudOne, cloudTwo, cloudThree, cloudFour,   
+			airplane
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#intro1 > .sceneChange"), $("#intro2"));
@@ -69,7 +73,7 @@ $(document).ready(function($) {
 		.setTween(sceneTimeline)
 		.addTo(controller)
 		.on("enter", scene_enter)
-		.on("update", scene_update);
+		.on("progress", scene_progress);
 	
 	/***********************************************************************************
 	 *    Event-Handler der beim Starten der Szene aufgerufen wird.
@@ -83,17 +87,15 @@ $(document).ready(function($) {
 	}
 	
 	/***********************************************************************************
-	 *    Event-Handler der beim Scrollen der Szene aufgerufen wird.
+	 *    Event-Handler der bei Fortschrittsaenderung der Szene aufgerufen wird.
 	 *    
 	 *    @param event Die Ereignisdaten.
 	 **********************************************************************************/
-	function scene_update(event) {
-		/* target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
-		   Parent von ScrollScene ist ScrollMagic.
-		   info("scrollDirection") liefert FORWARD REVERSE oder PAUSED als String und gibt die ScrollRichtung an. */
-		var scrollDirection = event.target.parent().info("scrollDirection");
+	function scene_progress(event) {
+		// event.scrollDirection liefert als Scrollrichtung FORWARD REVERSE oder PAUSED.
+		var scrollDirection = event.scrollDirection;
 		
-		// Aenderung des FlugzeugBildes bei ScrollRichtungsWechsel
+		// Aenderung des Flugzeugbildes bei Richtungswechsel
 		if (scrollDirection == "REVERSE") 
 			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_239x87.png"});
 		else if (scrollDirection == "FORWARD")

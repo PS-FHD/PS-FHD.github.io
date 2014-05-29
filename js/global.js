@@ -2,7 +2,7 @@
 var DEBUG = true;
 
 // Die Scrolldauer fuer alle Szenen insgesamt.
-var totalScrollDuration = 17500;
+var totalScrollDuration = 200000;
 
 // Der globale Scroll Magic Controller.
 var controller;
