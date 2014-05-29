@@ -54,8 +54,8 @@ p {
 	background-color: black;
 	/* Eigentlich nicht notwendig (man haette das Element auch relativ zur groesse des html/body ohne positionierung 
 	   ausrichten koennen, aber durch einen bekannten Webkit Bug fuer Safari nicht anders moeglich: 
-     https://bugs.webkit.org/show_bug.cgi?id=26559 */
-  position: absolute;
+	   https://bugs.webkit.org/show_bug.cgi?id=26559 */
+	position: absolute;
 	/* Immer so groß wie der Viewport des Browsers. */
 	height: 100%;
 	width: 100%;
@@ -92,7 +92,7 @@ p {
 	overflow: hidden;
 	position: relative; /* relativ positionieren, damit innere Elemente absolut positioniert werden koennen */
 	/* Die Szene direkt hinter die Aktuelle platzieren. Wird fuer die erste Szene ueberschrieben! */
-  left: 100%;
+	left: 100%;
 }
 
 .scene > * {
@@ -371,7 +371,7 @@ p {
 ** erste Szene der Mensa 
 ********************************/
 #canteen {
-  
+	
 }
 
 #canteen > .sceneChange {
