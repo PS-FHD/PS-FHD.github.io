@@ -7,7 +7,7 @@
 $(document).ready(function() {
 	// Legt die Anzahl an Pixeln fest, die pro "klick" des Mausrads gescrollt werden.
 	var step = 350;
-	// Die laenge in Sekunden die eine Scrollanimation insgesamt dauern kann. 
+	// Die laenge in Sekunden die eine Scrollanimation insgesamt dauern kann.
 	var duration = 1;
 	
 	// Unterstuezt der Browser ueberhaupt das Setzen der Scrollposition ueber bekannte Elemente? 

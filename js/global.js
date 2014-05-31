@@ -1,14 +1,14 @@
 // Debug flag, fuers Testen auf true belassen, fuer Releases auf false setzen.
 var DEBUG = true;
 
-// Die Scrolldauer fuer alle Szenen insgesamt.
-var totalScrollDuration = 200000;
-
 // Der globale Scroll Magic Controller.
 var controller;
 
 // Die breite einer Szene (fuer jede Szene gleich).
 var sceneWidth;
+
+// Die Szene die fuer den Dauerpin genutzt wird, deren Parameter muessen spaeter noch veraendert werden.
+var globalPinScene;
 
 /* ** Variablen die Ergebnisse zur Browser Feature Detection speichern. ** */
 /* Gibt das jQuery-Element an, fuer das die Scrollposition der Seite gesetzt 
@@ -16,6 +16,24 @@ var sceneWidth;
    Browser nutzen dafuer aber das HTML-Element (Safari z.B.).
    Moegliche Werte sind das HTML-Element, BODY-Element oder undefined.*/
 var fd_pageScrollElement;
+
+/****************************************************************************************************
+ *    Haengt die gegebene Szene im Scrollverlauf hinten an die zuletzt hinzugefuegte Szene an.
+ *    
+ *    @param scrollScene Die hinzuzufuegende Szene.
+ ***************************************************************************************************/
+function addScene(scrollScene) {
+	var currentPinDuration = globalPinScene.duration();
+	var newPinDuration = currentPinDuration + scrollScene.duration();
+	
+	// Die neue Szenen einreihen indem ihr eine Start-Scrollposition zugeweisen wird. 
+	scrollScene.offset(currentPinDuration);
+	// Neue Szenen verlaengern die Dauer der Szene fuer den dauerpin entsprechend.
+	globalPinScene.duration(newPinDuration);
+	
+	// Header und Footer ueber die gesamte Scrolllaenge strecken.
+	$("#scrollContainer > header, #scrollContainer > footer").css("width", newPinDuration + sceneWidth + "px");
+}
 
 /***********************************************************************************
  *    Grundsaetzliches einrichten der Javascript funktionalitaet der Website.
@@ -55,15 +73,12 @@ $(document).ready(function($) {
 		   Szenen enthaelt, kann diese einfach dauerhaft Gepinnt werden. Neue Szenen schieben sich dann nach und nach
 		   ueber die Erste. Achtung: Als Ersatz kann hier nicht der scrollContainer verwendet werden, da dieser 
 		   absolut positioniert sein muss. */
-		new ScrollScene({duration: totalScrollDuration})
+		globalPinScene = new ScrollScene({duration: 0})
 			.setPin("#intro1")
 			.addTo(controller);
 		
 		// Allgemeine Breite einer Szene feststellen, wobei jede Szene nach CSS immer so Breit wie der Scrollcontainer ist. 
 		sceneWidth = parseInt($("#scrollContainer").css("width"), 10);
-		
-		// Header und Footer ueber die gesamte Scrolllaenge strecken.
-		$("#scrollContainer > header, #scrollContainer > footer").css("width", totalScrollDuration + sceneWidth + "px");
 	}
 	
 	/***********************************************************************************
@@ -75,6 +90,7 @@ $(document).ready(function($) {
 		var htmlElement = $("html");
 		var bodyElement = $("body");
 		
+		globalPinScene.duration(10000);
 		htmlElement.scrollLeft(1);
 		bodyElement.scrollLeft(1);
 		
@@ -85,11 +101,12 @@ $(document).ready(function($) {
 		
 		htmlElement.scrollLeft(0);
 		bodyElement.scrollLeft(0);
+		globalPinScene.duration(0);
 	}
 
 	/****************************************************************************************************
 	 *    Event-Handler fuer das window.resize Ereignis.
-	 *    Passt Elemente in ihrer groesse neu an die mittels CSS nur unzureichend Konfiguriert werden
+	 *    Passt Elemente in ihrer Ausrichtung neu an die mittels CSS nur unzureichend Konfiguriert werden
 	 *    koennen.
 	 ***************************************************************************************************/
 	function window_resize() {
