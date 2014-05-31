@@ -31,18 +31,18 @@ $(document).ready(function($) {
 	
 	// Zusaetzliche Zeitleiste fuer die Elemente die nacheinander Abgespielt werden sollen.
 	var sequenceTimeline = new TimelineMax()
-		.append(textBlockOneIn, 0.15) // Ab 15%, ersten Textblock einblenden.
+		.append(textBlockOneIn, 0.10) // Ab 10%, ersten Textblock einblenden.
 		.append(bitOneIn, 0.005) // ... danach jeweils im Abstand von 0.5% die einzelnen Woerter.
 		.append(bitTwoIn, 0.005)
 		.append(bitThreeIn, 0.005)
-		// Nach weiteren 6%, gleichzeitig den ersten Textblock und die Woerter ausblenden und den Zweiten einblenden.
+		// Nach weiteren 4%, gleichzeitig den ersten Textblock und die Woerter ausblenden und den Zweiten einblenden.
 		.append([
 			textBlockOneOut, 
 			bitOneOut, bitTwoOut, bitThreeOut,
 			textBlockTwoIn,
-		], 0.06);
+		], 0.04);
 
-	// Das Hintergrundbild der Szene wird um 500 pixel nach links verschoben.
+	// Das Hintergrundbild der Szene wird ueber die gesamte Szenenlaenge um 500 pixel nach links verschoben.
 	var background = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
 	/* Die Wolken fliegen jeweils von unterschiedlichen Startpositionen aus nach links zu einer jeweiligen Endposition. 
@@ -69,7 +69,7 @@ $(document).ready(function($) {
 		.addSceneChange($("#intro1 > .sceneChange"), $("#intro2"));
 	
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 0px bis 2500px abgespielt.
-	addScene(new ScrollScene({duration: 2500})
+	addScene(new ScrollScene({duration: 5000})
 		.setTween(sceneTimeline)
 		.addTo(controller)
 		.on("enter", scene_enter)
