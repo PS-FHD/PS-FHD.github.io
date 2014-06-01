@@ -24,9 +24,9 @@ $(document).ready(function($) {
 	var souce2 = TweenMax.fromTo(".souce.second", 0.5, {left: "110%", bottom:"28%"}, {left:"-10%", ease: Linear.easeNone, delay:0.35});
 	var souce3 = TweenMax.fromTo(".souce.third", 0.5, {left: "110%", bottom:"28%"}, {left:"-10%", ease: Linear.easeNone, delay:0.42});
 	
-	var arrow = TweenMax.fromTo(".arrow", 0.3, {left: "90%", top:"-10%"}, {left: "70%", top: "18%", rotation : 698 , delay: 0.6  ,ease: Linear.easeNone});
+	var arrow = TweenMax.fromTo(".arrow", 0.3, {left: "90%", top:"-10%"}, {left: "70%", top: "28%", rotation : 698 , delay: 0.6  ,ease: Linear.easeNone});
 	
-	var dessert = TweenMax.fromTo(".dessert", 0.3, {left: "120%", top:"29%"}, {left:"70%",delay: 0.4 ,ease: Linear.easeNone});
+	var dessert = TweenMax.fromTo(".dessert", 0.3, {left: "120%", top:"40%"}, {left:"70%",delay: 0.4 ,ease: Linear.easeNone});
 	
 	var lamp1 = TweenMax.fromTo(".lamp.first", 1, {left: "20%", top:"0%"}, {left: "15%",ease: Linear.easeNone});
 	var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {left: "45%",ease: Linear.easeNone});
