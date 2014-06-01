@@ -224,7 +224,7 @@ p {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 	/* Eigentlich nimmt eine Szene 100% der uebergeordneten Szene ein, ausser die erste Szene, diese muss so gross wie der 
 	   scrollContainer minus header und footer sein. */
-	height: 82%;
+	height: 82.5%;
 	left: 0%; /* Im Gegensatz zu allen anderen Szenen ist diese von anfang an sichtbar. */
 }
 
@@ -315,17 +315,37 @@ p {
 }
 
 #intro2 > .students {
-	max-height: 66.3%;
-	bottom: 0; /* Bild wird unten festgemacht */
-	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -265px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	bottom: 0;
+	left: 50%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	height: 63.93%;
+	max-height: 422px;
 }
 
-#intro2 > .shine {
+#intro2 > .students > .bg {
+	/* An der Hoehe des auesseren Containers ausrichten. 
+	   Hinweis: Die Breite wird nicht festgelegt, d.h. sie passt sich proportional zum Bild an, und richtet somit auch den auesseren Container
+	   aus in der Horizontalen aus. */
 	height: 100%;
-	bottom: -3.3%; /* Bild wird unten festgemacht */
-	left: 51.2%; /* Bild in die Mitte schieben */
-	margin-left: -353px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	/* Da .shine positioniert ist, muss dieses Element aus positioniert sein damit die z-order, die durch die HTML-Struktur vorgegeben ist, 
+	   eingehalten wird. */
+	position: relative;
+}
+
+#intro2 > .students > .shine {
+	/* Da das eigentliche Studentenbild das horizontale Mass des Containers bestimmt, kann der Effekt jetzt relativ dazu mittels % dazu 
+	   ausgerichtet werden. Er wird absolut positioniert, da der Effekt selbst die groesse des Containers nicht Veraendern soll und hinter 
+	   dem anderen Bild liegen muss. */
+	position: absolute;
+	/* Verschiebt das Bild so, dass die linke obere Kante an bei den Haenden der kommilitonen liegt. */
+	left: 44.8%;
+	top: 30%;
+	/* Effekt zentrieren. */
+	margin-left: -250px;
+	margin-top: -250px;
 }
 
 #intro2 > .textblock {
