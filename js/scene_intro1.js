@@ -97,8 +97,8 @@ $(document).ready(function($) {
 		
 		// Aenderung des Flugzeugbildes bei Richtungswechsel
 		if (scrollDirection == "REVERSE") 
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_239x87.png"});
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_ver2_239x87.png"});
 		else if (scrollDirection == "FORWARD")
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_239x87.png"});
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_ver2_239x87.png"});
 	}
 });
