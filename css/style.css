@@ -306,6 +306,7 @@ p {
 ********************************/
 #intro2 {
 	background-image: url(../img/Einleitung/einl_bg2_2500x660.jpg);
+	background-size: auto 100%;
 }
 
 #intro2 > .sceneChange {
