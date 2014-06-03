@@ -6,11 +6,11 @@
  *    Dokumentation zu TweenMax und allen unterstuetzten Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
-	// Der Hinweis zum Scrollen wird nach drei Sekunden ueber eine Zeitspanne von einer Sekunde eingeblendet.
-	var scrollHintIn = TweenMax.from("#intro1 > .scrollhint", 1, {autoAlpha: 0, delay: 3, ease: Linear.easeNone});
+	// Der Hinweis zum Scrollen wird nach einer halben Sekunde ueber eine Zeitspanne von einer Sekunde eingeblendet.
+	var scrollHintIn = TweenMax.from("#intro1 > .scrollhint", 1, {autoAlpha: 0, delay: 0.5, ease: Linear.easeNone});
 	/* Nach einer Zeitspanne von fuenf Sekunden, wird eine Daueranimation (repeat: -1) gestartet die staendig vor- und zurueck abgespielt
 	   (yoyo) wird. Da keine explizite Easing-Function angegeben wurde, wird Quad.easeOut verwendet. */
-	var scrollHintBounce = TweenMax.to("#intro1 > .scrollhint", 1, {left: "78%", repeat: -1, yoyo: true, delay: 5});
+	var scrollHintBounce = TweenMax.to("#intro1 > .scrollhint", 1, {left: "78%", repeat: -1, yoyo: true, delay: 1});
 
 	// Der erste Textblock wird ueber 10% der Szene durch Skalierung von 0 auf 1 eingeblendet.
 	var textBlockOneIn = TweenMax.from("#intro1 > .textblock:nth-of-type(1)", 0.1, {top: "-10%", scale: 0, ease: Linear.easeNone});
