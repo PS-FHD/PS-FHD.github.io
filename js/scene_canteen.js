@@ -49,6 +49,8 @@ $(document).ready(function($) {
 	
 	var souceSub = TweenMax.fromTo(".souce.subtxt", 0.55, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-25%",autoAlpha:1, ease: Linear.easeNone, delay:0.32});
 	
+	var appLink = TweenMax.fromTo(".bit", 0.1, {left: "72%", bottom:"73%", autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
+	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
 		.add([
@@ -78,7 +80,8 @@ $(document).ready(function($) {
 			curry,
 			pesto,
 			tomato,
-			souceSub
+			souceSub,
+			appLink
 		]);
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
