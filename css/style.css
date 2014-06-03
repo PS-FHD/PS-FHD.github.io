@@ -495,14 +495,21 @@ p {
 	top: 20%;
 }
 
-#canteen > .serving-table.first{
+#canteen > .serving-table.first {
 	bottom: 0; /* Bild wird unten festgemacht */
 }
 
-#canteen > .serving-table.second{
+#canteen > .serving-table.second {
 	top: 53%; /* Bild wird unten festgemacht */
 }
 
-#canteen > .canteenbg{
+#canteen > .canteenbg {
 	top: 0%;
+}
+
+#canteen > .food.subtxt, .souce.subtxt {
+	width: 400px;
+	height: 40px;
+	padding-top: 10px;
+	text-align: center;
 }
