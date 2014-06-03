@@ -9,7 +9,7 @@ $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
 	
 	// ich hab hier irgendwas kaputt gemacht und raffs nicht
-	var backgroundSky = TweenMax.to(".sky", 2, {left: "2900px", ease: Linear.easeNone});
+	var backgroundSky = TweenMax.to(".sky", 1, {left: "840px", ease: Linear.easeNone});
 	
 	// Baum
 	var orangeLeaves = TweenMax.fromTo(".tree.leaves.orange", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.4});
