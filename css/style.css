@@ -359,13 +359,23 @@ p {
 ** Erste Szene der Vorlesung
 ********************************/
 #lecture {
-	/* Auskommentiert, da der Background nun einen eigenen Container hat. */
-	/* background-image: url(../img/Vorlesungen/vl_mg.png);*/
+	background: #b2d7e2;
 }
 
 #lecture > .lectureroom {
-	left: -10%;
+	left: 0;
 	/* lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
+}
+
+#lecture > .board {
+	left: 52%;
+	transform: translate(-52%, 0);
+	-webkit-transform: translate(-52%, 0);
+	-ms-transform: translate(-52%, 0);
+}
+
+#lecture > .prof {
+	bottom: 13%;
 }
 
 #lecture > .sceneChange {
@@ -374,22 +384,46 @@ p {
 	height: 100%;
 }
 
-#lecture > .wall.right {
-	right: 0px;
-	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+#lecture > .tree {
+	left: 1470px;
 }
 
-#lecture > .wall.left {
-	left: 0px;
-	top: -70px; /* Pixelwert, da der Hintergrund nicht skaliert wird */
+#lecture > .tree.trunk {
+	left: 1490px;
+	top: 30px;
 }
 
-#lecture > .row, .front {
-	width: 90%;
+#lecture > .tree.leaves.orange {
+	left: 1525px;
+	top: 20px;
+}
+
+#lecture > .front, #lecture > .row.third {
+	bottom: 0;
+}
+
+#lecture > .row.second {
+	bottom: 3.63%;
+}
+
+#lecture > .row.first {
+	bottom: 8.03%;
+}
+
+#lecture > .ppl1 {
+	bottom: 12%;
+}
+
+#lecture > .ppl2 {
+	bottom: 9%;
+}
+
+#lecture > .ppl3 {
+	bottom: 3%;
 }
 
 #lecture > .textblock {
-	right: 10%;
+	left: 10%;
 }
 
 /********************************
