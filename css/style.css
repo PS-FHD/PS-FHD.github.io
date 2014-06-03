@@ -117,6 +117,7 @@ p {
   display: none;
 }
 /* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
+.s300 { font-size: 300%; }
 .s200 { font-size: 200%; }
 .s150 { font-size: 150%; }
 .s120 { font-size: 120%; }
@@ -131,6 +132,7 @@ p {
 .cblue { color: #1D3072; }
 .cgreen { color: #49922F; }
 .cgrey { color: #C7C7C7; }
+.bggrey { background-color: #C7C7C7; }
 /* Text alignment*/
 .aright { text-align: right; }
 
