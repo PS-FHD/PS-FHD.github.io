@@ -16,40 +16,37 @@ $(document).ready(function($) {
 	var student5 = TweenMax.fromTo(".boy.fifth", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.8,  autoAlpha:1});
 	
 	
-	var food1 = TweenMax.to(".food.first", 0.5, {left:"-10%", ease: Linear.easeNone});
-	var food2 = TweenMax.to(".food.second", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.07});
-	var food3 = TweenMax.to(".food.third", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.14});
+	var food1 = TweenMax.to(".food.first", 0.62, {left:"-40%", ease: Linear.easeNone});
+	var food2 = TweenMax.to(".food.second", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.07});
+	var food3 = TweenMax.to(".food.third", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.14});
+	
 	//texte für food
-	var pommes 	= TweenMax.to(".food1txt", 0.5, {left:"-10%", ease: Linear.easeNone});
-	var bifteki	= TweenMax.to(".food2txt", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.07});
-	var gemuese	= TweenMax.to(".food3txt",  0.5, {left:"-10%", ease: Linear.easeNone, delay:0.14});
+	var pommes 	= TweenMax.to(".food1txt", 0.62, {left:"-40%", ease: Linear.easeNone});
+	var bifteki	= TweenMax.to(".food2txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.07});
+	var gemuese	= TweenMax.to(".food3txt",  0.62, {left:"-40%", ease: Linear.easeNone, delay:0.14});
 	
-	var foodSub	= TweenMax.fromTo(".food.subtxt",  0.55, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-25%", autoAlpha: 1, ease: Linear.easeNone, delay:0.04});	
+	var foodSub	= TweenMax.fromTo(".food.subtxt",  0.62, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-40%", autoAlpha: 1, ease: Linear.easeNone, delay:0.03});	
 	
-	var souce1 = TweenMax.to(".souce.first", 0.5, {left:"-10%", ease: Linear.easeNone, delay: 0.28});
-	var souce2 = TweenMax.to(".souce.second", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.35});
-	var souce3 = TweenMax.to(".souce.third", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.42});
+	var souce1 = TweenMax.to(".souce.first", 0.62, {left:"-40%", ease: Linear.easeNone, delay: 0.28});
+	var souce2 = TweenMax.to(".souce.second", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.35});
+	var souce3 = TweenMax.to(".souce.third", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.42});
 	
-	var arrow = TweenMax.fromTo(".arrow", 0.2, {left: "72%", top:"28%", roatation: -10, autoAlpha: 0}, {autoAlpha: 1, delay: 0.7, ease: Linear.easeNone});
+	// texte für souce
+	var curry = TweenMax.to(".souce1txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay: 0.28});
+	var pesto = TweenMax.to(".souce3txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.35});
+	var tomato = TweenMax.to(".souce2txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.42});
 	
-	var dessert = TweenMax.to(".dessert", 0.3, {left:"70%", delay: 0.4, ease: Linear.easeNone});
+	var souceSub = TweenMax.fromTo(".souce.subtxt", 0.62, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-40%",autoAlpha:1, ease: Linear.easeNone, delay:0.32});
 	
-	// var lamp1 = TweenMax.fromTo(".lamp.first", 1, {left: "20%", top:"0%"}, {ease: Linear.easeNone});
-	// var lamp2 = TweenMax.fromTo(".lamp.second", 1, {left: "50%", top:"0%"}, {ease: Linear.easeNone});
-	// var lamp3 = TweenMax.fromTo(".lamp.third", 1, {left: "80%", top:"0%"}, {ease: Linear.easeNone});	
+	
+	var arrow = TweenMax.fromTo(".arrow", 0.2, {rotation: -10, autoAlpha: 0}, {autoAlpha: 1, delay: 0.7, ease: Linear.easeNone});
+	
+	var dessert = TweenMax.to(".dessert", 0.3, {left:"70%", delay: 0.4, ease: Linear.easeNone});	
 	
 	var headIn 	= TweenMax.fromTo("header.canteen", 0.4, {top: "15%", left:"-40%"}, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	var textIn 	= TweenMax.fromTo("section.canteen", 0.4, {top: "23%", left: "-80%" }, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	
-
-	// texte für souce
-	var curry = TweenMax.to(".souce1txt", 0.5, {left:"-10%", ease: Linear.easeNone, delay: 0.28});
-	var pesto = TweenMax.to(".souce3txt", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.35});
-	var tomato = TweenMax.to(".souce2txt", 0.5, {left:"-10%", ease: Linear.easeNone, delay:0.42});
-	
-	var souceSub = TweenMax.fromTo(".souce.subtxt", 0.55, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-25%",autoAlpha:1, ease: Linear.easeNone, delay:0.32});
-	
-	var appLink = TweenMax.fromTo(".bit", 0.1, {left: "72%", bottom:"73%", autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
+	var appLink = TweenMax.fromTo(".bit", 0.1, {autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
@@ -63,9 +60,6 @@ $(document).ready(function($) {
 			student3,
 			student4,
 			student5,
-			// lamp1,
-			// lamp2,
-			// lamp3,
 			food1,
 			food2,
 			food3,

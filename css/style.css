@@ -581,3 +581,13 @@ p {
 	left: 80%;
 	top: 0%;
 }
+
+#canteen > .arrow {
+	left: 72%;
+	bottom: 400px;
+}
+
+#canteen > .bit.s150 {
+	left: 72%;
+	bottom: 460px; 
+}
