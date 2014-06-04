@@ -534,7 +534,7 @@ p {
 }
 
 #canteen > .serving-table.second {
-	top: 53%; /* Bild wird unten festgemacht */
+	bottom: 217px; /* Bild wird unten festgemacht */
 }
 
 #canteen > .canteenbg {
@@ -550,4 +550,34 @@ p {
 
 #canteen > .bit {
 	font-weight: bold;
+}
+
+#canteen > .dessert {
+	left: 120%;
+	bottom: 312px;
+}
+
+#canteen > .food1txt, .food2txt, .food3txt, .souce1txt, .souce2txt, .souce3txt {
+	bottom: 120px;
+	left: 110%;
+}
+
+#canteen > .food.first, .food.second, .food.third, .souce.first, .souce.second, .souce.third {
+	bottom: 180px;
+	left: 110%;
+}
+
+#canteen > .lamp.first {
+	left: 20%; 
+	top: 0%;
+}
+
+#canteen > .lamp.second {
+	left: 50%;
+	top: 0%;
+}
+
+#canteen > .lamp.third {
+	left: 80%;
+	top: 0%;
 }
