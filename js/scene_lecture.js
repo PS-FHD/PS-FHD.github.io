@@ -39,6 +39,11 @@ $(document).ready(function($) {
 	var prow3_1 = TweenMax.fromTo(".ppl3.first", 1, {left: "42%",autoAlpha:1}, {left:"31%", autoAlpha:0});
 	var prow3_2 = TweenMax.fromTo(".ppl3.second", 1, {left: "55.5%"}, {left:"44.5%"}); 
 	
+	// Gedanken
+	var think1 = TweenMax.fromTo(".think.first", 1, {top: "56%",left: "32%",autoAlpha:0}, {left:"28.5%", autoAlpha:1});
+	var think2 = TweenMax.fromTo(".think.second", 1, {top: "52%",left: "88%",autoAlpha:0}, {left:"79%", autoAlpha:1});
+	var think3 = TweenMax.fromTo(".think.third", 1, {top: "50%",left: "20%",autoAlpha:0}, {left:"11%", autoAlpha:1});
+	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");
 	var secondTextblock = $("#lecture > .textblock:nth-of-type(2)");
@@ -63,13 +68,12 @@ $(document).ready(function($) {
 			redLeaves,
 			snow,
 			prof,
-			row1,
-			row2,
-			row3,
+			row1, row2, row3,
 			front,
 			prow1_1,prow1_2,prow1_3,prow1_4,
 			prow2_1,prow2_2,prow2_3,
 			prow3_1,prow3_2,
+			think1, think2, think3,
 			textTimeline
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
