@@ -8,7 +8,7 @@
 $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.	
 	
-	var day_night = TweenMax.fromTo(".daynight", 1, {right: "-15%", top:"18%"}, {right: "22%", ease: Linear.easeNone});
+	var day_night = TweenMax.to(".daynight", 1, {left: "610px", ease: Linear.easeNone});
 	
 	var table1Out = TweenMax.fromTo(".table.first", 0.1, {right: "20%", bottom:"0%"}, {autoAlpha:0, delay:0.5, ease: Linear.easeNone});
 	var table2In = TweenMax.fromTo(".table.second", 0.1, {right: "20%", bottom:"0%", autoAlpha:0}, {autoAlpha:1, delay:0.5, ease: Linear.easeNone});
