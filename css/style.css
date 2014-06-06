@@ -455,7 +455,7 @@ p {
 #selfstudy1 > .bookshelf{
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
-	right: 0;
+	left: 88%;
 }
 
 #selfstudy1 > .textblock {

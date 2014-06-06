@@ -9,10 +9,9 @@ $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
 	
 	
-	var backgroundBooks = TweenMax.to("#selfstudy1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
+	var backgroundBooks = TweenMax.to("#selfstudy1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});	
 	
-	
-	var bookshelfBG =  TweenMax.fromTo("#selfstudy1 > .bookshelfBG", 0.5, {left:"120%"}, {left:"-70%",  ease: Linear.easeNone});
+	var bookshelfBG =  TweenMax.fromTo("#selfstudy1 > .bookshelfBG", 0.5, {left: "120%"}, {left:"-70%", ease: Linear.easeNone});
 
 	var self1_textIn = TweenMax.fromTo("#selfstudy1 > .textblock", 0.4, {right: "-60%"}, {right: "2%", ease: Linear.easeNone});
 	
