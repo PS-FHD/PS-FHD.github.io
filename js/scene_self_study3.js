@@ -8,29 +8,29 @@
 $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.	
 	
-	var day_night = TweenMax.to(".daynight", 1, {left: "610px", ease: Linear.easeNone});
+	var day_night = TweenMax.to("#selfstudy3 > .daynight", 1, {left: "610px", ease: Linear.easeNone});
 	
-	var table1Out = TweenMax.fromTo(".table.first", 0.1, {right: "20%", bottom:"0%"}, {autoAlpha:0, delay:0.5, ease: Linear.easeNone});
-	var table2In = TweenMax.fromTo(".table.second", 0.1, {right: "20%", bottom:"0%", autoAlpha:0}, {autoAlpha:1, delay:0.5, ease: Linear.easeNone});
-	var table2Out = TweenMax.fromTo(".table.second", 0.1, {right: "20%",bottom :"0%", }, {autoAlpha:0, delay:0.7, ease: Linear.easeNone});
-	var table3In = TweenMax.fromTo(".table.third", 0.1, {right: "20%", bottom:"0%", autoAlpha:0}, {autoAlpha:1, delay:0.7, ease: Linear.easeNone});
+	var table1Out = TweenMax.to("#selfstudy3 > .table.first", 0.1, {autoAlpha:0, delay:0.5, ease: Linear.easeNone});
+	var table2In = TweenMax.fromTo("#selfstudy3 > .table.second", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.5, ease: Linear.easeNone});
+	var table2Out = TweenMax.to("#selfstudy3 > .table.second", 0.1, {autoAlpha:0, delay:0.7, ease: Linear.easeNone});
+	var table3In = TweenMax.fromTo("#selfstudy3 > .table.third", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.7, ease: Linear.easeNone});
 	
-	var cups1 = TweenMax.fromTo(".cups.first", 1, {left:"-80%", top:"64%"}, {left: "500%", ease: Linear.easeNone});
-	var cups2 = TweenMax.fromTo(".cups.second", 1, {left:"-160%", top:"66%"}, {left: "400%", ease: Linear.easeNone});
-	var cups3 = TweenMax.fromTo(".cups.third", 1, {left:"-150%", top:"86%"}, {left: "300%", ease: Linear.easeNone});
-	var cups4 = TweenMax.fromTo(".cups.fourth", 1, {left:"-250%", top:"71%"}, {left: "200%", ease: Linear.easeNone});
+	var cups1 = TweenMax.to("#selfstudy3 > .cups.first", 1, {left: "500%", ease: Linear.easeNone});
+	var cups2 = TweenMax.to("#selfstudy3 > .cups.second", 1, {left: "400%", ease: Linear.easeNone});
+	var cups3 = TweenMax.to("#selfstudy3 > .cups.third", 1, {left: "300%", ease: Linear.easeNone});
+	var cups4 = TweenMax.to("#selfstudy3 > .cups.fourth", 1, {left: "200%", ease: Linear.easeNone});
 	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#selfstudy3 > .textblock:nth-of-type(1)");
 	var secondTextblock = $("#selfstudy3 > .textblock:nth-of-type(2)");
 	var thirdTextblock  = $("#selfstudy3 > .textblock:nth-of-type(3)");
 	
-	var clock2 = TweenMax.fromTo(".clock.second", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.2, ease: Linear.easeNone});
-	var clock3 = TweenMax.fromTo(".clock.third", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.35, ease: Linear.easeNone});
-	var clock4 = TweenMax.fromTo(".clock.fourth", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.5, ease: Linear.easeNone});
-	var clock5 = TweenMax.fromTo(".clock.fifth", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.65, ease: Linear.easeNone});	
+	var clock2 = TweenMax.fromTo("#selfstudy3 > .clock.second", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.2, ease: Linear.easeNone});
+	var clock3 = TweenMax.fromTo("#selfstudy3 > .clock.third", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.35, ease: Linear.easeNone});
+	var clock4 = TweenMax.fromTo("#selfstudy3 > .clock.fourth", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.5, ease: Linear.easeNone});
+	var clock5 = TweenMax.fromTo("#selfstudy3 > .clock.fifth", 0.1, {autoAlpha:0}, {autoAlpha:1, delay:0.65, ease: Linear.easeNone});	
 	
-	var done = TweenMax.fromTo("#selfstudy3 > .bit", 0.1, {top: "30%", left: "43%", rotation: -45, autoAlpha:0}, {autoAlpha:1, delay: 0.7,  ease: Linear.easeNone});
+	var done = TweenMax.fromTo("#selfstudy3 > .bit", 0.1, {rotation: -45, autoAlpha:0}, {autoAlpha:1, delay: 0.7,  ease: Linear.easeNone});
 	
 	// Da die Tweens fuer die Textbloecke hintereinander Abgespielt werden, ist hier eine zusaetzliche Zeitleiste sinnvoll.
 	var textTimeline = new TimelineMax()

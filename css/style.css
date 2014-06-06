@@ -455,11 +455,15 @@ p {
 #selfstudy1 > .bookshelf{
 	max-height: 66.3%;
 	bottom: 0; /* Bild wird unten festgemacht */
-	left: 88%; 
+	right: 0;
 }
 
 #selfstudy1 > .textblock {
 	width: 60%;
+}
+
+#selfstudy1 > .bookshelfBG {
+	bottom: 0%;
 }
 
 /********************************
@@ -481,6 +485,46 @@ p {
 	top: 20%;
 }
 
+#selfstudy2 > .middleground {
+	bottom: 0;
+}
+
+#selfstudy2 > .palm.first {
+	right: -0.5%;
+	top: -5%;
+}
+
+#selfstudy2 > .palm.second {
+	right: -0.5%;
+	top: 23%;
+}
+
+#selfstudy2 > .cloud.one {
+	left: 90%;
+}
+
+#selfstudy2 > .cloud.two {
+	left: 110%;
+}
+
+#selfstudy2 > .cloud.three {
+	left: 60%;
+}
+
+#selfstudy2 > .foreground {
+	left: 100%;
+	top: 67%;
+}
+
+#selfstudy2 > .crab {
+	bottom: 40px;
+	left: 1500px;
+}
+
+#selfstudy2 > .bit {
+	top: 79%;
+	left: 40%;
+}
 
 
 /********************************
@@ -515,6 +559,37 @@ p {
 	left: 1347px;
 	top: 120px;
 }
+
+#selfstudy3 > .bit {
+	top: 30%;
+	left: 43%;
+}
+
+#selfstudy3 > .table {
+	right: 20%;
+	bottom: 0%;
+}
+
+#selfstudy3 > .cups.first {
+	left: -80%;
+	top: 64%;
+}
+
+#selfstudy3 > .cups.second {
+	left: -160%;
+	top: 66%;
+}
+
+#selfstudy3 > .cups.third {
+	left: -150%;
+	top: 86%;
+}
+
+#selfstudy3 > .cups.fourth {
+	left: -250%;
+	top: 71%;
+}
+
 
 /********************************
 ** erste Szene der Mensa 

@@ -12,12 +12,12 @@ $(document).ready(function($) {
 	var backgroundBooks = TweenMax.to("#selfstudy1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
 	
-	var bookshelf =  TweenMax.fromTo(".bookshelfBG", 0.5, {bottom: "0%", left:"120%"}, { left:"-70%",  ease: Linear.easeNone});
+	var bookshelfBG =  TweenMax.fromTo("#selfstudy1 > .bookshelfBG", 0.5, {left:"120%"}, {left:"-70%",  ease: Linear.easeNone});
 
 	var self1_textIn = TweenMax.fromTo("#selfstudy1 > .textblock", 0.4, {right: "-60%"}, {right: "2%", ease: Linear.easeNone});
 	
-	var self1_headOut = TweenMax.to("header.self1", 0.1, {autoAlpha: 0, delay: 0.7});
-	var self1_textOut = TweenMax.to("section.self1", 0.2, {autoAlpha: 0, delay: 0.7});
+	var self1_headOut = TweenMax.to("#selfstudy1 > header.self1", 0.1, {autoAlpha: 0, delay: 0.7});
+	var self1_textOut = TweenMax.to("#selfstudy1 > section.self1", 0.2, {autoAlpha: 0, delay: 0.7});
 
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
@@ -26,7 +26,7 @@ $(document).ready(function($) {
 			self1_textIn,
 			self1_headOut,
 			self1_textOut,
-			bookshelf
+			bookshelfBG
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#selfstudy1 > .sceneChange"), $("#selfstudy2"));

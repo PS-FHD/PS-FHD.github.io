@@ -9,40 +9,40 @@ $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
 	
 	// ich hab hier irgendwas kaputt gemacht und raffs nicht
-	var backgroundSky = TweenMax.to(".sky", 1, {left: "840px", ease: Linear.easeNone});
+	var backgroundSky = TweenMax.to("#lecture > .sky", 1, {left: "840px", ease: Linear.easeNone});
 	
 	// Baum
-	var orangeLeaves = TweenMax.fromTo(".tree.leaves.orange", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.4});
-	var redLeaves	 = TweenMax.fromTo(".tree.leaves.red", 0.75, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
+	var orangeLeaves = TweenMax.fromTo("#lecture > .tree.leaves.orange", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.4});
+	var redLeaves	 = TweenMax.fromTo("#lecture > .tree.leaves.red", 0.75, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
 	
 	// Schnee
-	var snow = TweenMax.fromTo(".snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
+	var snow = TweenMax.fromTo("#lecture > .snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
 	
 	// Sitzreihen
-	var row1 = TweenMax.fromTo(".row.first", 1, {left: "10%"}, {left:"9%", ease: Linear.easeNone});
-	var row2 = TweenMax.fromTo(".row.second", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var row3 = TweenMax.fromTo(".row.third", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
-	var front = TweenMax.fromTo(".front", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone});
+	var row1 = TweenMax.fromTo("#lecture > .row.first", 1, {left: "10%"}, {left:"9%", ease: Linear.easeNone});
+	var row2 = TweenMax.fromTo("#lecture > .row.second", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
+	var row3 = TweenMax.fromTo("#lecture > .row.third", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
+	var front = TweenMax.fromTo("#lecture > .front", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone});
 	
-	var prof = TweenMax.fromTo(".prof", 1, {left: "90%"}, {left:"29%"});
+	var prof = TweenMax.fromTo("#lecture > .prof", 1, {left: "90%"}, {left:"29%"});
 	
 	// Personen Reihe 1
-	var prow1_1 = TweenMax.fromTo(".ppl1.first", 1, {left: "12%",autoAlpha:1}, {left:"10%", autoAlpha:0});
-	var prow1_2 = TweenMax.fromTo(".ppl1.second", 1, {left: "27%"}, {left:"23.5%"});
-	var prow1_3 = TweenMax.fromTo(".ppl1.third", 1, {left: "51%",autoAlpha:1}, {left:"47.5%", autoAlpha:0});
-	var prow1_4 = TweenMax.fromTo(".ppl1.fourth", 1, {left: "78%",autoalpha:1}, {left:"74.5%", autoAlpha:0});
+	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "12%", autoAlpha:1}, {left:"10%", autoAlpha:0});
+	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 1, {left: "27%"}, {left:"23.5%"});
+	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "51%", autoAlpha:1}, {left:"47.5%", autoAlpha:0});
+	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 1, {left: "78%", autoalpha:1}, {left:"74.5%", autoAlpha:0});
 	// Personen Reihe 2
-	var prow2_1 = TweenMax.fromTo(".ppl2.first", 1, {left: "14%"}, {left:"5%"});
-	var prow2_2 = TweenMax.fromTo(".ppl2.second", 1, {left: "68%",autoAlpha:1}, {left:"59%", autoAlpha:0});
-	var prow2_3 = TweenMax.fromTo(".ppl2.third", 1, {left: "82%"}, {left:"73%"});
+	var prow2_1 = TweenMax.fromTo("#lecture > .ppl2.first", 1, {left: "14%"}, {left:"5%"});
+	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 1, {left: "68%", autoAlpha:1}, {left:"59%", autoAlpha:0});
+	var prow2_3 = TweenMax.fromTo("#lecture > .ppl2.third", 1, {left: "82%"}, {left:"73%"});
 	// personen Reihe 3
-	var prow3_1 = TweenMax.fromTo(".ppl3.first", 1, {left: "42%",autoAlpha:1}, {left:"31%", autoAlpha:0});
-	var prow3_2 = TweenMax.fromTo(".ppl3.second", 1, {left: "55.5%"}, {left:"44.5%"}); 
+	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 1, {left: "42%", autoAlpha:1}, {left:"31%", autoAlpha:0});
+	var prow3_2 = TweenMax.fromTo("#lecture > .ppl3.second", 1, {left: "55.5%"}, {left:"44.5%"}); 
 	
 	// Gedanken
-	var think1 = TweenMax.fromTo(".think.first", 1, {top: "56%",left: "32%",autoAlpha:0}, {left:"28.5%", autoAlpha:1});
-	var think2 = TweenMax.fromTo(".think.second", 1, {top: "52%",left: "88%",autoAlpha:0}, {left:"79%", autoAlpha:1});
-	var think3 = TweenMax.fromTo(".think.third", 1, {top: "50%",left: "20%",autoAlpha:0}, {left:"11%", autoAlpha:1});
+	var think1 = TweenMax.fromTo("#lecture > .think.first", 1, {top: "56%",left: "32%", autoAlpha:0}, {left:"28.5%", autoAlpha:1});
+	var think2 = TweenMax.fromTo("#lecture > .think.second", 1, {top: "52%",left: "88%", autoAlpha:0}, {left:"79%", autoAlpha:1});
+	var think3 = TweenMax.fromTo("#lecture > .think.third", 1, {top: "50%",left: "20%", autoAlpha:0}, {left:"11%", autoAlpha:1});
 	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");
