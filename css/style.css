@@ -506,7 +506,10 @@ p {
 	color: white;
 }
 
-
+#selfstudy3 > .clock {
+	bottom: 430px;
+	left: 1150px;
+}
 
 
 
