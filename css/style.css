@@ -499,12 +499,14 @@ p {
 
 #selfstudy2 > .palm.first {
 	right: -0.5%;
-	top: -5%;
+	top: -15%;
+	transform-origin: 100% 90%;
 }
 
 #selfstudy2 > .palm.second {
 	right: -0.5%;
 	top: 23%;
+	transform-origin: 100% 90%;
 }
 
 #selfstudy2 > .cloud.one {
