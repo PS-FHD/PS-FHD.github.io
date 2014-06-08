@@ -427,7 +427,7 @@ p {
 }
 
 /********************************
-** erste Szene des Selbststudiums - Biblio
+** Erste Szene des Selbststudiums - Biblio
 ********************************/
 #selfstudy1 {
 	background-image: url(../img/Selbststudium/Biblio/selbstst_hg_2500x660.jpg);
@@ -439,31 +439,32 @@ p {
 	height: 100%;
 }
 
-/* Trigger fuer den Szenenwechsel */
-#selfstudy1 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
-}
-
 #selfstudy1 > .learninggroup {
-	max-height: 66.3%;
+	height: 70.46%;
+	max-height: 465px;
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -295px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	/* Das Element um die Haelfte der eigene Breite und ein Stueck weiter nach links Uebersetzen. 
+	   Die zusaetzlichen 12.4% Verschiebung werden aufgrund des rechts platzierten tisches hinzugerechnet. */
+	transform: translate(-62.4%, 0);
+	-webkit-transform: translate(-62.4%, 0);
+	-ms-transform: translate(-62.4%, 0);
 }
 
-#selfstudy1 > .bookshelf{
-	max-height: 66.3%;
+#selfstudy1 > .righttable {
+	height: 41.07%;
+	max-height: 271px;
 	bottom: 0; /* Bild wird unten festgemacht */
-	left: 88%;
+	right: 0%;
 }
 
 #selfstudy1 > .textblock {
 	width: 60%;
 }
 
-#selfstudy1 > .bookshelfBG {
+#selfstudy1 > .foreground {
 	bottom: 0%;
+	height: 100%; /* Immer so hoch wie die Szene. */
 }
 
 /********************************
