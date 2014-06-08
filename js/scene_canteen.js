@@ -46,7 +46,7 @@ $(document).ready(function($) {
 	var headIn 	= TweenMax.fromTo("header.canteen", 0.4, {top: "15%", left:"-40%"}, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	var textIn 	= TweenMax.fromTo("section.canteen", 0.4, {top: "23%", left: "-80%" }, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	
-	var appLink = TweenMax.fromTo(".bit", 0.1, {autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
+	var appLink = TweenMax.fromTo("#canteen > .bit", 0.1, {autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()

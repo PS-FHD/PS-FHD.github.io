@@ -468,10 +468,11 @@ p {
 }
 
 /********************************
-** zweite Szene des Selbststudiums - Urlaub
+** Zweite Szene des Selbststudiums - Urlaub
 ********************************/
 #selfstudy2 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
+	background-size: auto 100%;
 }
 
 #selfstudy2 > .sceneChange {
@@ -480,14 +481,20 @@ p {
 	height: 100%;
 }
 
-/* Trigger fuer den Szenenwechsel */
-#selfstudy2 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
+#selfstudy2 > .middleground {
+	height: 100%; /* Immer so hoch wie die Szene. */
+	bottom: 0; /* Bild wird unten festgemacht */
+	left: 50%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 }
 
-#selfstudy2 > .middleground {
-	bottom: 0;
+#selfstudy2 > .foreground {
+	bottom: 0; /* Bild wird unten festgemacht */
+	max-height: 279px;
+	height: 42.28%;
 }
 
 #selfstudy2 > .palm.first {
@@ -501,32 +508,23 @@ p {
 }
 
 #selfstudy2 > .cloud.one {
-	left: 90%;
+	top: 10%;
+	max-height: 20.8%;
 }
 
 #selfstudy2 > .cloud.two {
-	left: 110%;
+	top: 20%;
+	max-height: 15.8%;
 }
 
 #selfstudy2 > .cloud.three {
-	left: 60%;
-}
-
-#selfstudy2 > .foreground {
-	left: 100%;
-	top: 67%;
+	top: 4%;
+	max-height: 22.8%;
 }
 
 #selfstudy2 > .crab {
-	bottom: 40px;
-	left: 1500px;
+	bottom: 5%;
 }
-
-#selfstudy2 > .bit {
-	top: 79%;
-	left: 40%;
-}
-
 
 /********************************
 ** dritte Szene des Selbststudiums - Eigenheim
