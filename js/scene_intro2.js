@@ -14,8 +14,7 @@ $(document).ready(function($) {
 	var shineFadeIn   = TweenMax.fromTo(shineElement, 0.2, {autoAlpha: 0}, {autoAlpha: 1, ease: Linear.easeNone});	
 	var shineFadeOut  = TweenMax.to(shineElement, 0.2, {autoAlpha: 0, delay: 0.7, ease: Linear.easeNone});
 	
-	var textBlockHead = TweenMax.from("#intro2 > .textblock h2", 0.35, {top: "-40%", ease: Linear.easeNone});
-	var textBlockPara = TweenMax.from("#intro2 > .textblock p", 0.35, {top: "90%", ease: Linear.easeNone});
+	var textBlock = TweenMax.from("#intro2 > .textblock", 0.25, {left: "-40%", ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
@@ -24,8 +23,7 @@ $(document).ready(function($) {
 			shineRotation,
 			shineFadeIn,
 			shineFadeOut,
-			textBlockHead,
-			textBlockPara
+			textBlock,
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#intro2 > .sceneChange"), $("#lecture"));
