@@ -193,6 +193,9 @@ p {
 	/* Wird spaeter per JS geaendert, dieser Wert dient erstmal nur dazu, das Element auss dem sichtbaren 
 	   Bereich heraus zu schieben, damit es spaeter wieder eingeschoben werden kann. */
 	left: 100%;
+	top: 0;
+	height: 100%;
+	width: 1000px;
 }
 
 /********************************
@@ -206,26 +209,14 @@ p {
 	left: 0%; /* Im Gegensatz zu allen anderen Szenen ist diese von anfang an sichtbar. */
 }
 
-#intro1 > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
-}
-
-/* !!! Allgemeine Info fuer Bilder
-** Immer max-height nehmen und diese so setzen, dass nicht in normaler (unverkleinerter)
-** Ansicht schon runtergerechnet werden muss, damit es nicht verpixelt aussieht.
-*/
-
-/* !!! 
-** Bilder koennen glaub ich nicht voll mittig platziert werden. 
-** Hier ist es mittig, so lange nicht verkleinert werden muss. */
-
 #intro1 > .student {
 	bottom: 0; /* Bild wird unten festgemacht */
 	max-height: 66.3%;
-	left: 50%; /* Bild in die Mitte schieben */
-	margin-left: -58px; /* Wert: (Absolute Bildbreite)/2 - sorgt dafuer, dass es ganz mittig ist */
+	left: 50%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 }
 
 /* Wolken positionieren */
@@ -287,12 +278,6 @@ p {
 	background-size: auto 100%;
 }
 
-#intro2 > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
-}
-
 #intro2 > .students {
 	bottom: 0;
 	left: 50%;
@@ -340,7 +325,6 @@ p {
 
 #lecture > .lectureroom {
 	left: 0;
-	/* lectureraum hat den index 1 bekommen, da er komplett vorne erscheinen soll.*/
 }
 
 #lecture > .board {
@@ -352,12 +336,6 @@ p {
 
 #lecture > .prof {
 	bottom: 13%;
-}
-
-#lecture > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
 }
 
 #lecture > .tree {
@@ -409,12 +387,6 @@ p {
 	background-image: url(../img/Selbststudium/Biblio/selbstst_hg_2500x660.jpg);
 }
 
-#selfstudy1 > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
-}
-
 #selfstudy1 > .learninggroup {
 	height: 70.46%;
 	max-height: 465px;
@@ -449,12 +421,6 @@ p {
 #selfstudy2 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
 	background-size: auto 100%;
-}
-
-#selfstudy2 > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
 }
 
 #selfstudy2 > .middleground {
@@ -511,18 +477,6 @@ p {
 	
 }
 
-#selfstudy3 > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
-}
-
-/* Trigger fuer den Szenenwechsel */
-#selfstudy3 > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
-}
-
 #selfstudy3 > .fixed {
 	color: white;
 }
@@ -573,18 +527,6 @@ p {
 ********************************/
 #canteen {
 	
-}
-
-#canteen > .sceneChange {
-	width: 1000px;
-	top: 0;
-	height: 100%;
-}
-
-/* Trigger fuer den Szenenwechsel */
-#canteen > .trigger.sceneChange {
-	left: 75%;
-	top: 20%;
 }
 
 #canteen > .serving-table.first {
