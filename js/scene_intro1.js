@@ -81,9 +81,11 @@ $(document).ready(function($) {
 	 *    @param event Die Ereignisdaten.
 	 **********************************************************************************/
 	function scene_enter(event) {
-		scrollHintIn.duration(0.25);
-		scrollHintIn.reverse();
-		scrollHintBounce.pause();
+		if (isPageFullyLoaded) {
+			scrollHintIn.duration(0.25);
+			scrollHintIn.reverse();
+			scrollHintBounce.pause();
+		}
 	}
 	
 	/***********************************************************************************
