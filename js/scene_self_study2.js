@@ -13,7 +13,7 @@ $(document).ready(function($) {
 	var cloud2 = TweenMax.fromTo("#selfstudy2 > .cloud.two", 1, {left: "60%"}, {left: "-25%", ease: Linear.easeNone});
 	var cloud3 = TweenMax.fromTo("#selfstudy2 > .cloud.three", 1, {left: "150%"}, {left: "45%", ease: Linear.easeNone});	
 		
-	var foreground = TweenMax.fromTo("#selfstudy2 > .foreground", 1, {left: "100%"}, {left: "-105%", delay: 0.2, ease: Linear.easeNone});
+	var foreground = TweenMax.fromTo("#selfstudy2 > .foreground", 0.8, {left: "100%"}, {left: "-105%", delay: 0.2, ease: Linear.easeNone});
 	
 	var crab = TweenMax.fromTo("#selfstudy2 > .crab", 1, {left: "100%"}, {left: "70%"});
 	
