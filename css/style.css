@@ -553,8 +553,7 @@ p {
 	font-weight: bold;
 }
 
-#canteen > .dessert {
-	left: 120%;
+#canteen > .dessertlink {
 	bottom: 312px;
 }
 
