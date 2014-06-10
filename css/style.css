@@ -472,24 +472,38 @@ p {
 }
 
 /********************************
-** dritte Szene des Selbststudiums - Eigenheim
+** Dritte Szene des Selbststudiums - Eigenheim
 ********************************/
-#selfstudy3 {
-	
+#selfstudy3 > .middleground {
+	/* Immer so gross wie die Szene und 1% uebergroesse damit der Szenenhintergrund auch wirklich immer vollsteandig augefuellt ist (durch
+	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
+	height: 100%;
+	left: 50%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 }
 
-#selfstudy3 > .fixed {
-	color: white;
+#selfstudy3 > .middleground > .daynight {
+	position: absolute;
+	left: 67%;
+	top: 17.88%;
+	height: 38.19%;
+	max-heigth: 252px;
+	z-index: -1;
 }
 
-#selfstudy3 > .clock {
-	bottom: 430px;
-	left: 1150px;
+#selfstudy3 > .middleground > .background {
+	height: 100%;
 }
 
-#selfstudy3 > .daynight {
-	left: 1347px;
-	top: 120px;
+#selfstudy3 > .middleground > .clock {
+	position: absolute;
+	top: 24%;
+	left: 57%;
+	height: 18.94%;
+	max-height: 125px;
 }
 
 #selfstudy3 > .bit {
@@ -497,29 +511,44 @@ p {
 	left: 43%;
 }
 
-#selfstudy3 > .table {
-	right: 20%;
-	bottom: 0%;
+#selfstudy3 > .student {
+	height: 50.16%;
+	max-height: 331px;
+	bottom: 0; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	/* Das Element um die Haelfte der eigene Breite und ein Stueck weiter nach links Uebersetzen. 
+	   Die zusaetzlichen 10% Verschiebung werden hinzugerechnet um den Studenten moeglichst in der Mitte der Szene zu platzieren. */
+	transform: translate(-60%, 0);
+	-webkit-transform: translate(-60%, 0);
+	-ms-transform: translate(-60%, 0);
 }
 
-#selfstudy3 > .cups.first {
-	left: -80%;
+#selfstudy3 > .student.third {
+	height: 65.31%;
+	max-height: 431px;
+}
+#selfstudy3 > .foreground.first {
 	top: 64%;
+	height: 36.22%;
+	max-height: 239px;
 }
 
-#selfstudy3 > .cups.second {
-	left: -160%;
+#selfstudy3 > .foreground.second {
 	top: 66%;
+	height: 34.4%;
+	max-height: 227px;
 }
 
-#selfstudy3 > .cups.third {
-	left: -150%;
+#selfstudy3 > .foreground.third {
 	top: 86%;
+	height: 14.25%;
+	max-height: 94px;
 }
 
-#selfstudy3 > .cups.fourth {
-	left: -250%;
+#selfstudy3 > .foreground.fourth {
 	top: 71%;
+	height: 29.55%;
+	max-height: 195px;
 }
 
 
