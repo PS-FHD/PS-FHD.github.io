@@ -387,6 +387,7 @@ p {
 ********************************/
 #selfstudy1 {
 	background-image: url(../img/Selbststudium/Biblio/selbstst_hg_2500x660.jpg);
+	background-size: auto 100%;
 }
 
 #selfstudy1 > .learninggroup {
