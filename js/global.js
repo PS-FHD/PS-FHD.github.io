@@ -127,6 +127,13 @@ $(document).ready(function($) {
 		if (!DEBUG)
 			fd_pageScrollElement.scrollLeft(0);
 		
+		/* Umgeht ein Problem mit ScrollMagic, welches den Scrollcontainer beim Erreichen der min- bzw. max- height falsch Skaliert. 
+		   Bezieht sich auf jquery.scrollmagic.js (version 1.0.7) Zeile 830 bis 836. */
+		// Eigentlich waere das manuelle Beachten von min- und max-height nicht notwendig, aber Safari unterstuetzt das nicht richtig...
+		var minHeight = parseInt(scrollContainer.css("min-height"), 10);
+		var maxHeight = parseInt(scrollContainer.css("max-height"), 10);
+		scrollContainer.css("height", Math.min(Math.max(minHeight, $(window).height()), maxHeight) + "px");
+			
 		// Berechnete Hoehe des Scrollcontainers ermitteln.
 		var scrollContainerHeight = parseInt(scrollContainer.css("height"), 10);
 		
