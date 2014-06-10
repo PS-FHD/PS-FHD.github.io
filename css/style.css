@@ -444,13 +444,19 @@ p {
 #selfstudy2 > .palm.first {
 	right: -0.5%;
 	top: -15%;
+	height: 72.85%;
+	max-height: 479px;
 	transform-origin: 100% 90%;
+	-webkit-transform-origin: 100% 90%;
 }
 
 #selfstudy2 > .palm.second {
 	right: -0.5%;
 	top: 23%;
+	height: 59.55%;
+	max-height: 393px;
 	transform-origin: 100% 90%;
+	-webkit-transform-origin: 100% 90%;
 }
 
 #selfstudy2 > .cloud.one {
