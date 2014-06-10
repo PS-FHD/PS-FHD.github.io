@@ -48,6 +48,7 @@ p {
 
 .pace.pace-inactive {
 	-webkit-animation: pace-blend 1s linear 1;
+	animation: pace-blend 1s linear 1;
 	opacity: 0;
 }
 
