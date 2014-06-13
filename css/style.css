@@ -630,3 +630,89 @@ p {
 	left: 72%;
 	bottom: 460px; 
 }
+
+
+
+/********************************
+** erste Szene der Mensa 
+********************************/
+#feature {
+	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
+	background-size: auto 100%;
+	
+}
+
+#feature > .window-frame {
+	/* Immer so gross wie die Szene und 1% uebergroesse damit der Szenenhintergrund auch wirklich immer vollsteandig augefuellt ist (durch
+	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
+	height: 100%;
+	left: 50%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+}
+
+#feature > .boy{ 
+		
+	bottom: 0%;
+	left: 50%;
+}
+
+/*links nach rechts*/
+#feature > .logo.first, .logo.fourth, .logo.seventh, .logo2.first, .logo2.fourth, .logo2.seventh { 
+	top: 5%;
+	
+}
+
+#feature > .logo.second, .logo.fifth, .logo.eighth ,.logo2.second, .logo2.fifth, .logo2.eighth { 
+	top: 30%;
+}
+
+#feature > .logo.third, .logo.sixth, .logo.ninth ,.logo2.third, .logo2.sixth { 
+	top: 60%;
+}
+/*oben nach unten*/
+#feature > .logo.first, .logo.second, .logo.third,.logo2.first, .logo2.second, .logo2.third { 
+	left: 24%;
+}
+
+#feature > .logo.fourth, .logo.fifth, .logo.sixth, .logo2.fourth, .logo2.fifth, .logo2.sixth { 
+	left: 42%;
+}
+#feature > .logo.seventh, .logo.eighth, .logo.ninth, .logo2.seventh, .logo2.eighth { 
+	left: 58%;
+}
+
+#feature > .girl.first
+{
+	left: 24%;
+	top: 5%;
+}
+#feature > .girl.second
+{
+	left: 24%;
+	top: 60%;
+}
+#feature > .girl.third
+{
+	left: 24%;
+	top: 30%;
+}
+#feature > .girl.fourth
+{
+	left: 42%;
+	top: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

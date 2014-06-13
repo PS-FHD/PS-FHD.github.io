@@ -76,9 +76,9 @@ $(document).ready(function($) {
 			tomato,
 			souceSub,
 			appLink
-		]);
+		])
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
-		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
+		.addSceneChange($("#canteen > .sceneChange"), $("#feature"));
 	
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 15000px bis 17500px abgespielt.
 	addScene(new ScrollScene({duration: 2500})
