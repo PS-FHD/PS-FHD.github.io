@@ -634,11 +634,10 @@ p {
 
 
 /********************************
-** erste Szene der Mensa 
+** erste Szene der features 
 ********************************/
 #feature {
-	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
-	background-size: auto 100%;
+	background-color: #000000;
 	
 }
 
@@ -647,6 +646,8 @@ p {
 	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
 	height: 100%;
 	left: 50%;
+	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
+	background-height: 100%;	
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
@@ -659,36 +660,42 @@ p {
 	left: 50%;
 }
 
+#feature > .logo{
+	height: 23.6%;
+}
+
 /*links nach rechts*/
-#feature > .logo.first, .logo.fourth, .logo.seventh, .logo2.first, .logo2.fourth, .logo2.seventh { 
-	top: 5%;
-	
+#feature > .logo.first, .logo.fourth, .logo.seventh, .blackbox, .logo2.first{ 
+	top: 4.9%;
 }
 
-#feature > .logo.second, .logo.fifth, .logo.eighth ,.logo2.second, .logo2.fifth, .logo2.eighth { 
-	top: 30%;
+#feature > .logo.second, .logo.fifth, .logo.eighth, .logo2.second{ 
+	top: 31.9%;
 }
 
-#feature > .logo.third, .logo.sixth, .logo.ninth ,.logo2.third, .logo2.sixth { 
-	top: 60%;
+#feature > .logo.third, .logo.sixth, .logo.ninth, .logo2.third, .logo2.fourth, .logo2.fifth{ 
+	top: 58.6%;
 }
 /*oben nach unten*/
-#feature > .logo.first, .logo.second, .logo.third,.logo2.first, .logo2.second, .logo2.third { 
-	left: 24%;
+#feature > .logo.first, .logo.second, .logo.third, .logo2.first, .logo2.second, .logo2.third{ 
+	left: 24.17%;
 }
 
-#feature > .logo.fourth, .logo.fifth, .logo.sixth, .logo2.fourth, .logo2.fifth, .logo2.sixth { 
-	left: 42%;
+#feature > .logo.fourth, .logo.fifth, .logo.sixth, .blackbox, .logo2.fourth{ 
+	left: 41.64%;
 }
-#feature > .logo.seventh, .logo.eighth, .logo.ninth, .logo2.seventh, .logo2.eighth { 
-	left: 58%;
+#feature > .logo.seventh, .logo.eighth, .logo.ninth, .logo2.fifth{ 
+	left: 59.22%;
 }
 
+/*??bilder von weib??*/
+/*
 #feature > .girl.first
 {
 	left: 24%;
 	top: 5%;
 }
+
 #feature > .girl.second
 {
 	left: 24%;
@@ -704,7 +711,7 @@ p {
 	left: 42%;
 	top: 60%;
 }
-
+*/
 
 
 
