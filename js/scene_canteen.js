@@ -39,14 +39,14 @@ $(document).ready(function($) {
 	var souceSub = TweenMax.fromTo("#canteen > .souce.subtxt", 0.62, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-40%",autoAlpha:1, ease: Linear.easeNone, delay:0.32});
 	
 	
-	var arrow = TweenMax.fromTo("#canteen > .arrow", 0.2, {rotation: -10, autoAlpha: 0}, {autoAlpha: 1, delay: 0.7, ease: Linear.easeNone});
+	var arrow = TweenMax.fromTo("#canteen > .arrow", 0.1, {rotation: -10, autoAlpha: 0}, {autoAlpha: 1, delay: 0.6, ease: Linear.easeNone});
 	
-	var dessert = TweenMax.fromTo("#canteen > .dessertlink", 0.3, {left:"120%"}, {left:"70%", delay: 0.4, ease: Linear.easeNone});	
+	var dessert = TweenMax.fromTo("#canteen > .dessertlink", 0.3, {left:"120%"}, {left:"70%", delay: 0.3, ease: Linear.easeNone});	
 	
 	var headIn 	= TweenMax.fromTo("header.canteen", 0.4, {top: "15%", left:"-40%"}, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	var textIn 	= TweenMax.fromTo("section.canteen", 0.4, {top: "23%", left: "-80%" }, { left:"15%", delay: 0.1, ease: Linear.easeNone});
 	
-	var appLink = TweenMax.fromTo("#canteen > .bit", 0.1, {autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.8});
+	var appLink = TweenMax.fromTo("#canteen > .bit", 0.1, {autoAlpha: 0}, {autoAlpha:1, ease: Linear.easeNone, delay:0.6});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
