@@ -34,6 +34,65 @@ p {
 	margin-top: 12px;
 }
 
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: black;
+  position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 10000;
+}
+
+.pace.pace-inactive {
+	-webkit-animation: pace-blend 1s linear 1;
+	animation: pace-blend 1s linear 1;
+	opacity: 0;
+}
+
+.pace .pace-activity {
+  position: fixed;
+	top: 40%;
+	left: 50%;
+	content: '';
+	width: 30px;
+	height: 30px;
+	margin-left: -30px;
+	margin-bottom: -30px;
+	border: 5px solid #CCC;
+	border-radius: 50%;
+	border-top-color: black;
+	border-bottom-color: black;
+	-webkit-animation: pace-rotation 1s linear infinite;
+	animation: pace-rotation 1s linear infinite;
+}
+
+.pace.pace-inactive .pace-activity {
+  display: none;
+}
+
+@-webkit-keyframes pace-rotation {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+
+@keyframes pace-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@-webkit-keyframes pace-blend {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pace-blend {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 /* Klassen zur Aenderung der Schriftgroesse, muss noch festgestellt werden, welche wieder weg koennen */
 .s300 { font-size: 300%; }
 .s200 { font-size: 200%; }

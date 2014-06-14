@@ -17,6 +17,9 @@ var globalPinScene;
    Moegliche Werte sind das HTML-Element, BODY-Element oder undefined.*/
 var fd_pageScrollElement;
 
+// Gibt an ob die Seite vollstaendig geladen wurde.
+var isPageFullyLoaded = false;
+
 /****************************************************************************************************
  *    Haengt die gegebene Szene im Scrollverlauf hinten an die zuletzt hinzugefuegte Szene an.
  *    
@@ -43,7 +46,13 @@ function addScene(scrollScene) {
  **********************************************************************************/
 $(document).ready(function($) {
 	setupScrollMagic();
-
+	Pace.once("done", pace_done);
+	
+	function pace_done() {
+		isPageFullyLoaded = true;
+		fd_pageScrollElement.scrollLeft(0);
+	}
+	
 	/* Achtung: Muss nach setupScrollMagic aufgerufen werden, da diese Funktion fuer 
 	   einige tests einen scrollbaren Bereich benoetigt.*/
 	browserFeatureDetection();
