@@ -27,22 +27,27 @@ $(document).ready(function($) {
 	var prof = TweenMax.fromTo("#lecture > .prof", 1, {left: "90%"}, {left:"29%"});
 	
 	// Personen Reihe 1
-	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "12%", autoAlpha:1}, {left:"10%", autoAlpha:0});
-	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 1, {left: "27%"}, {left:"23.5%"});
-	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "51%", autoAlpha:1}, {left:"47.5%", autoAlpha:0});
-	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 1, {left: "78%", autoalpha:1}, {left:"74.5%", autoAlpha:0});
+	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
+	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 1, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
+	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
+	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 1, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, ease: Linear.easeNone});
 	// Personen Reihe 2
-	var prow2_1 = TweenMax.fromTo("#lecture > .ppl2.first", 1, {left: "14%"}, {left:"5%"});
-	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 1, {left: "68%", autoAlpha:1}, {left:"59%", autoAlpha:0});
-	var prow2_3 = TweenMax.fromTo("#lecture > .ppl2.third", 1, {left: "82%"}, {left:"73%"});
+	var prow2_1 = TweenMax.fromTo("#lecture > .ppl2.first", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
+	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 1, {left: "10%", autoAlpha:1}, {left:"1%", autoAlpha:0, delay: 0.1, ease: Linear.easeNone});
+	var prow2_3 = TweenMax.fromTo("#lecture > .ppl2.third",1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
 	// personen Reihe 3
-	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 1, {left: "42%", autoAlpha:1}, {left:"31%", autoAlpha:0});
-	var prow3_2 = TweenMax.fromTo("#lecture > .ppl3.second", 1, {left: "55.5%"}, {left:"44.5%"}); 
+	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 1, {left: "10%", autoAlpha:1}, {left:"-3.3%", autoAlpha:0, ease: Linear.easeNone});
+	var prow3_2 = TweenMax.fromTo("#lecture > .ppl3.second", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone}); 
 	
 	// Gedanken
 	var think1 = TweenMax.fromTo("#lecture > .think.first", 1, {top: "56%",left: "32%", autoAlpha:0}, {left:"28.5%", autoAlpha:1});
 	var think2 = TweenMax.fromTo("#lecture > .think.second", 1, {top: "52%",left: "88%", autoAlpha:0}, {left:"79%", autoAlpha:1});
 	var think3 = TweenMax.fromTo("#lecture > .think.third", 1, {top: "50%",left: "20%", autoAlpha:0}, {left:"11%", autoAlpha:1});
+
+	// Folien
+	var ppt1 = TweenMax.fromTo("#lecture > .ppt.first", 1, {autoAlpha:0}, { delay: 0.2, autoAlpha:1});
+	var ppt2 = TweenMax.fromTo("#lecture > .ppt.second", 1, {autoAlpha:0}, { delay: 0.5, autoAlpha:1});
+	var ppt3 = TweenMax.fromTo("#lecture > .ppt.third", 1, {autoAlpha:0}, { delay: 0.7, autoAlpha:1});
 	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");
@@ -74,6 +79,7 @@ $(document).ready(function($) {
 			prow2_1,prow2_2,prow2_3,
 			prow3_1,prow3_2,
 			think1, think2, think3,
+			ppt1, ppt2, ppt3,
 			textTimeline
 		])
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.

@@ -296,6 +296,14 @@ a:active {
 	-ms-transform: translate(-52%, 0);
 }
 
+#lecture > .ppt {
+	top: 10%;
+	left: 58%;
+	transform: translate(-58%, 0);
+	-webkit-transform: translate(-58%, 0);
+	-ms-transform: translate(-58%, 0);
+}
+
 #lecture > .prof {
 	bottom: 13%;
 }
