@@ -152,7 +152,7 @@ Greensock License info at http://www.greensock.com/licensing/
 				_updateScenesOnNextTick = false;
 			}
 		};
-		
+		              
 		/**
 		* Handles Container changes
 		* @private
@@ -187,6 +187,14 @@ Greensock License info at http://www.greensock.com/licensing/
 		 * public functions
 		 * ----------------------------------------------------------------
 		 */
+
+                /**
+                 * Rückgabe aller Szenenobjekte                 
+                 * @returns {Array}
+                 */
+                this.getScenes = function () {
+                    return _sceneObjects;
+                }
 
 		/**
 		 * Add one ore more scene(s) to the controller.  
