@@ -8,15 +8,15 @@
 $(document).ready(function($) {
 	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
 	
-	// ich hab hier irgendwas kaputt gemacht und raffs nicht
-	var backgroundSky = TweenMax.to("#lecture > .sky", 1, {left: "840px", ease: Linear.easeNone});
+	// Himmel
+	var backgroundSky = TweenMax.to("#lecture > .sky", 1, {left: "364px", ease: Linear.easeNone});
 	
 	// Baum
-	var orangeLeaves = TweenMax.fromTo("#lecture > .tree.leaves.orange", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.4});
-	var redLeaves	 = TweenMax.fromTo("#lecture > .tree.leaves.red", 0.75, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
+	var orangeLeaves = TweenMax.fromTo("#lecture > .tree.leaves.orange", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
+	var redLeaves	 = TweenMax.fromTo("#lecture > .tree.leaves.red", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
 	
 	// Schnee
-	var snow = TweenMax.fromTo("#lecture > .snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.2});
+	var snow = TweenMax.fromTo("#lecture > .snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.4});
 	
 	// Sitzreihen
 	var row1 = TweenMax.fromTo("#lecture > .row.first", 1, {left: "10%"}, {left:"9%", ease: Linear.easeNone});

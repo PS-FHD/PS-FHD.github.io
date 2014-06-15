@@ -290,10 +290,10 @@ a:active {
 }
 
 #lecture > .board {
-	left: 52%;
-	transform: translate(-52%, 0);
-	-webkit-transform: translate(-52%, 0);
-	-ms-transform: translate(-52%, 0);
+	left: 50%;
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 }
 
 #lecture > .ppt {
@@ -323,18 +323,24 @@ a:active {
 #lecture > .prof {
 	bottom: 13%;
 }
+#lecture > .sky {
+	left: 1264px;
+}
+#lecture > .snow {
+	left: 1264px;
+}
 
 #lecture > .tree {
-	left: 1470px;
+	left: 1270px;
 }
 
 #lecture > .tree.trunk {
-	left: 1490px;
+	left: 1290px;
 	top: 30px;
 }
 
 #lecture > .tree.leaves.orange {
-	left: 1525px;
+	left: 1325px;
 	top: 20px;
 }
 
