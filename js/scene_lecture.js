@@ -28,15 +28,15 @@ $(document).ready(function($) {
 	
 	// Personen Reihe 1
 	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 1, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
+	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 0.9, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
 	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 1, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, ease: Linear.easeNone});
+	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 0.8, {left: "10%", autoAlpha:1}, {left:"4%", autoAlpha:0, ease: Linear.easeNone});
 	// Personen Reihe 2
 	var prow2_1 = TweenMax.fromTo("#lecture > .ppl2.first", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
-	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 1, {left: "10%", autoAlpha:1}, {left:"1%", autoAlpha:0, delay: 0.1, ease: Linear.easeNone});
+	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 0.3, {left: "10%", autoAlpha:1}, {left:"6%", autoAlpha:0, ease: Linear.easeNone});
 	var prow2_3 = TweenMax.fromTo("#lecture > .ppl2.third",1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
 	// personen Reihe 3
-	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 1, {left: "10%", autoAlpha:1}, {left:"-3.3%", autoAlpha:0, ease: Linear.easeNone});
+	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 0.6, {left: "10%", autoAlpha:1}, {left:"1%", autoAlpha:0, ease: Linear.easeNone});
 	var prow3_2 = TweenMax.fromTo("#lecture > .ppl3.second", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone}); 
 	
 	// Gedanken
@@ -45,9 +45,9 @@ $(document).ready(function($) {
 	var think3 = TweenMax.fromTo("#lecture > .think.third", 1, {top: "50%",left: "20%", autoAlpha:0}, {left:"11%", autoAlpha:1});
 
 	// Folien
-	var ppt1 = TweenMax.fromTo("#lecture > .ppt.first", 1, {autoAlpha:0}, { delay: 0.2, autoAlpha:1});
-	var ppt2 = TweenMax.fromTo("#lecture > .ppt.second", 1, {autoAlpha:0}, { delay: 0.5, autoAlpha:1});
-	var ppt3 = TweenMax.fromTo("#lecture > .ppt.third", 1, {autoAlpha:0}, { delay: 0.7, autoAlpha:1});
+	var ppt1 = TweenMax.fromTo("#lecture > .ppt.first", 0.34, {autoAlpha:1}, {autoAlpha:0});
+	var ppt2 = TweenMax.fromTo("#lecture > .ppt.second", 0.33, {autoAlpha:0}, { delay: 0.34, autoAlpha:1});
+	var ppt3 = TweenMax.fromTo("#lecture > .ppt.third", 0.33, {autoAlpha:0}, { delay: 0.67, autoAlpha:1});
 	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");
