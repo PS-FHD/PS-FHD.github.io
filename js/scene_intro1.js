@@ -76,16 +76,14 @@ $(document).ready(function($) {
 		.on("progress", scene_progress));
 	
 	/***********************************************************************************
-	 *    Event-Handler der beim Starten der Szene aufgerufen wird.
-	 *    
+	 *    Event-Handler der beim Starten der Szene (Eintritt in die Szene durch Scrollen) aufgerufen wird.
+	 *    'Beendet' den ScrollHint. 
 	 *    @param event Die Ereignisdaten.
 	 **********************************************************************************/
 	function scene_enter(event) {
-		if (isPageFullyLoaded) {
 			scrollHintIn.duration(0.25);
 			scrollHintIn.reverse();
 			scrollHintBounce.pause();
-		}
 	}
 	
 	/***********************************************************************************
