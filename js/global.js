@@ -53,6 +53,10 @@ $(document).ready(function($) {
 	// Den Event-Handler einmal manuell Aufrufen.
 	window_resize();
 	
+	$(window).scroll(function() {
+		
+	});
+	
 	/***********************************************************************************
 	 *    Grundsaetzliches einrichten von Scroll Magic.
 	 *    Erstellen des controllers und einrichten der Szene fuer den dauerpin.
