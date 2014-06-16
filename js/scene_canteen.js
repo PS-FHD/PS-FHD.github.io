@@ -15,6 +15,13 @@ $(document).ready(function($) {
 	var student4 = TweenMax.fromTo("#canteen > .boy.fourth", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.6, autoAlpha:1});	
 	var student5 = TweenMax.fromTo("#canteen > .boy.fifth", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.8,  autoAlpha:1});
 	
+	// die Studenten im Hintergrund jeweils ausblenden um Überlagerung zu verhindern.
+	
+	var student1out = TweenMax.to("#canteen > .boy.first", 0, {delay: 0.4, autoAlpha:0});
+	var student2out = TweenMax.to("#canteen > .boy.second", 0, {delay: 0.6, autoAlpha:0});	
+	var student3out = TweenMax.to("#canteen > .boy.third", 0, {delay: 0.8, autoAlpha:0});
+	var student4out = TweenMax.to("#canteen > .boy.fourth", 0, {delay: 1, autoAlpha:0});
+	
 	
 	var food1 = TweenMax.to("#canteen > .food.first", 0.62, {left:"-40%", ease: Linear.easeNone});
 	var food2 = TweenMax.to("#canteen > .food.second", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.07});
@@ -60,6 +67,10 @@ $(document).ready(function($) {
 			student3,
 			student4,
 			student5,
+			student1out,
+			student2out,
+			student3out,
+			student4out,
 			food1,
 			food2,
 			food3,
