@@ -28,9 +28,9 @@ $(document).ready(function($) {
 	var food3 = TweenMax.to("#canteen > .food.third", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.14});
 	
 	//texte f�r food
-	var pommes 	= TweenMax.to("#canteen > .food1txt", 0.62, {left:"-40%", ease: Linear.easeNone});
-	var bifteki	= TweenMax.to("#canteen > .food2txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.07});
-	var gemuese	= TweenMax.to("#canteen > .food3txt",  0.62, {left:"-40%", ease: Linear.easeNone, delay:0.14});
+	var pommes 	= TweenMax.to("#canteen > .food1txt", 0.62, {left:"-38%", ease: Linear.easeNone});
+	var bifteki	= TweenMax.to("#canteen > .food2txt", 0.62, {left:"-38%", ease: Linear.easeNone, delay:0.07});
+	var gemuese	= TweenMax.to("#canteen > .food3txt",  0.62, {left:"-38%", ease: Linear.easeNone, delay:0.14});
 	
 	var foodSub	= TweenMax.fromTo("#canteen > .food.subtxt",  0.62, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-40%", autoAlpha: 1, ease: Linear.easeNone, delay:0.03});	
 	
@@ -38,10 +38,10 @@ $(document).ready(function($) {
 	var souce2 = TweenMax.to("#canteen > .souce.second", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.35});
 	var souce3 = TweenMax.to("#canteen > .souce.third", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.42});
 	
-	// texte f�r souce
-	var curry = TweenMax.to("#canteen > .souce1txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay: 0.28});
-	var pesto = TweenMax.to("#canteen > .souce3txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.35});
-	var tomato = TweenMax.to("#canteen > .souce2txt", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.42});
+	// texte f�r souce ; unterschiedliche "left"-Werte für leichten Parallaxeneffekt der Schrift
+	var curry = TweenMax.to("#canteen > .souce1txt", 0.62, {left:"-37%", ease: Linear.easeNone, delay: 0.28});
+	var pesto = TweenMax.to("#canteen > .souce2txt", 0.62, {left:"-36%", ease: Linear.easeNone, delay:0.42});
+	var tomato = TweenMax.to("#canteen > .souce3txt", 0.62, {left:"-38%", ease: Linear.easeNone, delay:0.35});
 	
 	var souceSub = TweenMax.fromTo("#canteen > .souce.subtxt", 0.62, {left: "110%", bottom:"6%", autoAlpha: 0}, {left:"-40%",autoAlpha:1, ease: Linear.easeNone, delay:0.32});
 	
