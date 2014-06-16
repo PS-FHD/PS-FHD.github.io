@@ -10,6 +10,26 @@ var sceneWidth;
 // Die Szene die fuer den Dauerpin genutzt wird, deren Parameter muessen spaeter noch veraendert werden.
 var globalPinScene;
 
+// Zum Zaehlen, ob etwas zum ersten Mal eintritt.
+// eingesetzt in function scene_leave in scene_intro2.js zum Stellen der Uhr in der VorlesungsSzene
+var globalCounterFirstTime = true;
+
+/* *** UHR *** */
+
+// globale Variablen fuer die Uhrzeit der Uhr in der VorlesungsSzene (lecture) */
+globalIntSek = 0; 		// Sekunden
+globalIntMin = 15; 		// Minuten
+globalIntStd = 8; 		// Stunden
+		
+// damit das Ziffernblatt der Uhr sofort auf der Seite sichtbar ist, wird es als Image geladen, bevor der DomBaum ready ist
+var objImgUhr = new Image();
+objImgUhr.src = "img/clock/clock_face.png";
+
+// globale Variable fuer die temporaere Scrollposition - wichtig in der VorlesungsSzene fuer die Realisierung der Uhr
+var globalTempScrollPosition = 0;
+
+/* *** UHR ENDE *** */
+
 /* ** Variablen die Ergebnisse zur Browser Feature Detection speichern. ** */
 /* Gibt das jQuery-Element an, fuer das die Scrollposition der Seite gesetzt 
    werden kann. Dabei handelt es sich normalerweise um das BODY-Element, manche 
