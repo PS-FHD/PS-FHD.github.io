@@ -17,22 +17,22 @@ var globalPinScene;
    Moegliche Werte sind das HTML-Element, BODY-Element oder undefined.*/
 var fd_pageScrollElement;
 
+var totalScrollLength = 0;
+
 /****************************************************************************************************
  *    Haengt die gegebene Szene im Scrollverlauf hinten an die zuletzt hinzugefuegte Szene an.
  *    
  *    @param scrollScene Die hinzuzufuegende Szene.
  ***************************************************************************************************/
 function addScene(scrollScene) {
-	var currentPinDuration = globalPinScene.duration();
-	var newPinDuration = currentPinDuration + scrollScene.duration();
+	// Die neue Szenen einreihen indem ihr eine Start-Scrollposition zugeweisen wird.
+	scrollScene.offset(totalScrollLength);
 	
-	// Die neue Szenen einreihen indem ihr eine Start-Scrollposition zugeweisen wird. 
-	scrollScene.offset(currentPinDuration);
-	// Neue Szenen verlaengern die Dauer der Szene fuer den dauerpin entsprechend.
-	globalPinScene.duration(newPinDuration);
+	var newScrollLength = totalScrollLength + scrollScene.duration();
+	totalScrollLength = newScrollLength;
 	
-	// Header und Footer ueber die gesamte Scrolllaenge strecken.
-	$("#scrollContainer > header, #scrollContainer > footer").css("width", newPinDuration + sceneWidth + "px");
+	// Spacer ueber die gesamte Scrolllaenge strecken um die Scrollbar zu erzeugen.
+	$("#scrollSpacer").width(newScrollLength + sceneWidth);
 }
 
 /***********************************************************************************
@@ -68,17 +68,8 @@ $(document).ready(function($) {
 			}
 		);
 		
-		/* Eine Scroll Magic Szene die nur dazu dient, #intro1 ueber die gesamte Dauer des scrollings zu Pinnen.
-		   Hinweis: Durch einen Pin wird die Szene quasi auf dem Bildschirm fixiert. Da die erste Szene alle weiteren
-		   Szenen enthaelt, kann diese einfach dauerhaft Gepinnt werden. Neue Szenen schieben sich dann nach und nach
-		   ueber die Erste. Achtung: Als Ersatz kann hier nicht der scrollContainer verwendet werden, da dieser 
-		   absolut positioniert sein muss. */
-		globalPinScene = new ScrollScene({duration: 0})
-			.setPin("#intro1")
-			.addTo(controller);
-		
-		// Allgemeine Breite einer Szene feststellen, wobei jede Szene nach CSS immer so Breit wie der Scrollcontainer ist. 
-		sceneWidth = parseInt($("#scrollContainer").css("width"), 10);
+		// Allgemeine Breite einer Szene feststellen, wobei jede Szene nach CSS immer so Breit wie der Scenecontainer ist. 
+		sceneWidth = $("#sceneContainer").width();
 	}
 	
 	/***********************************************************************************
@@ -90,7 +81,7 @@ $(document).ready(function($) {
 		var htmlElement = $("html");
 		var bodyElement = $("body");
 		
-		globalPinScene.duration(10000);
+		$("#scrollSpacer").width(10000);
 		htmlElement.scrollLeft(1);
 		bodyElement.scrollLeft(1);
 		
@@ -101,7 +92,7 @@ $(document).ready(function($) {
 		
 		htmlElement.scrollLeft(0);
 		bodyElement.scrollLeft(0);
-		globalPinScene.duration(0);
+		$("#scrollSpacer").width(0);
 	}
 
 	/****************************************************************************************************
@@ -110,32 +101,14 @@ $(document).ready(function($) {
 	 *    koennen.
 	 ***************************************************************************************************/
 	function window_resize() {
-		var bodyElement = $("body");
-		var scrollContainer = $("#scrollContainer");
 		/* Beim Aendern der groesse muss leider wieder an den Anfang gescrollt werden, sonst ergeben sich manchmal eigenartige 
 		   fehler bei der Berechnung der Hoehe.
 		   Zudem ist es schwierig die Szenenbereite richtig anzupassen waehrend sie gerade "abespielt" wird. */
 		if (!DEBUG)
 			fd_pageScrollElement.scrollLeft(0);
-		
-		/* Umgeht ein Problem mit ScrollMagic, welches den Scrollcontainer beim Erreichen der min- bzw. max- height falsch Skaliert. 
-		   Bezieht sich auf jquery.scrollmagic.js (version 1.0.7) Zeile 830 bis 836. */
-		// Eigentlich waere das manuelle Beachten von min- und max-height nicht notwendig, aber Safari unterstuetzt das nicht richtig...
-		var minHeight = parseInt(scrollContainer.css("min-height"), 10);
-		var maxHeight = parseInt(scrollContainer.css("max-height"), 10);
-		scrollContainer.css("height", Math.min(Math.max(minHeight, $(window).height()), maxHeight) + "px");
-			
-		// Berechnete Hoehe des Scrollcontainers ermitteln.
-		var scrollContainerHeight = parseInt(scrollContainer.css("height"), 10);
-		
-		// Die Schrift soll relativ zur hoehe des scrollContainers ausgerichtet werden.
-		var newFontSize = scrollContainerHeight * 0.03;
-		bodyElement.css("font-size", newFontSize + "px");
-		
-		var viewportWidth = $(window).width();
-		if (viewportWidth > 2000) {
-			var extraMargin = ((viewportWidth - 2000) / 2);
-			scrollContainer.css("margin", "auto " + extraMargin + "px");
-		}
+
+		// Die Schrift soll relativ zur hoehe des Scenecontainers sein.
+		var newFontSize = $("#sceneContainer").height() * 0.03;
+		$("body").css("font-size", newFontSize + "px");
 	}
 });
