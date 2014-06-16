@@ -31,5 +31,32 @@ $(document).ready(function($) {
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 2500px bis 5000px abgespielt.
 	addScene(new ScrollScene({duration: 2500})
 		.setTween(sceneTimeline)
-		.addTo(controller));
+		.addTo(controller)
+		.on("progress", scene_progress));
+	
+	/***********************************************************************************
+	 *    Event-Handler der bei Fortschrittsaenderung ("progress") der Szene aufgerufen wird.
+	 *    
+	 *    @param event Objekt vom Typ "progress"
+	 **********************************************************************************/
+	function scene_progress(event) {
+		// Beim Eintritt in die VorlesungSzene soll die Uhr auf 8:15h stehen, daher hier stellen
+		
+		/* ScrollPosition auslesen
+		target liefert das DOM-Element, das das Event ausgeloest hat, also ScrollScene.
+		Parent der ScrollScene ist ScrollMagic (get the parent controller).
+		info("scrollPos") liefert die aktuelle ScrollPosition als Ganzzahl. */
+		var scrollPosition = event.target.parent().info("scrollPos");
+//console.log("scrollPosition aus sceneintro2:");
+//console.log(scrollPosition);		
+		// sobald scrollPosition 6500 erreicht Uhr auf 8:15h stellen. <=7300 wichtig fuers Rausgehen aus der VorlesungSzene von links
+		// globale Variablen siehe global.js
+		if (scrollPosition >= 6500 && scrollPosition <= 7300 && globalCounterFirstTime){ // da das ProgressEvent mehrfach gefeuert wird globalCounterFirstTime einsetzen
+			globalIntSek = 0; 		// Sekunden
+			globalIntMin = 15; 		// Minuten
+			globalIntStd = 8; 		// Stunden
+			globalCounterFirstTime = false;
+			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
+		}
+	}
 });
