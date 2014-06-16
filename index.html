@@ -26,6 +26,9 @@
                 <script src="js/navigation.js"></script>
 		<script src="js/HorizontalScrolling/jquery.mousewheel.js"></script>
 		<script src="js/HorizontalScrolling/horizontal.scrolling.js"></script>
+		<script src="js/clock.js"></script>
+		<script src="js/clock_fast.js"></script>
+		<script src="js/clock_fast_reverse.js"></script>
 	</head>
 	<body>
 		<!--noscript Block der Informationen enthaelt sofern der Benutzer kein Javascript aktiviert hat.-->
@@ -107,6 +110,20 @@
 					
 					<!-- Begin der 3. Szene: Vorlesung -->
 					<section id="lecture" class="scene">
+						<!-- Uhr Canvas -->
+						<div class="clock">
+							<canvas class="canvasClock">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+							
+							<canvas class="canvasClockFast">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+							
+							<canvas class="canvasClockFastReverse">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+						</div>
 						<!-- Himmel -->
 						<img class="sky" src="img/Vorlesungen/vl_hg_himmel.png" alt="Himmel"/>
 						
@@ -164,23 +181,31 @@
 						<img class="front" src="img/Vorlesungen/vl_vg.png" alt="Vierte Reihe" />
 						
 						<section class="textblock">
-							<h2>Notizen sind wichtig.</h2>
+							<h2>Fr&uuml;h Aufstehen</h2>
 							<p>
-								Manchmal sind Skripte unidentifizierbar, da per Hand geschrieben. Mitschreiben ist dann essentiel.
+								Manche Vorlesungen (und Praktika) <br> 
+								fangen bereits um 8:15 Uhr an.<br>
+								Kaffee her!
 							</p>
 						</section>
 						<section class="textblock">
-							<h2>Fr&uuml;h Aufstehen</h2>
+							<h2>Notizen sind wichtig</h2>
 							<p>
-								Manche Vorlesungen (und Praktika) fangen bereits um 8 Uhr morgens an.<br>
-								Kaffee her!
+								Manchmal sind Skripte unidentifizierbar, da <br>
+								diese meistens aus handschriftlichen Vorle-<br>
+								sungsmitschriften der Profs bestehen. <br>
+								Mitschreiben ist dann essenziell.
 							</p>
 						</section>
 						<section class="textblock">
 							<h2>Hohes Tempo</h2>
 							<p>
-								Im Gegensatz zur Schule wird in der FH ein Thema oftmals in nur ein bis zwei Wochen behandelt.<br>
-								Auch ein Grund, weshalb immer weniger Leute in den Vorlesungen sitzen.
+								Im Gegensatz zur Schule wird in der FH ein <br>
+								Thema oftmals innerhalb von ein bis zwei <br>
+								Wochen abgehandelt. Auch ein Grund, <br>
+								weshalb immer weniger Leute in den <br>
+								Vorlesungen sitzen.
+								
 							</p>
 						</section>
 
