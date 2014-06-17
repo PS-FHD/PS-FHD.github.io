@@ -27,12 +27,16 @@ var globalTempScrollPosition = 0;
 // Die Laenge aller Szenen.
 var totalDuration = 0;
 
+// Alle Szenen als assoziatives Array.
+var scenes = {};
+
 /****************************************************************************************************
  *    Haengt die gegebene Szene im Scrollverlauf hinten an die zuletzt hinzugefuegte Szene an.
  *    
+ *    @param sceneName Name der hinzuzufuegenden Szene.
  *    @param scrollScene Die hinzuzufuegende Szene.
  ***************************************************************************************************/
-function addScene(scrollScene) {
+function addScene(sceneName, scrollScene) {
 	// Die neue Szenen einreihen indem ihr eine Start-Scrollposition zugeweisen wird.
 	scrollScene.offset(totalDuration);
 	
@@ -45,6 +49,9 @@ function addScene(scrollScene) {
 	   aenderung der Seitenhoehe im Zusammenhang mit den resize Event-Handlern zu ausrichtungsproblemem kommen. 
 	   Daher explizit alle resize Event-Handler aufrufen. */
 	$(document).resize();
+	
+	// Szene ins assoziative Array aufnehmen.
+	scenes[sceneName] = scrollScene;
 }
 
 /****************************************************************************************************

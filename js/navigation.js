@@ -1,96 +1,68 @@
 /**
  * Dieses Script stellt die Funktionalitäten für die Navigation bereit
- * @Author Alexander Dlugosch
+ * @Author Alexander Dlugosch, David-Kay Posmyk
  */
 $(document).ready(function($) {
-	var scenes = controller.getScenes(); //registriere alle Szenen  
-
 	//Registriere Navigation
-	var nav_1_einstieg = $("#nav1");
-	var nav_2_vorlesung = $("#nav2");
-	var nav_3_selbststudium = $("#nav3");
-	var nav_4_tools = $("#nav4");
+	var navTweens = {
+		"intro":     TweenLite.to("#nav1", .5, {height: "2em", paused: true}),
+		"lecture":   TweenLite.to("#nav2", .5, {height: "2em", paused: true}),
+		"selfstudy": TweenLite.to("#nav3", .5, {height: "2em", paused: true}),
+		"tools":     TweenLite.to("#nav4", .5, {height: "2em", paused: true})
+	};
 
 	/**
-	 * Konfiguration für das Event: ENTER
-	 * Einstellen, bei welcher Szene, welcher Navigationspunkt
-	 * größer wird
-	 * @param scene - der Szenenschlüssel
+	 * Wird aufgerufen, wenn eine Szene betreten wird.
+	 * Animiert die Navigationspunkte so, dass der Aktuelle nach Unten geschoben erscheint und faehrt alle anderen gegebenenfalls zurueck.
+	 * @param scene Der Name der Szene.
 	 */
-	function extend(scene){
+	function sceneEnter(scene){
+		var currentNav = ""; // Aktueller Navigationspunkt
 		switch(scene){
-			case 0: animate(nav_1_einstieg);
+			case "intro1":
+			case "intro2":
+				currentNav = "intro";
 				break;              
-			case 1: animate(nav_1_einstieg);
+			case "lecture": 
+				currentNav = "lecture";
 				break;
-			case 2: animate(nav_1_einstieg);
+			case "selfstudy1":
+			case "selfstudy2":
+			case "selfstudy3":
+				currentNav = "selfstudy";
 				break;
-			case 3: animate(nav_2_vorlesung);
-				break;
-			case 4: animate(nav_3_selbststudium);
-				break;
-			case 5: animate(nav_3_selbststudium);
-				break;
-			case 6: animate(nav_3_selbststudium);
-				break;
-			case 7: animate(nav_3_selbststudium);
-				break;
-			case 8: animate(nav_4_tools);
+			case "canteen":
+			case "feature":
+				currentNav = "tools";
 				break;
 		}
+		
+		activateNav(currentNav);
 	}
-
+	
 	/**
-	 * Konfiguration für das Event: LEAVE
-	 * Einstellen, bei welcher Szene, welcher Navigationspunkt wieder
-	 * kleiner wird
-	 * @param scene - der Szenenschlüssel
+	 * Aktiviert einen Navigationspunkt und deaktiviert alle anderen Navigationspunkte.
 	 */
-	function reset(scene){
-		switch(scene){
-			case 2: back_animate(nav_1_einstieg);
-				break;
-			case 3: back_animate(nav_2_vorlesung);
-				break;
-			case 4: back_animate(nav_3_selbststudium);
-				break;
-			case 7: back_animate(nav_3_selbststudium);
-				break;
-			case 8: back_animate(nav_4_tools);
-				break;
-			}
-	}
-
-	/**
-	 * Animation eines Navigationspunktes nach unten
-	 * @param obj //das Navigationselement
-	 */
-	function animate(obj){
-		TweenLite.to(obj, .5, {height:"2em"});
-	}
-
-	/**
-	 * Animation eines Navigationspunktes nach oben
-	 * @param obj //das Navigationselement
-	 */
-	function back_animate(obj){
-		TweenLite.to(obj, .5, {height:".5em"});
-	}
-	 
-		/**
-	 * Die Events Enter und Leave werden an die einzelnen Szenen gebunden.
-	 * Bei einem Eintritt in oder einem Austritt aus einer Szene wird eine ent-
-	 * sprechende Funktion aufgerufen, die die Navigationstweens entsprechend der 
-	 * Konfiguration extend() und reset() aufruft.
-	 */
-	$.each(scenes,function(k){
-		scenes[k].on("enter", function () {
-			console.log("enter scene: "+k);
-			extend(k);
+	function activateNav(navNameToActivate) {
+		// Alle anderen Navigationspunkte zurueckfahren.
+		// $.each iteriert durch alle Elemente eines Arrays und ruft fuer jedes Element die angegebene Funktion auf.
+		$.each(navTweens, function(name, tween) {
+			if (name != navNameToActivate)
+			  tween.reverse(); // reverse() bewirkt nichts, wenn das Tween bereits am Anfang seiner Animation ist.
 		});
-		scenes[k].on("leave", function () {
-			console.log("leave scene: "+k);
-			reset(k);
+		
+		// Sicherstellen, dass der aktuelle Navigationspunk ausgefahren ist.
+		navTweens[navNameToActivate].play(); // play() bewirkt nichts, wenn das Tween bereits am Ende seiner Animation ist.
+	}
+	
+	/*
+	 * Die Events Enter werden an die einzelnen Szenen gebunden.
+	 * Bei einem Eintritt in eine Szene wird eine entsprechende Funktion aufgerufen, die die Navigationstweens entsprechend abspielt oder
+	 * zuruecksetzt.
+	 */
+	$.each(scenes, function(sceneName, scene) {
+		scene.on("enter", function() {
+			sceneEnter(sceneName);
 		});
 	});
 
@@ -99,22 +71,28 @@ $(document).ready(function($) {
 	 * Übergeben wird der gesetzte Wert des hrefs-Attributs
 	 * Insofern vom Browser unterstützt, wird die Browser History geupdated
 	 */
-	$(document).on("click", "a[href^=#]", function (e) {
-		var id = $(this).attr("href");
-		var $target = $(id); //die Zielszene
+	$(document).on("click", "nav a[href^=#]", function (e) {
+		var linkHref = $(this).attr("href");
+		var sceneName = linkHref.substring(1);
+		var targetScene = scenes[sceneName]; //die Zielszene
 
-		if ($target.length > 0) { //prüfen ob die angegebene Zielszene existiert
-			e.preventDefault(); //normale Funktionsweise der Navigation deaktivieren (a href)
-			TweenMax.to(window, 0.5, {
-				scrollTo: {
-					x: $target.offset().left
-				}
-			});
-
-			//Update der Browserhistory, insofern mit dem Browser kompatibel
-			if (window.history && window.history.pushState) {
-				history.pushState("", document.title, id);
+		e.preventDefault(); //normale Funktionsweise der Navigation deaktivieren (a href)
+		TweenMax.to(window, 2, {
+			scrollTo: {
+				x: targetScene.offset() + 1
 			}
-		}
+		});
 	});
+	
+	/* Eine aktualisierung des Scroll Magic controllers erzwingen, damit dieser die entsprechenden Enter-Ereignisse feuert und so der richtige 
+	   Navigationspunkt beim neuladen der Seite aktiviert wird. */
+	controller.update(scenes);
+	
+	var scrollPosition = $(window).scrollLeft();
+	/* Wird die Seite neugeladen und befindet sich die Scrollbar ganz am Anfang oder am Ende der Seite, dann befindet sie sich fuer Scroll Magic
+	   nicht in einer Szene, daher muss der entsprechende Menuepunkt in diesem Fall manuell aktiviert werden. */
+	if (scrollPosition == 0)
+		activateNav("intro");
+	else if (scrollPosition == totalDuration)
+		activateNav("tools");
 });

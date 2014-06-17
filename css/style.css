@@ -105,10 +105,11 @@ a:active {
 
 /* Navigation definieren*/
 #sceneContainer > header > nav {    
-    left: 70%;
-    max-height: 8%;
-    position: fixed;
-    width: 33%;
+	left: 70%;
+	max-height: 8%;
+	position: fixed;
+	z-index: 1000;
+	width: 33%;
 }
 
 /* Breite wird dynamisch per Javascript entsprechend der dauer aller Szenen festgelegt. */
@@ -125,36 +126,37 @@ a:active {
 }
 
 .nav_red {
-    background-color: #AA261D;
+	background-color: #AA261D;
 }
 
 .nav_blue {
-    background-color: #1D3072;
+	background-color: #1D3072;
 }
 
 .nav_green {
-    background-color: #49922F;
+	background-color: #49922F;
 }
 
 nav a.nav_container {
-    color: #FFF;
-    font-weight: 400;
-    display: block;
-    float: left;
-    margin: 0 1%;   
-    width: 20%;    
+	color: #FFF;
+	font-weight: 400;
+	display: block;
+	float: left;
+	margin: 0 1%;
+	width: 20%;
+	z-index: 1000;
 }
 
 nav .grey_area {
-    display: block;
-    min-height: .5em;
+	display: block;
+	min-height: .5em;
 }
 
 nav .text_area {
-    display: block;
-    font-size: 50%;
-    min-height: 1em;
-    padding: 5%;
+	display: block;
+	font-size: 50%;
+	min-height: 1em;
+	padding: 5%;
 }
 /* Navigation ende */
 
@@ -212,8 +214,6 @@ nav .text_area {
 	height: 100%;
 	width: 1000px;
 	background-color: black;
-	/* damit SceneChange immer ontop liegt - wichtig fuer Uhr*/	
-	z-index: 9999999;
 }
 
 /********************************
@@ -350,21 +350,18 @@ nav .text_area {
 #lecture > .clock  > .canvasClock {
 	position: absolute;
 	visibility: visible;
-	z-index: 500000;
 	height: 100%;
 }
 
 #lecture > .clock  > .canvasClockFast {
 	position: absolute;
 	visibility: hidden;
-	z-index: 500000;
 	height: 100%;
 }
 
 #lecture > .clock  > .canvasClockFastReverse {
 	position: absolute;
 	visibility: hidden;
-	z-index: 500000;
 	height: 100%;
 }
 #lecture > .lectureroom {

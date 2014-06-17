@@ -54,7 +54,7 @@ $(document).ready(function($) {
 		.addSceneChange($("#selfstudy3 > .sceneChange"), $("#canteen"));
 	
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 12500px bis 15000px abgespielt.
-	addScene(new ScrollScene({duration: 2500})
+	addScene("selfstudy3", new ScrollScene({duration: 2500})
 		.setTween(sceneTimeline)
 		.addTo(controller));
 });
