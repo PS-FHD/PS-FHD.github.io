@@ -212,7 +212,7 @@ nav .text_area {
 	left: 100%;
 	top: 0;
 	height: 100%;
-	width: 1000px;
+	width: 300px;
 	background-color: black;
 }
 
@@ -286,6 +286,10 @@ nav .text_area {
 #intro1 > .bit {
 	font-family: 'Oswald';
 	font-weight: bold;
+}
+
+#intro1 > .sceneChange {
+	width: 1000px;
 }
 
 /********************************
