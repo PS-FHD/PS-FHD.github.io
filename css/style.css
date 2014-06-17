@@ -691,6 +691,15 @@ nav .text_area {
 	top: 0%;
 }
 
+#canteen > .boy {
+	bottom: 0; /* Bild wird unten festgemacht */
+	left: 50%; /* Bild in die Mitte schieben */
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+}
+
 #canteen > .arrow {
 	left: 72%;
 	bottom: 400px;

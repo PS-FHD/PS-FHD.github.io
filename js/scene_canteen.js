@@ -6,22 +6,22 @@
  *    Dokumentation zu TweenMax und allen unterst�tzen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
-	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
-	
-	var student1 = TweenMax.fromTo("#canteen > .boy.first", 0.2,  {left:"50%", bottom:"0%"}, {ease: Linear.easeNone});
-	
-	var student2 = TweenMax.fromTo("#canteen > .boy.second", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.2, autoAlpha:1});	
-	var student3 = TweenMax.fromTo("#canteen > .boy.third", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.4, autoAlpha:1});	
-	var student4 = TweenMax.fromTo("#canteen > .boy.fourth", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.6, autoAlpha:1});	
-	var student5 = TweenMax.fromTo("#canteen > .boy.fifth", 0.2, {left: "50%", bottom:"0%", autoAlpha:0}, {left: "50%", bottom:"0%", delay: 0.8,  autoAlpha:1});
-	
 	// die Studenten im Hintergrund jeweils ausblenden um Überlagerung zu verhindern.
+	var student2In = TweenMax.fromTo("#canteen > .boy.second", 0.05, {autoAlpha: 0}, {autoAlpha: 1});	
+	var student3In = TweenMax.fromTo("#canteen > .boy.third", 0.05, {autoAlpha: 0}, {autoAlpha: 1});
+	var student4In = TweenMax.fromTo("#canteen > .boy.fourth", 0.05, {autoAlpha: 0}, {autoAlpha: 1});	
+	var student5In = TweenMax.fromTo("#canteen > .boy.fifth", 0.05, {autoAlpha: 0}, {autoAlpha: 1});
+	var student1Out = TweenMax.to("#canteen > .boy.first", 0.02, {autoAlpha: 0, delay: 0.04, ease: Linear.easeNone});
+	var student2Out = TweenMax.to("#canteen > .boy.second", 0.02, {autoAlpha: 0, delay: 0.04, ease: Linear.easeNone});	
+	var student3Out = TweenMax.to("#canteen > .boy.third", 0.02, {autoAlpha: 0, delay: 0.04, ease: Linear.easeNone});
+	var student4Out = TweenMax.to("#canteen > .boy.fourth", 0.02, {autoAlpha: 0, delay: 0.04, ease: Linear.easeNone});
 	
-	var student1out = TweenMax.to("#canteen > .boy.first", 0, {delay: 0.4, autoAlpha:0});
-	var student2out = TweenMax.to("#canteen > .boy.second", 0, {delay: 0.6, autoAlpha:0});	
-	var student3out = TweenMax.to("#canteen > .boy.third", 0, {delay: 0.8, autoAlpha:0});
-	var student4out = TweenMax.to("#canteen > .boy.fourth", 0, {delay: 1, autoAlpha:0});
-	
+	var studentTimeline = new TimelineMax()
+	  .appendMultiple([student2In, student1Out], 0.2)
+	  .appendMultiple([student3In, student2Out], 0.1)
+	  .appendMultiple([student4In, student3Out], 0.1)
+	  .appendMultiple([student5In, student4Out], 0.1);
+	  
 	
 	var food1 = TweenMax.to("#canteen > .food.first", 0.62, {left:"-40%", ease: Linear.easeNone});
 	var food2 = TweenMax.to("#canteen > .food.second", 0.62, {left:"-40%", ease: Linear.easeNone, delay:0.07});
@@ -58,19 +58,11 @@ $(document).ready(function($) {
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
 		.add([
+		  studentTimeline,
 			souce1,
 			souce2,
 			souce3,
 			food1,
-			student1,
-			student2,
-			student3,
-			student4,
-			student5,
-			student1out,
-			student2out,
-			student3out,
-			student4out,
 			food1,
 			food2,
 			food3,
