@@ -343,8 +343,8 @@ nav .text_area {
 /* DIV fuer Canvas Uhren */
 #lecture > .clock {
 	height: 20%;
-	margin-left: 18%;
-	margin-top: 0.4%;
+	right: 14%;
+	top: 4%;
 }
 
 #lecture > .clock  > .canvasClock {
