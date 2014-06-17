@@ -27,13 +27,18 @@ $(document).ready(function() {
 	 * emuliert.
 	 * 
 	 * @e Die Daten des Ereignisses.
-	 * @delta Die Richtung in die gescrollt wurde. -1 = Mausrad runter, +1 = Mausrad hoch.
+	 * @delta Die Richtung und der Geschwindigkeitsfaktor mit dem gescrollt wurde. Negativ = Mausrad runter, Positiv = Mausrad hoch.
 	 ***************************************************************************************************/
 	function window_mouseWheel(e, delta) {
+		// Die eigentliche Menge in Pixeln die gescrollt werden soll.
+		var scrollValue = step;
+		if (delta < 0)
+			scrollValue *= -1;
+		
 		/* updateTo legt neue Zielwerte fest, hierbei die neue Ziel-Scrollposition. Der zweite Parameter
 		   resetDuration = true, legt fest dass wenn das Tween gerade inaktiv ist, es automatisch Aktiviert 
 		   werden soll und, falls gerade eine Animation im gange ist, dass deren Dauer zurueckgesetz wird. */ 
-		scrollTween.updateTo({scrollTo: {x: "-=" + (delta * step)}}, true);
+		scrollTween.updateTo({scrollTo: {x: "-=" + scrollValue}}, true);
 		
 		/* Das Scrollrad der Maus soll keine Standardaktionen ausfuehren. Wenn z.B. die Maus des Benutzers so 
 		   konfiguriert ist, dass sie eigentlich auch in der Lage waere horizontal zu Scrollen, dann wuerde sich
