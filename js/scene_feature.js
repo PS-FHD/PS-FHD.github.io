@@ -35,9 +35,9 @@ $(document).ready(function($) {
 		       logoFadeOut,
 		       logos6In,
 		      headIn
-		    ]);
+		    ])
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
-		//.addSceneChange($("#canteen > .sceneChange"), $("#nextsceneid"));
+		.addSceneChange($("#feature > .sceneChange"), $("#outro"));
 	
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 15000px bis 17500px abgespielt.
 	addScene("feature", new ScrollScene({duration: 5000})

@@ -786,38 +786,31 @@ nav .text_area {
 	left: 59.22%;
 }
 
-/*??bilder von weib??*/
-/*
-#feature > .girl.first
-{
-	left: 24%;
-	top: 5%;
+
+#outro {
+	background: url(../img/Outro/outro_bg_hintergrund_2500x660.jpg);
+	background-size: auto 100%;
 }
 
-#feature > .girl.second
-{
-	left: 24%;
-	top: 60%;
+#outro > .boy {
+	bottom: 0;
+	left: 48%;
+	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
+	transform: translate(-48%, 0);
+	-webkit-transform: translate(-48%, 0);
+	-ms-transform: translate(-48%, 0);
 }
-#feature > .girl.third
-{
-	left: 24%;
+
+#outro > .tree {
+	bottom: 0;
+	right: 0;
+}
+
+#outro > .foreground.tree {
+	left: 100%;
+	right: auto;
+}
+
+#outro > .cloud {
 	top: 30%;
 }
-#feature > .girl.fourth
-{
-	left: 42%;
-	top: 60%;
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
