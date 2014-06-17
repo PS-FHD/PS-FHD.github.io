@@ -27,6 +27,11 @@ var globalTempScrollPosition = 0;
 // Die Laenge aller Szenen.
 var totalDuration = 0;
 
+/* Globales Tween um von ueberall sanft (per Animation) zu verschiedenen Positionen scrollen zu koennen.
+   Es scrollt stets ueber eine Dauer von einer Sekunde und nutzt ausserdem eine easing-function fuer einen schoeneren linearen Scrollverlauf
+   - aenlich wie das Smooth-Scrolling vom Browser. */
+var scrollTween = new TweenMax(window, 1, {ease: Power2.easeOut});
+
 // Alle Szenen als assoziatives Array.
 var scenes = {};
 

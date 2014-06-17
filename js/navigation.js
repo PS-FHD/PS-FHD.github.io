@@ -77,11 +77,8 @@ $(document).ready(function($) {
 		var targetScene = scenes[sceneName]; //die Zielszene
 
 		e.preventDefault(); //normale Funktionsweise der Navigation deaktivieren (a href)
-		TweenMax.to(window, 2, {
-			scrollTo: {
-				x: targetScene.offset() + 1
-			}
-		});
+		// Das globale Tween zum animierten Scrollen nutzen, um zum Start der jeweiligen Szene zu scrollen.
+		scrollTween.updateTo({scrollTo: {x: targetScene.offset() + 1}}, true);
 	});
 	
 	/* Eine aktualisierung des Scroll Magic controllers erzwingen, damit dieser die entsprechenden Enter-Ereignisse feuert und so der richtige 

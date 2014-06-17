@@ -7,13 +7,6 @@
 $(document).ready(function() {
 	// Legt die Anzahl an Pixeln fest, die pro "klick" des Mausrads gescrollt werden.
 	var step = 350;
-	// Die laenge in Sekunden die eine Scrollanimation insgesamt dauern kann.
-	var duration = 1;
-
-	/* Das Tween das zum animieren des Scrollvorganges benutzt wird. Dieses bezieht sich stets auf
-	   eigenschaften des HTML-Elements und hat eine feste Dauer. Es nutzt ausserdem eine easing-function
-	   fuer einen schoeneren Scrolleffekt. */
-	var scrollTween = new TweenMax(window, duration, {ease: Power2.easeOut});
 	
 	/* Die horizontale Scrolleiste kann ueblicherweise nicht mittels Mausrad gescrollt werden, daher
 	   muss dieses Verhalten emuliert werden. 
