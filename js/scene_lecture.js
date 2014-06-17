@@ -16,7 +16,7 @@ $(document).ready(function($) {
 	var redLeaves	 = TweenMax.fromTo("#lecture > .tree.leaves.red", 0.5, {autoAlpha:1}, {ease: Linear.easeNone, autoAlpha:0, delay:0.2});
 	
 	// Schnee
-	var snow = TweenMax.fromTo("#lecture > .snow", 0.8, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.4});
+	var snow = TweenMax.fromTo("#lecture > .snow", 0.6, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.4});
 	
 	// Sitzreihen
 	var row1 = TweenMax.fromTo("#lecture > .row.first", 1, {left: "10%"}, {left:"9%", ease: Linear.easeNone});
@@ -28,7 +28,7 @@ $(document).ready(function($) {
 	
 	// Personen Reihe 1
 	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 0.9, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
+	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 0.7, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
 	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
 	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 0.8, {left: "10%", autoAlpha:1}, {left:"4%", autoAlpha:0, ease: Linear.easeNone});
 	// Personen Reihe 2
