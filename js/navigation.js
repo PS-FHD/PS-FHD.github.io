@@ -77,7 +77,10 @@ $(document).ready(function($) {
 		var targetScene = scenes[sceneName]; //die Zielszene
 
 		e.preventDefault(); //normale Funktionsweise der Navigation deaktivieren (a href)
-		// Das globale Tween zum animierten Scrollen nutzen, um zum Start der jeweiligen Szene zu scrollen.
+		/* Das globale Tween zum animierten Scrollen nutzen, um zum Start der jeweiligen Szene zu scrollen.
+		   updateTo legt neue Zielwerte fest, hierbei die neue Ziel-Scrollposition. Der zweite Parameter
+		   resetDuration = true, legt fest dass wenn das Tween gerade inaktiv ist, es automatisch Aktiviert 
+		   werden soll und, falls die Animation gerade im gange ist, dass deren Dauer zurueckgesetz wird. */ 
 		scrollTween.updateTo({scrollTo: {x: targetScene.offset() + 1}}, true);
 	});
 	

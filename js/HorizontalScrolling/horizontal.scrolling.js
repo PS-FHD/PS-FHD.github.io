@@ -30,7 +30,7 @@ $(document).ready(function() {
 		
 		/* updateTo legt neue Zielwerte fest, hierbei die neue Ziel-Scrollposition. Der zweite Parameter
 		   resetDuration = true, legt fest dass wenn das Tween gerade inaktiv ist, es automatisch Aktiviert 
-		   werden soll und, falls gerade eine Animation im gange ist, dass deren Dauer zurueckgesetz wird. */ 
+		   werden soll und, falls die Animation gerade im gange ist, dass deren Dauer zurueckgesetz wird. */
 		scrollTween.updateTo({scrollTo: {x: "-=" + scrollValue}}, true);
 		
 		/* Das Scrollrad der Maus soll keine Standardaktionen ausfuehren. Wenn z.B. die Maus des Benutzers so 
