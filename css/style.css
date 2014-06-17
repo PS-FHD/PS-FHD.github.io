@@ -111,11 +111,16 @@ a:active {
     width: 33%;
 }
 
+/* Breite wird dynamisch per Javascript entsprechend der dauer aller Szenen festgelegt. */
 #scrollSpacer {
 	position: absolute;
+	/* Entspricht den hoehenvorgaben des Scenecontainers, da der Scrollspacer selbst nicht fixed platziert ist, streckt dieser aber die 
+	   Groesse der Seite und veraendert somit den scrollbaren Bereich. */
 	height: 100%;
 	min-height: 400px;
 	max-height: 800px;
+	/* Da der Spacer keine Farbe o.ae. hat ist er nicht sichtbar, koennte aber die Klickbarkeit von Elementen beeinflussen wenn er im 
+	   Vordergrund landet. */
 	z-index: -1;
 }
 
