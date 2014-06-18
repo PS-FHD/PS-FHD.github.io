@@ -6,6 +6,9 @@
  *    Dokumentation zu TweenMax und allen unterstuetzen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
+	// Browserfixes anwenden.
+	bf_SizeContainerToInnerImg($("#selfstudy3 > .middleground > .background"));
+	
 	var dayNight = TweenMax.to("#selfstudy3 > .middleground > .daynight", 1, {left: "-=100%", ease: Linear.easeNone});
 	
 	var table1Out = TweenMax.to("#selfstudy3 > .student.first", 0.1, {autoAlpha: 0, ease: Linear.easeNone});
