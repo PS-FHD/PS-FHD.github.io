@@ -351,26 +351,16 @@ nav .text_area {
 	top: 4%;
 }
 
-#lecture > .clock  > .canvasClock {
+#lecture > .clock  > canvas {
 	position: absolute;
 	visibility: visible;
 	height: 100%;
 }
 
-#lecture > .clock  > .canvasClockFast {
-	position: absolute;
-	visibility: hidden;
-	height: 100%;
-}
-
-#lecture > .clock  > .canvasClockFastReverse {
-	position: absolute;
-	visibility: hidden;
-	height: 100%;
-}
 #lecture > .lectureroom {
 	left: 0;
 }
+
 #lecture > .board {
 	left: 50%;
 	transform: translate(-50%, 0);
