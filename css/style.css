@@ -742,7 +742,7 @@ nav .text_area {
 	height: 100%;
 	left: 50%;
 	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
-	background-height: 100%;	
+	background-height: 100%;
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
@@ -752,6 +752,7 @@ nav .text_area {
 #feature > .window-frame > .middleground {
 	height: 100%; /* So hoch wie das Fenster, die Breite dieses Bildes bestimmt dadurch die Breite des containers. */
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
+	margin-left: -1px; /* Ein Pixel nach links schieben, umgeht moegliche Luecken durch Rundung der Prozentwerte. */
 	/*z-index: 1;*/
 }
 

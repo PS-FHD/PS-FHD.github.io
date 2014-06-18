@@ -6,8 +6,10 @@
  *    Dokumentation zu TweenMax und allen unterst�tzen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
-	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
-	
+	// Browserfixes anwenden.
+	/* Container stets so gross wie das innere Image ausrichten, ausserdem 2 Pixel kleiner, sonst kann es vorkommen, dass das Hintergrundbild
+	   an den Seiten beim Runden der Prozentwerte durchscheint. */
+	bf_SizeContainerToInnerImg($("#feature > .window-frame > .middleground"), -2);
 	
 	var boy1	= TweenMax.to("#feature > .boy.first", 0.5, {left:"25%", autoAlpha: 0, ease: Linear.easeNone, delay:0.5 });
 	var boy2	= TweenMax.to("#feature > .boy.second", 0.5, {left:"25%", ease: Linear.easeNone, delay:0.5});
