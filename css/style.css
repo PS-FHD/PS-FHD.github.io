@@ -731,8 +731,9 @@ nav .text_area {
 
 #feature > .window-frame > .logo {
 	position: absolute;
-	height: 24.40%;
+	height: 23.60%;
 	max-height: 161px;
+/*	border:1px solid red;*/
 }
 
 #feature > .window-frame > .logo > img {
@@ -740,19 +741,52 @@ nav .text_area {
 }
 
 #feature > .window-frame > .column1 {
-	left: 8.16%;
+	left: 8.66%;
+	/*old 8.16	*/
 }
 
 #feature > .window-frame > .column2 {
-	left: 36.25%;
+	left: 36.65%;
 }
 
 #feature > .window-frame > .column3 {
-	left: 64.23%;
+	left: 64.8%;
+}
+
+#feature > .window-frame > .column4 {
+	left: 8.66%;	
+}
+
+#feature > .window-frame > .column5 {
+	left: 36.65%;
+}
+
+#feature > .window-frame > .column6 {
+	left: 64.8%;
+}
+
+#feature > .window-frame > .column7 {
+	left: 8.66%;	
+}
+
+#feature > .window-frame > .column8 {
+	left: 36.65%;
+}
+
+#feature > .window-frame > .column9 {
+	left: 64.8%;
 }
 
 #feature > .window-frame > .row1 {
-	top: 4.8%;
+	top: 4.9%;
+/*	old 4.8*/
+}
+#feature > .window-frame > .row2 {
+	top: 31.8%;
+}
+
+#feature > .window-frame > .row3 {
+	top: 58.7%;
 }
 
 #feature > .boy{ 
