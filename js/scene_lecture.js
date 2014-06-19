@@ -45,9 +45,9 @@ $(document).ready(function($) {
 	var think3 = TweenMax.fromTo("#lecture > .think.third", 1, {top: "50%",left: "20%", autoAlpha:0}, {left:"11%", autoAlpha:1});
 
 	// Folien
-	var ppt1 = TweenMax.fromTo("#lecture > .ppt.first", 0.34, {autoAlpha:1}, {autoAlpha:0});
-	var ppt2 = TweenMax.fromTo("#lecture > .ppt.second", 0.33, {autoAlpha:0}, { delay: 0.34, autoAlpha:1});
-	var ppt3 = TweenMax.fromTo("#lecture > .ppt.third", 0.33, {autoAlpha:0}, { delay: 0.67, autoAlpha:1});
+	var ppt1 = TweenMax.fromTo("#lecture > .boardslide > .ppt.first", 0.34, {autoAlpha:1}, {autoAlpha:0});
+	var ppt2 = TweenMax.fromTo("#lecture > .boardslide > .ppt.second", 0.33, {autoAlpha:0}, { delay: 0.34, autoAlpha:1});
+	var ppt3 = TweenMax.fromTo("#lecture > .boardslide > .ppt.third", 0.33, {autoAlpha:0}, { delay: 0.67, autoAlpha:1});
 	
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#lecture > .textblock:nth-of-type(1)");

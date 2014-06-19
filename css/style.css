@@ -82,7 +82,7 @@ a:active {
 	height: 100%;
 	min-width: 1000px;
 	max-width: 2000px;
-	min-height: 400px;
+	min-height: 500px;
 	max-height: 800px;
 	/* Den Container zentrieren. */
 	left: 0; right: 0; margin: 0 auto;
@@ -359,48 +359,53 @@ nav .text_area {
 #lecture > .clock  > canvas {
 	position: absolute;
 	visibility: visible;
+	min-height: 90px;
 	height: 100%;
 }
 
 #lecture > .lectureroom {
 	left: 0;
+	bottom: 0;
 }
 
-#lecture > .board {
+#lecture > .boardslide {
 	left: 50%;
+	bottom: 14%;
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
 	-ms-transform: translate(-50%, 0);
 }
 
-#lecture > .ppt {
-	top: 10%;
-	left: 58%;
-	transform: translate(-58%, 0);
-	-webkit-transform: translate(-58%, 0);
-	-ms-transform: translate(-58%, 0);
+#lecture > .boardslide > .ppt {
+	position: absolute;
+	left: 60%;
+	top: 14%;
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 }
-#lecture > .ppt.second {
-	top: 10%;
-	left: 63%;
-	transform: translate(-63%, 0);
-	-webkit-transform: translate(-63%, 0);
-	-ms-transform: translate(-63%, 0);
+
+#lecture > .boardslide > .ppt.second {
+	left: 75%;
+	top: 28%;
 }
-#lecture > .ppt.third {
-	top: 25%;
-	left: 52%;
-	transform: translate(-52%, 0);
-	-webkit-transform: translate(-52%, 0);
-	-ms-transform: translate(-52%, 0);
+
+#lecture > .boardslide > .ppt.third {
+	left: 50%;
+	top: 35%;
 }
 
 #lecture > .prof {
 	bottom: 13%;
+	min-height: 243px;
+	height: 47.73%;
+	max-height: 315px;
 }
+
 #lecture > .sky {
 	left: 1264px;
 }
+
 #lecture > .snow {
 	left: 1264px;
 }
@@ -488,11 +493,13 @@ nav .text_area {
 ********************************/
 #selfstudy2 {
 	background-image: url(../img/einl_selbstst_bg_2500x660.jpg);
-	background-size: auto 100%;
 }
 
 #selfstudy2 > .middleground {
-	height: 100%; /* Immer so hoch wie die Szene. */
+	/* Immer so gross wie die Szene und 1% uebergroesse damit der Szenenhintergrund auch wirklich immer vollsteandig augefuellt ist (durch
+	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
+	height: 101%;
+	max-height: 660px;
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%;
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
@@ -550,9 +557,10 @@ nav .text_area {
 ** Dritte Szene des Selbststudiums - Eigenheim
 ********************************/
 #selfstudy3 > .middleground {
-	/* Immer so gross wie die Szene und 1% uebergroesse damit der Szenenhintergrund auch wirklich immer vollsteandig augefuellt ist (durch
+		/* Immer so gross wie die Szene und 1% uebergroesse damit der Szenenhintergrund auch wirklich immer vollsteandig augefuellt ist (durch
 	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
-	height: 100%;
+	height: 101%;
+	max-height: 660px;
 	left: 50%;
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
 	transform: translate(-50%, 0);
