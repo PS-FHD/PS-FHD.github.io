@@ -631,10 +631,14 @@ nav .text_area {
 
 #canteen > .serving-table.first {
 	bottom: 0; /* Bild wird unten festgemacht */
+	height: 48.5%;
+	min-height: 270px;
 }
 
 #canteen > .serving-table.second {
-	bottom: 217px; /* Bild wird unten festgemacht */
+	top: 53.5%; /* Bild wird unten festgemacht */
+	height: 13.5%;
+	min-height: 75px;
 }
 
 #canteen > .canteenbg {
@@ -653,18 +657,27 @@ nav .text_area {
 }
 
 #canteen > .dessertlink {
-	bottom: 312px;
+	top: 40%;
 }
 
 #canteen > .food1txt, .food2txt, .food3txt, .souce1txt, .souce2txt, .souce3txt {
-	bottom: 120px;
+	top: 80%;
 	left: 110%;
 }
 
 #canteen > .food.first, .food.second, .food.third, .souce.first, .souce.second, .souce.third {
-	bottom: 180px;
+	bottom: 27%;
 	left: 110%;
 }
+
+#canteen > .food.first, .food.second, .food.third {
+	height: 5%;
+}
+
+#canteen > .souce.first, .souce.second, .souce.third {
+	height: 20%;
+}
+
 
 #canteen > .lamp.first {
 	left: 20%; 
@@ -681,6 +694,10 @@ nav .text_area {
 	top: 0%;
 }
 
+#canteen > .lamp {
+	height: 25%;
+}
+
 #canteen > .boy {
 	bottom: 0; /* Bild wird unten festgemacht */
 	left: 50%; /* Bild in die Mitte schieben */
@@ -688,6 +705,7 @@ nav .text_area {
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
 	-ms-transform: translate(-50%, 0);
+	height: 65%;
 }
 
 #canteen > .arrow {
