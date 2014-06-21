@@ -152,14 +152,14 @@ $(document).ready(function($) {
 				$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
 			}
 			
-			if (scrollDirection == "PAUSED" &&  scrollPosition < 9500  ) {	
+			if (scrollDirection == "PAUSED" &&  scrollPosition < 9900  ) {	
 				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
 				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 				$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
 			}
 			
-			// ab ScrollPosition 9500 alle Uhren ausblenden
-			if ( scrollPosition > 9500 ) {
+			// ab ScrollPosition 9900 alle Uhren ausblenden
+			if ( scrollPosition > 9900 ) {
 				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
 				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 				$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
