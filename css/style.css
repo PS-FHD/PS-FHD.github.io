@@ -764,14 +764,14 @@ nav .text_area {
 	/*z-index: 1;*/
 }
 
-#feature > .window-frame > .logo {
+#feature > .window-frame > .logo, .logo2 {
 	position: absolute;
 	height: 23.60%;
 	max-height: 161px;
 /*	border:1px solid red;*/
 }
 
-#feature > .window-frame > .logo > img {
+#feature > .window-frame > .logo, .logo2 > img {
 	height: 100%;
 }
 
@@ -830,50 +830,28 @@ nav .text_area {
 	left: 50%;
 }
 
-/*links nach rechts*/
-#feature > .logo.first, .logo.fourth, .logo.seventh, .blackbox, .logo2.first{
-	top: 4.9%;
-}
-
-#feature > .logo.second, .logo.fifth, .logo.eighth, .logo2.second{ 
-	top: 31.9%;
-}
-
-#feature > .logo.third, .logo.sixth, .logo.ninth, .logo2.third, .logo2.fourth, .logo2.fifth{ 
-	top: 58.6%;
-}
-/*oben nach unten*/
-#feature > .logo.first, .logo.second, .logo.third, .logo2.first, .logo2.second, .logo2.third{ 
-	left: 08.41%;
-}
-
-#feature > .logo.fourth, .logo.fifth, .logo.sixth, .blackbox, .logo2.fourth{ 
-	left: 41.64%;
-}
-#feature > .logo.seventh, .logo.eighth, .logo.ninth, .logo2.fifth{ 
-	left: 59.22%;
-}
-
-
-
 
 /********************************
-** Outro 
+** Outro Szene - Ende
 ********************************/
 
 
+/********************************
+** Outro-Szene
+********************************/
 #outro {
 	background: url(../img/Outro/outro_bg_hintergrund_2500x660.jpg);
-	background-size: auto 100%;
 }
 
 #outro > .boy {
 	bottom: 0;
-	left: 48%;
+	left: 50%;
+	height: 48.64%;
+	max-heigth: 321px;
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
-	transform: translate(-48%, 0);
-	-webkit-transform: translate(-48%, 0);
-	-ms-transform: translate(-48%, 0);
+	transform: translate(-75%, 0);
+	-webkit-transform: translate(-75%, 0);
+	-ms-transform: translate(-75%, 0);
 }
 
 #outro > .tree {
