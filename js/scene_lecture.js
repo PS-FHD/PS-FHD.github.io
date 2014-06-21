@@ -88,7 +88,7 @@ $(document).ready(function($) {
 		.setTween(sceneTimeline)
 		.addTo(controller)
 		.on("enter", scene_enter)
-		.on("progress", scene_progress));
+		.on("progress", scene_progress)
 		.on("leave", scene_leave));
 			
 	/***********************************************************************************
@@ -131,38 +131,36 @@ $(document).ready(function($) {
 		
 		/* 	UhrTyp (sekundenGeschwindigkeit, schnellVorwaerts, schnellRueckwaerts)
 			mit Canvas entsprechend der Scrollposition und der Scrollrichtung ein bzw ausblenden */
-			if (scrollDirection == "REVERSE") {
-				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "visible"});
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-			}
-			else if (scrollDirection == "FORWARD") {	
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
-				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-			}
-			
-			if (scrollPosition < 8000) {
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
-			}
-			else if (scrollPosition >= 8000) {
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
-				$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
-			}
-			
-			if (scrollDirection == "PAUSED" &&  scrollPosition < 9900) {	
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
-			}
-			
-			// ab ScrollPosition 9900 alle Uhren ausblenden
-			if (scrollPosition > 9900) {
-				$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-				$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
-			}		
-	}
+		if (scrollDirection == "REVERSE") {
+			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "visible"});
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
+		} else if (scrollDirection == "FORWARD") {	
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
+			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
+		}
+		
+		if (scrollPosition < 8000) {
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
+		} else if (scrollPosition >= 8000) {
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
+			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
+		}
+		
+		if (scrollDirection == "PAUSED" &&  scrollPosition < 9900) {	
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
+		}
+		
+		// ab ScrollPosition 9900 alle Uhren ausblenden
+		if (scrollPosition > 9900) {
+			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
+			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
+		}		
+	};
 	
 	/***********************************************************************************
 	 *    Event-Handler der beim Verlassen der Szene aufgerufen wird.
@@ -183,5 +181,5 @@ $(document).ready(function($) {
 			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
 		}
-	}	
+	};
 });
