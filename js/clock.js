@@ -5,7 +5,7 @@
 $(document).ready(function ($) {
 
 	var objCanvas = $("#lecture > .clock > .canvasClock ")[0] // HTML DOM Object <canvas class="canvasClock">;
-console.log(objCanvas);
+
 	/* falls Canvas nicht funktioniert, wird die Funktion nicht aufgerufen */
 	if (objCanvas.getContext) {
 		/* Uhr beginnt bei 8:15h und 0 Sekunden */
