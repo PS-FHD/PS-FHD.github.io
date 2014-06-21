@@ -6,7 +6,10 @@
  *    Dokumentation zu TweenMax und allen unterst�tzen Optionen: http://www.greensock.com/tweenmax/
  **********************************************************************************/
 $(document).ready(function($) {
-	// Das Hintergrundbild im div wird um 840 pixel nach links verschoben.
+	// Browserfixes anwenden.
+	/* Container stets so gross wie das innere Image ausrichten, ausserdem 2 Pixel kleiner, sonst kann es vorkommen, dass das Hintergrundbild
+	   an den Seiten beim Runden der Prozentwerte durchscheint. */
+	bf_SizeContainerToInnerImg($("#feature > .window-frame > .middleground"), -2);
 	
 	
 	var boy1	= TweenMax.to("#feature > .boy.first", 0.3, {left:"30%", autoAlpha: 0, ease: Linear.easeNone, delay:0.5 });
@@ -43,7 +46,7 @@ $(document).ready(function($) {
 		//Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#feature > .sceneChange"), $("#outro"));
 	
-	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 15000px bis 17500px abgespielt.
+	// Die Scroll Magic Szene definieren und hinzufuegen.
 	addScene("feature", new ScrollScene({duration: 5000})
 		.setTween(sceneTimeline)
 		.addTo(controller));

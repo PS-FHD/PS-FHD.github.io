@@ -4,11 +4,10 @@ var DEBUG = true;
 // Der globale Scroll Magic Controller.
 var controller;
 
+/* *** UHR *** */
 // Zum Zaehlen, ob etwas zum ersten Mal eintritt.
 // eingesetzt in function scene_leave in scene_intro2.js zum Stellen der Uhr in der VorlesungsSzene
 var globalCounterFirstTime = true;
-
-/* *** UHR *** */
 
 // globale Variablen fuer die Uhrzeit der Uhr in der VorlesungsSzene (lecture) */
 globalIntSec = 0; 		// Sekunden

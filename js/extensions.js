@@ -38,7 +38,6 @@ $(document).ready(function($) {
 			}
 		);
 		
-		
 		/* Der letzte Parameter gibt die Startposition an, ab der beide Tweens abgespielt werden sollen.
 		   Wie fast alle Methoden von TimelineLite, gibt auch insertMultiple die Timeline selbst zurueck.*/
 		return this.insertMultiple([nextSceneInTween, sceneChangeTween], 1.0 - duration);
