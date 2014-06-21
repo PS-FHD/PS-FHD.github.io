@@ -760,7 +760,6 @@ nav .text_area {
 /********************************
 ** Features - Junge vor dem Fenster
 ********************************/
-
 #feature {
 	background-color: #000000;
 	
@@ -771,7 +770,6 @@ nav .text_area {
 	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
 	height: 100%;
 	left: 50%;
-/*	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);*/
 	background-height: 100%;	
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
 	transform: translate(-50%, 0);
@@ -779,17 +777,9 @@ nav .text_area {
 	-ms-transform: translate(-50%, 0);
 }
 
-/*#feature > .window-Himmel{*/
-/*	height: 100%;*/
-/*	left: 50%;*/
-/*	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);*/
-/*	background-height: 100%;	*/
-/*}*/
-
 #feature > .window-frame > .middleground {
 	height: 100%; /* So hoch wie das Fenster, die Breite dieses Bildes bestimmt dadurch die Breite des containers. */
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
-	/*z-index: 1;*/
 	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
 }
 
@@ -797,7 +787,6 @@ nav .text_area {
 	position: absolute;
 	height: 23.63%;
 	max-height: 161px;
-/*	border:1px solid red;*/
 }
 
 #feature > .window-frame > .logo > img {
@@ -809,7 +798,6 @@ nav .text_area {
 
 #feature > .window-frame > .column1 {
 	left: 8.66%;
-	/*old 8.16	*/
 }
 
 #feature > .window-frame > .column2 {
@@ -845,16 +833,14 @@ nav .text_area {
 }
 
 #feature > .window-frame > .row1 {
-/*	top: 4.9%;*/
 	top:4.8%;
-/*	old 4.8*/
 }
 #feature > .window-frame > .row2 {
 	top: 31.8%;
 }
 
 #feature > .window-frame > .row3 {
-	top: 58.7%;
+	top: 58.6%;
 }
 
 #feature > .boy{ 
@@ -862,36 +848,6 @@ nav .text_area {
 	bottom: 0%;
 	left: 50%;
 }
-
-.textblock {
-
-/*	background-color:black;	*/
-}
-
-/*links nach rechts*/
-#feature > .logo.first, .logo.fourth, .logo.seventh, .blackbox, .logo2.first{
-	top: 4.9%;
-}
-
-#feature > .logo.second, .logo.fifth, .logo.eighth, .logo2.second{ 
-	top: 31.9%;
-}
-
-#feature > .logo.third, .logo.sixth, .logo.ninth, .logo2.third, .logo2.fourth, .logo2.fifth{ 
-	top: 58.6%;
-}
-/*oben nach unten*/
-#feature > .logo.first, .logo.second, .logo.third, .logo2.first, .logo2.second, .logo2.third{ 
-	left: 08.41%;
-}
-
-#feature > .logo.fourth, .logo.fifth, .logo.sixth, .blackbox, .logo2.fourth{ 
-	left: 41.64%;
-}
-#feature > .logo.seventh, .logo.eighth, .logo.ninth, .logo2.fifth{ 
-	left: 59.22%;
-}
-
 
 /********************************
 ** Outro Szene - Ende
