@@ -11,22 +11,7 @@ $(document).ready(function($) {
 	
 	var boy1	= TweenMax.to("#feature > .boy.first", 0.3, {left:"30%", autoAlpha: 0, ease: Linear.easeNone, delay:0.5 });
 	var boy2	= TweenMax.to("#feature > .boy.second", 0.3, {left:"30%", ease: Linear.easeNone, delay:0.5});
-	
-//	var logos1In	= TweenMax.fromTo(".window-frame > .logo.column6,.window-frame >  .logo.column9" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.1,ease: Linear.easeNone});
-//	var logos2In	= TweenMax.fromTo(".window-frame > .logo.column5, .window-frame >  .logo.column8" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.2,ease: Linear.easeNone});
-//	var logos3In	= TweenMax.fromTo(".window-frame > .logo.column4, .window-frame > .logo.column7" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.3,ease: Linear.easeNone});
-//	var logos4In	= TweenMax.fromTo(".window-frame > .logo.column3, .window-frame > .logo.column1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.4,ease: Linear.easeNone});
-//	var logos1In	= TweenMax.fromTo(".window-frame > .logo.column2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.1,ease: Linear.easeNone});
-//	var logos2In	= TweenMax.fromTo(".window-frame > .logo.column7" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.2,ease: Linear.easeNone});
-//	var logos3In	= TweenMax.fromTo(".window-frame > .logo.column8" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.3,ease: Linear.easeNone});
-//	var logos4In	= TweenMax.fromTo(".window-frame > .logo.column9" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.4,ease: Linear.easeNone});
-//	var logos5In	= TweenMax.fromTo(".window-frame > .logo.column6" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.5,ease: Linear.easeNone});
-//	var logos6In	= TweenMax.fromTo(".window-frame > .logo.column3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.6,ease: Linear.easeNone});
-//	var logos7In	= TweenMax.fromTo(".window-frame > .logo.column5" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.7,ease: Linear.easeNone});
-//	var logos8In	= TweenMax.fromTo(".window-frame > .logo.column1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.8,ease: Linear.easeNone});
-//	var logos9In	= TweenMax.fromTo(".window-frame > .logo.column4" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.9,ease: Linear.easeNone});
-//	
-//	
+
 
 	var logos1In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column1.row1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.0,ease: Linear.easeNone});
 	var logos2In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column2.row1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.09,ease: Linear.easeNone});
@@ -38,19 +23,8 @@ $(document).ready(function($) {
 	var logos8In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column8.row3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.06,ease: Linear.easeNone});
 	var logos9In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column9.row3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.10,ease: Linear.easeNone});
 	
-//	
-//	var headIn 	= TweenMax.fromTo(".window-frame > .textblock", 0.1, {top: "5%", left:"160%"}, { left:"42%", delay: 1.0, ease: Linear.easeNone});
-//
-//	var logoFadeOut = TweenMax.to(".window-frame > .logo" , 0.05, {autoAlpha:0, delay: 0.75,ease: Linear.easeNone});
-//	var logoBlock	= TweenMax.fromTo(".window-frame > .blackbox" , 0.1,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.75,ease: Linear.easeNone});
-//
-//	var logos10In	= TweenMax.fromTo(".window-frame > .logo2" , 0.1,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.75,ease: Linear.easeNone});
-//	
-
 	var headIn 	= TweenMax.fromTo("#feature > .textblock", 0.1, {top: "5%", left:"160%"}, { left:"42%", delay: 0.65, ease: Linear.easeNone});
-//	var logoBlock	= TweenMax.fromTo("#feature> .window-frame > .blackbox" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.5,ease: Linear.easeNone}); 
 	var logoFadeOut = TweenMax.to("#feature > .window-frame > .logo" , 0.05, {autoAlpha:0, delay: 0.65,ease: Linear.easeNone});
-
 	var HimmelFadeOut = TweenMax.to("#feature > .window-frame > .middleground " , 0.05, {autoAlpha:0, delay: 0.65,ease: Linear.easeNone});
 
 	var logos10In	= TweenMax.fromTo("#feature > .window-frame >  .logo2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.65,ease: Linear.easeNone});
@@ -61,7 +35,6 @@ $(document).ready(function($) {
 
 		      boy1, boy2,
 		       logos1In, logos2In, logos3In, logos4In, logos5In, logos6In, logos7In, logos8In, logos9In,
-//		       logoBlock,
 		       logoFadeOut,
 		       HimmelFadeOut,
 		       logos10In,
