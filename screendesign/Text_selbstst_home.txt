@@ -1,0 +1,35 @@
+Headline:
+
+Mit Nachtschichten muss gerechnet werden
+
+Subtext:
+
+Je nachdem, wann du mit den Aufgaben anfängst, kann sich das auch bis spät in die Nacht ziehen... 
+
+Die sind wirklich nicht zu unterschätzen!
+
+
+
+Textwechsel <- ->
+
+Headline:
+
+All you need is...
+
+Subtext:
+
+Kaffee, Internet, Bücher aus der Bibliothek, Kaffee, Snacks zum Überleben, Kaffee
+
+
+
+
+
+Textwechsel <- ->
+
+Headline:
+
+Doch es ist machbar!
+
+Subtext:
+
+Du musst selbst wissen, ob du eher auf letzte Minute alles schaffen willst, oder lieber andere Dinge dafür opferst und damit auf der sicheren Seite bist!

@@ -4,72 +4,507 @@
 		<meta charset="utf-8">
 		<title>FHD | Parallax Scrolling Projekt</title>
 		
+		<!-- Das Type-Attribut fuer script Tags ist optional, weglassen entspricht type="text/javascript". -->
 		<link type="text/css" rel="stylesheet" href="css/style.css">
-		<script type="text/javascript" src="js/ScrollMagic/js/_dependent/greensock/TweenMax.min.js"></script>
-		<script type="text/javascript" src="js/ScrollMagic/js/_dependent/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.js"></script>
-		<script type="text/javascript" src="js/ScrollMagic/js/jquery.scrollmagic.debug.js"></script>
-		<!-- Javascript-Dateien werden spaeter zusammengefasst. -->
-		<script type="text/javascript" src="js/global.js"></script>
-		<script type="text/javascript" src="js/scene_intro1.js"></script>
-		<script type="text/javascript" src="js/scene_intro2.js"></script>
+		<link type="image/x-icon" rel="shortcut icon" href="img/fav.ico"  /> 
+		<script src="js/ScrollMagic/js/_dependent/greensock/TweenMax.min.js"></script>
+		<script src="js/ScrollMagic/js/_dependent/greensock/plugins/ScrollToPlugin.min.js"></script>
+		<script src="js/ScrollMagic/js/_dependent/jquery-1.11.0.min.js"></script>
+		<script src="js/ScrollMagic/js/jquery.scrollmagic.js"></script>
+		<script src="js/ScrollMagic/js/jquery.scrollmagic.debug.js"></script>
 		
-		<!--SideScrolling JQuery Plugin-->
+		<!-- Javascript-Dateien werden spaeter zusammengefasst. -->
+		<script src="js/global.js"></script>
+		<script src="js/extensions.js"></script>
+		<script src="js/scene_intro1.js"></script>
+		<script src="js/scene_intro2.js"></script>
+		<script src="js/scene_lecture.js"></script>
+		<script src="js/scene_self_study1.js"></script>
+		<script src="js/scene_self_study2.js"></script>
+		<script src="js/scene_self_study3.js"></script>
+		<script src="js/scene_canteen.js"></script>
+		<script src="js/scene_feature.js"></script>
+		<script src="js/scene_outro.js"></script>
+		<script src="js/navigation.js"></script>
 		<script src="js/HorizontalScrolling/jquery.mousewheel.js"></script>
 		<script src="js/HorizontalScrolling/horizontal.scrolling.js"></script>
+		<!-- http://benalman.com/projects/jquery-resize-plugin/ -->
+		<script src="js/jquery.ba-resize.min.js"></script>
+		<script src="js/clock.js"></script>
+		<script src="js/clock_fast.js"></script>
+		<script src="js/clock_fast_reverse.js"></script>
 	</head>
 	<body>
-		<div id="scrollContainer">
-			<header><!-- Navigation etc. --></header>
-			<div id="sceneContainer">
-				<section id="intro1" class="scene">
-					<img class="cloud one" src="img/einl_selbstst_hg_wolke2_260x123.png" alt="Wolke" />
-					<img class="cloud two" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
-					<img class="airplane" src="img/Einleitung/einl_hg_flugzeug_239x87.png" alt="Flugzeug" />
-					<img class="cloud three" src="img/einl_selbstst_hg_wolke1_315x150.png" alt="Wolke" />
-					<img class="cloud four" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
-					<img class="student" src="img/Einleitung/typ_116x435.png" alt="Student" />
-					<img class="house right" src="img/Einleitung/einl_mg_hausR_345x289.png" alt="FH Geb&auml;ude" />
-					<img class="house left" src="img/Einleitung/einl_mg_hausL_351x217.png" alt="Haus" />
+		<!-- Noscript Block der Informationen enthaelt sofern der Benutzer kein Javascript aktiviert hat. -->
+		<noscript>
+			
+		</noscript>
+		
+		<!-- Beginn des sceneContainer der alle Szenen beinhaltet. -->
+		<div id="sceneContainer">
+			<!-- Beginn des Headers. Dieser beinhaltet die Navigation. -->
+			<header>
+				<nav>
+					<!-- Navigation der Seite welche auf die einzelnen Szenen der Seite verweisen. -->
+					<a href='#intro1' class="nav_container">
+						<span id="nav1" class="grey_area bggrey"></span>
+						<span class="text_area nav_red">Einstieg</span>
+					</a>
+					<a href='#lecture' class="nav_container">
+						<span id="nav2" class="grey_area bggrey"></span>
+						<span class="text_area nav_blue">Vorlesung</span>
+					</a>
+					<a href='#selfstudy1' class="nav_container">
+						<span id="nav3" class="grey_area bggrey"></span>
+						<span class="text_area nav_green">Selbststudium</span>
+					</a>
+					<a href='#canteen' class="nav_container">
+						<span id="nav4" class="grey_area bggrey"></span>
+						<span class="text_area nav_blue">Tools</span>
+					</a>
+				</nav>
+			</header>
+			<!-- Beginn der ersten Szene. Weitere Szenen befinden sich innerhalb des Section Blocks. -->
+			<section id="intro1" class="scene">
+				<!-- Einbindung der einzelnen Grafiken der ersten Szene. -->
+				<img class="cloud one" src="img/einl_selbstst_hg_wolke2_260x123.png" alt="Wolke" />
+				<img class="cloud two" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+				<img class="airplane" src="img/Einleitung/einl_hg_flugzeug_ver3_414x150.png" alt="Flugzeug" />
+				<img class="cloud three" src="img/einl_selbstst_hg_wolke1_315x150.png" alt="Wolke" />
+				<img class="cloud four" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+				<img class="student" src="img/Einleitung/typ_ver2_116x424.png" alt="Student" />
+				<img class="house right" src="img/Einleitung/einl_mg_hausR_345x289.png" alt="FH Geb&auml;ude" />
+				<img class="house left" src="img/Einleitung/einl_mg_hausL_351x217.png" alt="Haus" />
+				
+				<!-- Animierter Hinweispfeil mit Text. -->
+				<span class="scrollhint bit s150 ccyan">
+					SCROLL&nbsp;&nbsp;&#9654;
+				</span>
+				
+				<!-- Texte der ersten Szene. -->
+				<section class="textblock">
+					<h1>HAH! GESCHAFFT!<br> ENDLICH STUDENT!</h1>
+				</section>
+				<div class="bit one s200 ccyan">
+					OMG!!!
+				</div>
+				<div class="bit two s150 ccyan">
+					YES!!1!
+				</div>
+				<div class="bit three s120 ccyan">
+					STUDENT-STATUS!
+				</div>
+				
+				<!-- Texte der ersten Szene. -->
+				<section class="textblock">
+					<h2>Aber jeder Einstieg ist schwer.<br />Besonders dieser!</h2>
+					<p>
+						Das Studium ist etwas komplett anderes als deine vorherige Arbeit oder Schule. Mehr Stress, weniger 
+						Zeit, aber auch 'ne Menge Spa&szlig; und viel Interessantes!
+					</p>
+				</section>
+				
+				<!-- Die naechste Szene wird immer innerhalb der alten definiert um diese sauber einscrollen zu koennen. -->
+				<section id="intro2" class="scene">
+					<!-- Kommilitonen und Bro-Fist Effekt. -->
+					<div class="students">
+						<img class="shine" src="img/Einleitung/einl_mg_shine_500x500.png" alt="Kraft der Freundschaft" /> 
+						<img class="bg" src="img/Einleitung/einl_mg_gruppe_ver2_592x422.png" alt="Kommilitonen" />
+					</div>
 					
-					<h1 class="mainheadline">HAH! GESCHAFFT!<br> ENDLICH STUDENT!</h1>
-					<div class="bit one s200 ccyan">
-						OMG!!!
-					</div>
-					<div class="bit two s150 ccyan">
-						YES!!1!
-					</div>
-					<div class="bit three s40 ccyan">
-						STUDENT-STATUS!
-					</div>
-					
+					<!-- Texte fuer die zweite Szene. -->
 					<section class="textblock">
-						<h2>Aber jeder Einstieg ist schwer. Besonders dieser!</h2>
+						<h2>Such dir Kommilitonen, mit denen du klar kommst!</h2>
 						<p>
-							Das Studium ist etwas komplett anderes als deine vorherige Arbeit oder Schule. Mehr Stress, weniger 
-							Zeit, aber auch 'ne Menge Spa&szlig; und viel Interessantes!
+							Kommilitonen sind existenziell! Von ihnen bekommst du wichtige Informationen, die nicht offiziell gesagt
+							wurden oder du kannst dir Mitschriften aus der Vorlesung geben lassen, die du verpasst hast!
+							Aber denk immer daran: Geben ist besser als nehmen!
 						</p>
 					</section>
 					
-					<!-- Die naechste Szene wird immer innerhalb der alten definiert um diese sauber einscrollen zu koennen. -->
-					<section id="intro2" class="scene">
-						<img class="shine" src="img/Einleitung/einl_mg_shine_500x500.png" alt="shine" />
-						<img class="students" src="img/Einleitung/einl_mg_gruppe_592x435.png" alt="Kommilitonen und Freundschaften" />
+					<!-- Begin der 3. Szene: Vorlesung -->
+					<section id="lecture" class="scene">
+						<!-- Himmel der im Fenster zu sehen ist. -->
+						<img class="sky" src="img/Vorlesungen/vl_hg_himmel.png" alt="Himmel"/>
 						
+						<!-- Baum der sich aus verschiedenen Grafiken zusammensetzt. -->
+						<img class="tree leaves red" src="img/Vorlesungen/vl_hg_b_rot.png" alt="Rote Bl&auml;tter" />
+						<img class="tree trunk" src="img/Vorlesungen/vl_hg_b_stamm.png" alt="Baumstamm" />
+						<img class="tree leaves orange" src="img/Vorlesungen/vl_hg_b_orange.png" alt="Orange Bl&auml;tter" />
+						
+						<!-- Schnee der im Fenster zu sehen ist.-->
+						<img class="snow" src="img/Vorlesungen/vl_hg_schnee.png" alt="Schnee" />
+						
+						<!-- Einbindung des Vorlesungsraum. -->
+						<img class="lectureroom" src="img/Vorlesungen/vl_mg.png" alt="Vorlesungsraum" />
+						
+						<!-- Uhr Canvas -->
+						<div class="clock">
+							<canvas class="canvasClock">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+							
+							<canvas class="canvasClockFast">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+							
+							<canvas class="canvasClockFastReverse">
+								<p>Browser unterstützt das CANVAS-Element leider nicht!</p>
+							</canvas>
+						</div>
+
+						<!--Tafel-->
+						<div class="boardslide">
+							<img class="board" src="img/Vorlesungen/vl_mg_tafel.png" alt="Tafel" />
+							
+							<!-- Grafiken die auf der Leinwand erscheinen. -->
+							<img class="ppt first" src="img/Vorlesungen/vl_mg_ppt_3.png" alt="Gekritzel" />
+							<img class="ppt second" src="img/Vorlesungen/vl_mg_ppt_1.png" alt="Erdmännchen" />
+							<img class="ppt third" src="img/Vorlesungen/vl_mg_ppt_2.png" alt="Smiley" />
+						</div>
+
+						<!-- Prof -->
+						<img class="prof" src="img/Vorlesungen/vl_mg_prof.png" alt="Professor" />
+						
+						<!-- ** Sitzreihen ** -->
+						<!-- Reihe 1-->
+						<img class="row first" src="img/Vorlesungen/vl_mg_sitze_r1.png" alt="Sitzreihe" />
+						<!-- Reihe 1 Studenten -->
+						<img class="row first student one" src="img/Vorlesungen/vl_mg_r1_f1.png" alt="Student" />
+						<img class="row first student two" src="img/Vorlesungen/vl_mg_r1_f2.png" alt="Student" />
+						<img class="row first student three" src="img/Vorlesungen/vl_mg_r1_f3.png" alt="Student" />
+						<img class="row first student four" src="img/Vorlesungen/vl_mg_r1_f4.png" alt="Student" />
+						
+						<!-- Reihe 2-->
+						<img class="row second" src="img/Vorlesungen/vl_mg_sitze_r2.png" alt="Sitzreihe" />
+						<!-- Reihe 2 Studenten -->
+						<img class="row second student one" src="img/Vorlesungen/vl_mg_r2_f1.png" alt="Student" />
+						<img class="row second student two" src="img/Vorlesungen/vl_mg_r2_m1.png" alt="Student" />
+						<img class="row second student three" src="img/Vorlesungen/vl_mg_r2_m2.png" alt="Student" />
+						
+						<!-- Reihe 3-->
+						<img class="row third" src="img/Vorlesungen/vl_mg_sitze_r3.png" alt="Sitzreihe" />
+						<!-- Reihe 3 Studenten -->
+						<img class="row third student one" src="img/Vorlesungen/vl_mg_r3_f1.png" alt="Student" />
+						<img class="row third student two" src="img/Vorlesungen/vl_mg_r3_char.png" alt="Student" />
+						
+						<!-- Gedankenblasen -->
+						<img class="think first" src="img/Vorlesungen/vl_mg_fragezeichen.png" alt="???" />
+						<img class="think second" src="img/Vorlesungen/vl_mg_r3_f1_schlaf.png" alt="zzz" />
+						<img class="think third" src="img/Vorlesungen/vl_mg_r3_f1_schlaf.png" alt="zzz" />
+						
+						<!-- Vordergrund -->
+						<img class="foreground" src="img/Vorlesungen/vl_vg.png" alt="Sitzreihe" />
+						
+						<!-- Einbindung der Texte fuer die Szene. -->
 						<section class="textblock">
-							<h2>Such dir Kommilitonen, mit denen du klar kommst!</h2>
+							<h2>Fr&uuml;h Aufstehen</h2>
 							<p>
-								Kommilitonen sind existenziell! Von ihnen bekommst du wichtige Informationen, die nicht offiziell gesagt
-								wurden oder du kannst dir Mitschriften aus der Vorlesung geben lassen, die du verpasst hast!
-								Aber denk immer daran: Geben ist besser als nehmen!
+								Manche Vorlesungen (und Praktika) fangen bereits um 8:15 Uhr an.<br>
+								Kaffee her!
 							</p>
 						</section>
-					</section> <!-- Ende Szene 2 -->
-					
-					<img class="sceneChange" src="img/Einleitung/einl_vg_szenenwechsel_1000x660.png" alt="Geb&auml;ude">
-				</section><!-- Ende Szene 1-->
-			</div>
+						<section class="textblock">
+							<h2>Notizen sind wichtig</h2>
+							<p>
+								Manchmal sind Skripte unidentifizierbar, da diese meistens aus handschriftlichen Vorlesungsmitschriften der Profs 
+								bestehen.<br>
+								Mitschreiben ist dann essenziell.
+							</p>
+						</section>
+						<section class="textblock">
+							<h2>Hohes Tempo</h2>
+							<p>
+								Im Gegensatz zur Schule wird in der FH ein Thema oftmals innerhalb von ein bis zwei Wochen abgehandelt.<br>
+								Auch ein Grund, weshalb immer weniger Leute in den Vorlesungen sitzen.
+							</p>
+						</section>
+						
+						<!-- Begin der 4. Szene: Selbststudium - Biblio -->
+						<section id="selfstudy1" class="scene">
+							<!-- Einbindung der Grafiken. -->
+							<img class="righttable" src="img/Selbststudium/Biblio/selbstst_mg_tisch-mit-buechern_259x271.png" alt="Tisch mit B&uuml;chern" />
+							<img class="learninggroup" src="img/Selbststudium/Biblio/selbstst_mg_gruppe_690x465.png" alt="Lerngruppe" />
+							<img class="foreground" src="img/Selbststudium/Biblio/selbstst_vg_regal_1127x660.png" alt="Regal" />
+							
+							<!-- Einbindung der Texte fuer die Szene. -->
+							<section class="textblock right">
+								<h2>Lerngruppen, Einzelg&auml;nger oder B&uuml;cherwurm</h2>
+								<p>
+									N&ouml;tiges Wissen kannst du dir auf verschiedene Weisen holen. Dabei solltest du nicht auf deine Kommilitonen 
+									verzichten! Jeder hat auf anderen Gebieten gro&szlig;es Wissen, was er mit dir oder du mit ihnen teilen kannst. Aber 
+									auch hier: Es liegt an dir, wie du am besten zurecht kommst.
+								</p>
+							</section>
+							
+							<!-- Begin der 5. Szene: Selbststudium - Urlaub -->
+							<section id="selfstudy2" class="scene">
+								<!-- Einbindung der Wolken. -->
+								<img class="cloud one" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+								<img class="cloud two" src="img/einl_selbstst_hg_wolke3_338x170.png" alt="Wolke" />
+								<img class="cloud three" src="img/einl_selbstst_hg_wolke1_315x150.png" alt="Wolke" />
+								
+								<div class="bit s200 ccyan">
+									SOMMER SONNE SONNENSCHEIN
+								</div>
+								
+								<!-- Einbindung der Strandgrafiken mit Studenten. -->
+								<img class="middleground" src="img/Selbststudium/Urlaub/selbstst_mg_Typ_2000x660_ohnekrabbe.png" alt="Typ am Strand" />
+								
+								<!-- Einbindung der Palmen. -->
+								<img class="palm first" src="img/Selbststudium/Urlaub/selbstst_mg_palme-gross_419x479.png" alt="Palme" />
+								<img class="palm second" src="img/Selbststudium/Urlaub/selbstst_mg_palme-klein_368x393.png" alt="Palme" />
+								
+								<!-- Einbindung der Texte fuer die Szene. -->
+								<section class="textblock">
+									<h2>Urlaub ist drin!</h2>
+									<p>
+										In den &quot;Sommerferien&quot; ist viel Zeit zwischen den Pr&uuml;fungen &ndash; aber sei darauf gefasst, dass du 
+										dennoch viel zu lernen und nachzuholen hast!
+									</p>
+									<p>
+										Das kannst du aber eigentlich vergessen, wenn du das Studium in Regelstudienzeit abschlie&szlig;en willst!
+									</p>
+								</section>
+								
+								<!-- Die Krabbe -->
+								<img class="crab" src="img/Selbststudium/Urlaub/krebs.png" alt="Krebs" />
+								<!-- Schwarze Moewe und Burg Grafik die im Vordergrund erscheint. -->
+								<img class="foreground" src="img/Selbststudium/Urlaub/selbstst_vg_moewe-burg_1944x279.png" alt="Vordergrund" />
+
+								<!-- Begin der 6. Szene: Selbeststudium - Eigenheim -->
+								<section id="selfstudy3" class="scene">
+									<div class="middleground">
+										<!-- Tag/Nacht - Verlauf -->
+										<img class="daynight" src="img/Selbststudium/Eigenheim/selbstst_hg_tagnachtverlauf_2000x252.jpg" alt="Tag und Nacht" />
+										<img class="background" src="img/Selbststudium/Eigenheim/selbstst_mg_wand_2000x660.png" alt="Zimmerwand" />
+										<!-- Uhr -->
+										<img class="clock first" src="img/Selbststudium/Eigenheim/selbstst_mg_uhr-1_125x125.png" alt="Uhr" />
+										<img class="clock second" src="img/Selbststudium/Eigenheim/selbstst_mg_uhr-2_125x125.png" alt="Uhr" />
+										<img class="clock third" src="img/Selbststudium/Eigenheim/selbstst_mg_uhr-3_125x125.png" alt="Uhr" />
+										<img class="clock fourth" src="img/Selbststudium/Eigenheim/selbstst_mg_uhr-4_125x125.png" alt="Uhr" />
+										<img class="clock fifth" src="img/Selbststudium/Eigenheim/selbstst_mg_uhr-5_125x125.png" alt="Uhr" />
+									</div>
+									
+									<!-- Tisch und Studenten Grafiken -->
+									<img class="student first" src="img/Selbststudium/Eigenheim/selbstst_mg_Tisch-1_1127x331.png" alt="Student" />
+									<img class="student second" src="img/Selbststudium/Eigenheim/selbstst_mg_Tisch-2_1127x331.png" alt="Student" />
+									<img class="student third" src="img/Selbststudium/Eigenheim/selbstst_mg_Tisch-3_1127x331.png" alt="Student" />
+									
+									<!-- Vordergrundgrafiken -->
+									<img class="foreground first" src="img/Selbststudium/Eigenheim/selbstst_vg_becher_202x239.png" alt="Becher" />
+									<img class="foreground second" src="img/Selbststudium/Eigenheim/selbstst_vg_becher-buecher_372x227.png" alt="Becher & B&uuml;cher" />
+									<img class="foreground third" src="img/Selbststudium/Eigenheim/selbstst_vg_muell_432x94.png" alt="Becher & Muell" />
+									<img class="foreground fourth" src="img/Selbststudium/Eigenheim/selbstst_vg_tasche-buecher_577x195.png" alt="Tasche & B&uuml;cher" />
+									
+									<!-- Einbindung der Texte fuer die Szene. -->
+									<section class="textblock cwhite">
+										<h2>Mit Nachtschichten muss gerechnet werden</h2>
+										<p>
+											Je nachdem, wann du mit den Aufgaben anf&auml;ngst, kann sich das auch bis sp&auml;t in die Nacht ziehen... <br><br>
+											Die sind wirklich nicht zu untersch&auml;tzen!
+										</p>
+									</section>
+									<section class="textblock cwhite">
+										<h2>All you need is...</h2>
+										<p>
+											Kaffee, Internet, B&uuml;cher aus der Bibliothek, Kaffee, Snacks zum &Uuml;berleben, Kaffee
+										</p>
+									</section>
+									<section class="textblock cwhite">
+										<h2>Doch es ist machbar!</h2>
+										<p>
+											Du musst selbst wissen, ob du eher auf letzte Minute alles schaffen willst, oder lieber andere Dinge daf&uuml;r 
+											opferst und damit auf der sicheren Seite bist!
+										</p>
+									</section>
+									
+									<!-- Done Text der eingeblendet wird. -->
+									<div class="bit s300 ccyan">
+										DONE!!!
+									</div>
+
+									<!-- Begin der 7. Szene: Mensa -->
+									<section id="canteen" class="scene">
+										<!-- Einbindung der Hintergrundgrafik. -->
+										<img class="canteenbg" src="img/Tools-Vorteile/Dateien_Mensa/tools_bg_htg.png" alt="Hintergrund" />
+										
+										<!-- Theke -->
+										<img class="serving-table first" src="img/Tools-Vorteile/Dateien_Mensa/tools_bg_theke.png" alt="Theke" />
+									
+										<!-- Sosse -->
+										<img class="souce first" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_sosse1.png" alt="Sosse" />
+										<img class="souce second" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_sosse2.png" alt="Sosse" />
+										<img class="souce third" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_sosse3.png" alt="Sosse" />
+										<!-- Essen -->
+										<img class="food first" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_food2.png" alt="Essen" />	
+										<img class="food second" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_food3.png" alt="Essen" />	
+										<img class="food third" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_food.png" alt="Essen" />	
+										
+										<!-- Texte zu den einzelnen Grafiken.. -->
+										<div class="food1txt">
+											Pommes
+										</div>
+										<div class="food2txt">
+											Bifteki
+										</div>
+										<div class="food3txt">
+											Gem&uuml;se
+										</div>
+										<div class="food subtxt bggrey">
+											alles totfritiert
+										</div>										
+
+										<div class="souce1txt">
+											Curry
+										</div>
+										<div class="souce2txt">
+											Pesto
+										</div>
+										<div class="souce3txt">
+											Tomate
+										</div>
+										<div class="souce subtxt bggrey">
+											alles identisch
+										</div>												
+										
+										<!-- Scheibe -->
+										<img class="serving-table second" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_glas.png" alt="Glas" />
+										<!-- Junge -->
+										<img class="boy first" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_boy1.png" alt="Junge" />
+										<img class="boy second" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_boy2.png" alt="Junge" />
+										<img class="boy third" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_boy3.png" alt="Junge" />
+										<img class="boy fourth" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_boy4.png" alt="Junge" />
+										<img class="boy fifth" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_boy5.png" alt="Junge" />
+										<!-- Lampen -->
+										<img class="lamp first" src="img/Tools-Vorteile/Dateien_Mensa/tools_hg_lampe.png" alt="Lampe" />
+										<img class="lamp second" src="img/Tools-Vorteile/Dateien_Mensa/tools_hg_lampe.png" alt="Lampe" />
+										<img class="lamp third" src="img/Tools-Vorteile/Dateien_Mensa/tools_hg_lampe.png" alt="Lampe" />
+										
+										<!-- Pfeil der auf den Becher zeigt. -->
+										<img class="arrow" src="img/Tools-Vorteile/Dateien_Mensa/tools_hg_pfeil.png" alt="Pfeil" />
+										<!-- Dessert mit Verlinkung auf die Mensaapp. -->
+										<a class="dessertlink" href="http://www.imensa.de/duesseldorf/mensa-fh-duesseldorf/speiseplan.html" target="_blank">
+											<img class="dessert" src="img/Tools-Vorteile/Dateien_Mensa/tools_mg_dessert.png" alt="Nachtisch"/>
+										</a>							
+										
+										<!-- Einbindung der Texte fuer die Szene. -->
+										<section class="textblock">
+											<h2>Beware of the Mensa</h2>										
+											<p>
+												Jedes Gericht wurde zu 100% fritiert.<br>
+												Und jede So&szlig;e, besteht - ungelogen -
+												immer aus der selben Sahneso&szlig;e.
+											</p>											
+										</section>
+										
+										<!-- Desserttext mit Verlinkung auf die Mensaapp. -->
+										<div class="bit s150">
+											<a class="dessertlink" href="http://www.imensa.de/duesseldorf/mensa-fh-duesseldorf/speiseplan.html" target="_blank">Mensa App</a>
+										</div>
+
+										<!-- Begin der 8. Szene: Feature  -->
+										<section id="feature" class="scene">
+											<!-- Fenster in dem die einzelnen Grafiken mit Verlinkungen sich befinden. -->
+											<div class="window-frame">
+												<img class="middleground" src="img/Tools-Vorteile/Feature/tools_hg_window.png" alt="Fensterrahmen" />
+											
+												<!-- Logos -->	
+												<!-- Oben -->
+												<a class="logo column1 row1" href="http://www.amazon.de/b?ie=UTF8&node=469664031"  target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo01.png" alt="Logo" /></a>
+												<a class="logo column2 row1" href="http://store.apple.com/de_aoc_121661" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo04.png" alt="Logo" /></a>
+												<a class="logo column3 row1" href="https://www.lenovocampus.de/" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo07.png" alt="Logo" /></a>
+													
+												<!-- Mitte -->
+												<a class="logo column4 row2" href="http://link.springer.com/" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo02.png" alt="Logo" /></a>	
+												<a class="logo column5 row2"  href="https://www.dreamspark.com/Student/Default.aspx" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo05.png" alt="Logo" /></a>	
+												<a class="logo column6 row2"  href="http://www.unimall.de/" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo08.png" alt="Logo" /></a>	
+
+												<!-- Unten -->
+												<a class="logo column7 row3"  href="https://www.video2brain.com/de/edu-login" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo03.png" alt="Logo" /></a>	
+												<a class="logo column8 row3" href="http://www.autodesk.com/education/free-software/all" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo06.png" alt="Logo" /></a>								
+												<a class="logo column9 row3" href="http://www.uni-duesseldorf.de/hochschulsport/" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo09.png" alt="Logo" /></a>
+			
+												<!-- logos2  -->
+												<a class="logo2 column1 row1" href="http://bibl.fh-duesseldorf.de/e_recherche/c_elearning/e_tellmemore" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo10.png" alt="Logo2"/></a>			
+												<a class="logo2 column4 row2" href="http://www.maxon.net/de/products/general-information/general-information/student-versions.html" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo11.png" alt="Logo2" /></a>		
+												<a class="logo2 column7 row3" href="http://katalog.bibl.fh-duesseldorf.de/libero/WebOpac.cls?" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo12.png" alt="Logo2" /></a>		
+												<a class="logo2 column8 row3" href="http://www.fh-duesseldorf.de/a_fh/d_internationaloffice" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo13.png" alt="Logo2" /></a>		
+												<a class="logo2 column9 row3" href="http://www.kino77.de/" target="_blank"><img src="img/Tools-Vorteile/Feature/tools_mg_logo14.png" alt="Logo2" /></a>	
+
+											</div>	
+											<!-- Junge-->
+											<img class="boy second" src="img/Tools-Vorteile/Feature/tools_mg_boy_sit01.png" alt="Junge farbe" />	
+											<img class="boy first" src="img/Tools-Vorteile/Feature/tools_mg_boy_sit_black.png" alt="junge SW" />
+							
+											<!-- Einbindung der Texte fuer die Szene. -->
+											<section class="textblock right_feature cwhite">
+												<h2>Als Student hat man <br>viele Angebote!</h2>
+												<p>
+													Als Student bekommst du so gut wie immer Rabatt. Selbst bei <br>
+													Eintritten, Fahrten oder anderen Verlägen! Hier sind nur ein <br>
+													paar davon aufgelistet.  Klick dich durch und schau es dir an!
+												</p>
+											</section>
+											
+											<!-- Begin der 9. Szene: Outro  -->
+											<section id="outro" class="scene">
+												<!-- Einbindung Grafiken fuer die Szene. -->
+												<img src="img/Outro/outro_sonne_1000x1000.png" class="sun" alt="Sonne" />
+												<img src="img/einl_selbstst_hg_wolke2_260x123.png" class="cloud" alt="Wolke" />
+												<img src="img/Outro/outro_hg_flugzeug_414x150.png" class="airplane" alt="Flugzeug" />
+                                            	<img src="img/Outro/outro_mg_baum1_538x660.png" class="tree first" alt="Baum" />
+												<img src="img/Outro/outro_mg_baum2_297x660.png" class="tree second" alt="Baum" />                                          
+												
+												<!-- Junge -->
+												<img src="img/Outro/outro_mg_typ_436x321.png" class="boy" alt="Typ" />
+												
+												<!-- Baeume Vordergrund. -->
+												<img src="img/Outro/outro_vg_baum2_823x660.png" class="foreground tree first" alt="Baum" />
+												<img src="img/Outro/outro_vg_baum1_1177x660.png" class="foreground tree second" alt="Baum" />
+								
+												<!-- Einbindung der Texte fuer die Szene. -->
+												<section class="textblock">
+													<h2>Interessant ist es auf jeden Fall!</h2>
+													<p>Medieninformatik ist nicht nur programmieren, da es vielfältig und breit gefächert ist. Viel Mathematik, aber auch Webprogrammierung, Rechnerarchitektur, Computergrafik, Design und noch viel mehr  erwartet dich im Studienverlauf!
+													</p>
+													<p>
+														<strong>Wir wünschen dir viel Spaß dabei!</strong>
+													</p>
+												</section>
+												
+												<!-- Text am Ende der Szene. -->
+												<section class="textblock">
+													<h2>B. Sc. <br>Medieninformatik <br>an der FH-Düsseldorf</h2>
+												</section>
+											</section> <!-- Ende Scene Outro -->
+											
+											<div class="sceneChange"></div>	
+										</section> <!-- Ende Scene Feature -->
+									
+										<img class="sceneChange" src="img/Uebergang_6_660x300.jpg" alt="Wandinneres" />
+									</section> <!-- Ende Scene 7: Mensa -->
+									
+									<img class="sceneChange" src="img/Uebergang_5_660x300.jpg" alt="Wandinneres" />
+								</section> <!-- Ende Scene 6: Eigenheim -->			
+								
+								<img class="sceneChange" src="img/Uebergang_4_660x300.jpg" alt="Wandinneres" />
+							</section> <!-- Ende Scene 5: Urlaub -->
+
+							<img class="sceneChange" src="img/Uebergang_3_660x300.jpg" alt="Wandinneres" />
+						</section> <!-- Ende Szene 4: Bibliothek -->
+
+						<img class="sceneChange" src="img/Uebergang_2_660x300.jpg" alt="Wandinneres" />
+					</section> <!-- Ende Szene 3: Vorlesung -->
+
+					<img class="sceneChange" src="img/Uebergang_1_660x300.jpg" alt="Wandinneres" />
+				</section><!-- Ende Szene 2: Intro 2 -->
+				<img class="sceneChange" src="img/Einleitung/einl_vg_szenenwechsel_1000x660.png" alt="Geb&auml;ude" />
+			</section><!-- Ende Szene 1: Intro 1 -->
 			<footer><!-- Schwarzer Balken --></footer>
 		</div>
+		
+		<!-- Spaces um den Scrollbereich der Seite zu bestimmen. -->
+		<div id="scrollSpacer"></div>
 	</body>
 </html>
