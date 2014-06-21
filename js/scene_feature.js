@@ -34,16 +34,22 @@ $(document).ready(function($) {
 //	var logos5In	= TweenMax.fromTo("#feature > .logo.column2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.5,ease: Linear.easeNone});
 //	
 	
-//	var logos1In	= TweenMax.fromTo("#feature > .logo.seventh, #feature > .logo.eighth" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.1,ease: Linear.easeNone});
-//	var logos2In	= TweenMax.fromTo("#feature > .logo.third, #feature > .logo.sixth" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.2,ease: Linear.easeNone});
-//	var logos3In	= TweenMax.fromTo("#feature > .logo.ninth, #feature > .logo.fifth" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.3,ease: Linear.easeNone});
-//	var logos4In	= TweenMax.fromTo("#feature > .logo.fourth, #feature > .logo.first" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.4,ease: Linear.easeNone});
-//	var logos5In	= TweenMax.fromTo("#feature > .logo.second" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.5,ease: Linear.easeNone});
-
-	var headIn 	= TweenMax.fromTo("#feature > .textblock", 0.1, {top: "5%", left:"160%"}, { left:"42%", delay: 1.0, ease: Linear.easeNone});
+	var logos1In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column1.row1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.0,ease: Linear.easeNone});
+	var logos2In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column2.row1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.09,ease: Linear.easeNone});
+	var logos3In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column3.row1" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.21,ease: Linear.easeNone});
+	var logos4In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column4.row2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.11,ease: Linear.easeNone});
+	var logos5In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column5.row2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.18,ease: Linear.easeNone});
+	var logos6In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column6.row2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.03,ease: Linear.easeNone});
+	var logos7In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column7.row3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.35,ease: Linear.easeNone});
+	var logos8In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column8.row3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.06,ease: Linear.easeNone});
+	var logos9In	= TweenMax.fromTo("#feature > .window-frame >  .logo.column9.row3" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.15,ease: Linear.easeNone});
+		
+	var headIn 	= TweenMax.fromTo("#feature > .textblock", 0.1, {top: "5%", left:"160%"}, { left:"42%", delay: 0.65, ease: Linear.easeNone});
+//	var logoBlock	= TweenMax.fromTo("#feature> .window-frame > .blackbox" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.5,ease: Linear.easeNone}); 
+	var logoFadeOut = TweenMax.to("#feature > .window-frame > .logo" , 0.05, {autoAlpha:0, delay: 0.65,ease: Linear.easeNone});
 
 	var logoFadeOut = TweenMax.to("#feature > .logo" , 0.05, {autoAlpha:0, delay: 0.75,ease: Linear.easeNone});
-	var logoBlock	= TweenMax.fromTo("#feature > .blackbox" , 0.1,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.75,ease: Linear.easeNone});
+	var logos10In	= TweenMax.fromTo("#feature > .window-frame >  .logo2" , 0.05,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.65,ease: Linear.easeNone});
 
 	var logos10In	= TweenMax.fromTo("#feature > .logo2" , 0.1,  {autoAlpha: 0} , {autoAlpha:1, delay: 0.75,ease: Linear.easeNone});
 	
