@@ -54,7 +54,7 @@ $(document).ready(function($) {
 	
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
 	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
-	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.5, ease: Linear.easeNone});
+	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
 	
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
@@ -97,8 +97,8 @@ $(document).ready(function($) {
 		
 		// Aenderung des Flugzeugbildes bei Richtungswechsel
 		if (scrollDirection == "REVERSE") 
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_ver2_239x87.png"});
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_ver3_414x150.png"});
 		else if (scrollDirection == "FORWARD")
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_ver2_239x87.png"});
+			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_ver3_414x150.png"});
 	}
 });
