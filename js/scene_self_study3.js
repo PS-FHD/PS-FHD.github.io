@@ -30,10 +30,10 @@ $(document).ready(function($) {
 	  .appendMultiple([table2Out, table3In, doneBitIn], 0.20);
 	
 	var clockTimeline = new TimelineMax()
-	  .append(clock2, 0.15)
-	  .append(clock3, 0.15)
-	  .append(clock4, 0.15)
-	  .append(clock5, 0.15);
+	  .append(clock2, 0.09)
+	  .append(clock3, 0.09)
+	  .append(clock4, 0.09)
+	  .append(clock5, 0.07);
 	
 	// Da die Tweens fuer die Textbloecke hintereinander Abgespielt werden, ist hier eine zusaetzliche Zeitleiste sinnvoll.
 	var textBlockTimeline = new TimelineMax()
