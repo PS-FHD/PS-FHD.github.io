@@ -249,7 +249,7 @@ nav .text_area {
 }
 
 #intro1 > .cloud.two {
-	top: 3.78%;
+	top: 4.78%;
 	max-height: 25.8%;
 }
 
@@ -663,7 +663,7 @@ nav .text_area {
 ** Szene Mensa - erste Szene unter Tools/Features
 ********************************/
 #canteen {
-	
+
 }
 
 #canteen > .serving-table.first {
@@ -760,7 +760,6 @@ nav .text_area {
 /********************************
 ** Features - Junge vor dem Fenster
 ********************************/
-
 #feature {
 	background-color: #000000;
 	
@@ -771,8 +770,7 @@ nav .text_area {
 	   Rundung koennte je nach Skalierung ein Pixel weggeschnitten werden. */
 	height: 100%;
 	left: 50%;
-	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
-	background-height: 100%;
+	background-height: 100%;	
 	/* Das Element um die Haelfte der eigene Breite nach links Uebersetzen. */
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
@@ -782,68 +780,43 @@ nav .text_area {
 #feature > .window-frame > .middleground {
 	height: 100%; /* So hoch wie das Fenster, die Breite dieses Bildes bestimmt dadurch die Breite des containers. */
 	position: relative; /* Muss Positionierung haben um z-index zu setzen. */
-	margin-left: -1px; /* Ein Pixel nach links schieben, umgeht moegliche Luecken durch Rundung der Prozentwerte. */
-	/*z-index: 1;*/
+	background-image: url(../img/Tools-Vorteile/Feature/tools_hg_landschaft.png);
 }
 
 #feature > .window-frame > .logo, .logo2 {
 	position: absolute;
 	height: 23.60%;
 	max-height: 161px;
-/*	border:1px solid red;*/
 }
 
-#feature > .window-frame > .logo, .logo2 > img {
+#feature > .window-frame > .logo > img {
+	height: 100%;
+}
+#feature > .window-frame > .logo2 > img {
 	height: 100%;
 }
 
-#feature > .window-frame > .column1 {
+#feature > .window-frame > .column1,.column4,.column7 {
 	left: 8.66%;
-	/*old 8.16	*/
 }
 
-#feature > .window-frame > .column2 {
+#feature > .window-frame > .column2,.column5,.column8 {
 	left: 36.65%;
 }
 
-#feature > .window-frame > .column3 {
-	left: 64.8%;
-}
-
-#feature > .window-frame > .column4 {
-	left: 8.66%;	
-}
-
-#feature > .window-frame > .column5 {
-	left: 36.65%;
-}
-
-#feature > .window-frame > .column6 {
-	left: 64.8%;
-}
-
-#feature > .window-frame > .column7 {
-	left: 8.66%;	
-}
-
-#feature > .window-frame > .column8 {
-	left: 36.65%;
-}
-
-#feature > .window-frame > .column9 {
-	left: 64.8%;
+#feature > .window-frame > .column3,.column6,.column9 {
+	left: 64.7%;
 }
 
 #feature > .window-frame > .row1 {
-	top: 4.9%;
-/*	old 4.8*/
+	top:4.8%;
 }
 #feature > .window-frame > .row2 {
 	top: 31.8%;
 }
 
 #feature > .window-frame > .row3 {
-	top: 58.7%;
+	top: 58.6%;
 }
 
 #feature > .boy{ 
@@ -852,6 +825,11 @@ nav .text_area {
 	left: 50%;
 }
 
+#feature > .textblock.right_feature{
+	text-align:right;
+	width:37%;
+	height:50%;
+	}
 
 /********************************
 ** Outro Szene - Ende
