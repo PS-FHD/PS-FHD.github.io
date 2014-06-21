@@ -4,25 +4,6 @@ var DEBUG = true;
 // Der globale Scroll Magic Controller.
 var controller;
 
-/* *** UHR *** */
-// Zum Zaehlen, ob etwas zum ersten Mal eintritt.
-// eingesetzt in function scene_leave in scene_intro2.js zum Stellen der Uhr in der VorlesungsSzene
-var globalCounterFirstTime = true;
-
-// globale Variablen fuer die Uhrzeit der Uhr in der VorlesungsSzene (lecture) */
-globalIntSec = 0; 		// Sekunden
-globalIntMin = 15; 		// Minuten
-globalIntHour = 8; 		// Stunden
-		
-// damit das Ziffernblatt der Uhr sofort auf der Seite sichtbar ist, wird es als Image geladen, bevor der DomBaum ready ist
-var objImgClock = new Image();
-objImgClock.src = "img/clock/clock_face.png";
-
-// globale Variable fuer die temporaere Scrollposition - wichtig in der VorlesungsSzene fuer die Realisierung der Uhr
-var globalTempScrollPosition = 0;
-
-/* *** UHR ENDE *** */
-
 // Die Laenge aller Szenen.
 var totalDuration = 0;
 
