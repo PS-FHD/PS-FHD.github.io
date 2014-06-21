@@ -63,9 +63,9 @@ $(document).ready(function($) {
 		// Erstellen des Scroll Magic Controllers und horizontales Scrollen konfigurieren.
 		controller = new ScrollMagic({
 				vertical: false, 
-				loglevel: DEBUG ? 3 : 0,
+				loglevel: DEBUG ? 2 : 0,
 				globalSceneOptions: {
-					loglevel: DEBUG ? 3 : 0
+					loglevel: DEBUG ? 2 : 0
 				}
 			}
 		);

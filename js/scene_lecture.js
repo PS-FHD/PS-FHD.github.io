@@ -18,26 +18,22 @@ $(document).ready(function($) {
 	// Schnee
 	var snow = TweenMax.fromTo("#lecture > .snow", 0.6, {top:"-75%"}, {top:"25%", ease: Linear.easeNone, delay:0.4});
 	
-	// Sitzreihen
-	var row1 = TweenMax.fromTo("#lecture > .row.first", 1, {left: "10%"}, {left:"9%", ease: Linear.easeNone});
-	var row2 = TweenMax.fromTo("#lecture > .row.second", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var row3 = TweenMax.fromTo("#lecture > .row.third", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
-	var front = TweenMax.fromTo("#lecture > .front", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone});
+	var prof = TweenMax.fromTo("#lecture > .prof", 1, {left: "90%"}, {left: "29%"});
 	
-	var prof = TweenMax.fromTo("#lecture > .prof", 1, {left: "90%"}, {left:"29%"});
+	// Reihen und Personen
+	var row1 = TweenMax.to("#lecture > .row.first", 1, {left: "-=1%", ease: Linear.easeNone});
+	var row2 = TweenMax.to("#lecture > .row.second", 1, {left: "-=5.5%", ease: Linear.easeNone});
+	var row3 = TweenMax.to("#lecture > .row.third", 1, {left: "-=9%", ease: Linear.easeNone});
 	
-	// Personen Reihe 1
-	var prow1_1 = TweenMax.fromTo("#lecture > .ppl1.first", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var prow1_2 = TweenMax.fromTo("#lecture > .ppl1.second", 0.7, {left: "10%", autoAlpha:1}, {left:"4.5%", autoAlpha:0, delay:0.3, ease: Linear.easeNone});
-	var prow1_3 = TweenMax.fromTo("#lecture > .ppl1.third", 1, {left: "10%"}, {left:"4.5%", ease: Linear.easeNone});
-	var prow1_4 = TweenMax.fromTo("#lecture > .ppl1.fourth", 0.8, {left: "10%", autoAlpha:1}, {left:"4%", autoAlpha:0, ease: Linear.easeNone});
-	// Personen Reihe 2
-	var prow2_1 = TweenMax.fromTo("#lecture > .ppl2.first", 1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
-	var prow2_2 = TweenMax.fromTo("#lecture > .ppl2.second", 0.3, {left: "10%", autoAlpha:1}, {left:"6%", autoAlpha:0, ease: Linear.easeNone});
-	var prow2_3 = TweenMax.fromTo("#lecture > .ppl2.third",1, {left: "10%"}, {left:"1%", ease: Linear.easeNone});
-	// personen Reihe 3
-	var prow3_1 = TweenMax.fromTo("#lecture > .ppl3.first", 0.6, {left: "10%", autoAlpha:1}, {left:"1%", autoAlpha:0, ease: Linear.easeNone});
-	var prow3_2 = TweenMax.fromTo("#lecture > .ppl3.second", 1, {left: "10%"}, {left:"-3.3%", ease: Linear.easeNone}); 
+	// Vordergrund-Sitzreihe
+	var foreground = TweenMax.to("#lecture > .foreground", 1, {left: "-3.3%", ease: Linear.easeNone});
+
+	// Personen verschwinden nach und nach
+	var personLeaveTimeline = new TimelineMax()
+	  .append(TweenMax.to("#lecture > .row.first.student.two", 0.1, {autoAlpha: 0}), 0.1)
+	  .append(TweenMax.to("#lecture > .row.first.student.four", 0.1, {autoAlpha: 0}), 0.1)
+	  .append(TweenMax.to("#lecture > .row.second.student.two", 0.1, {autoAlpha: 0}), 0.1)
+	  .append(TweenMax.to("#lecture > .row.third.student.one", 0.1, {autoAlpha: 0}), 0.1);
 	
 	// Gedanken
 	var think1 = TweenMax.fromTo("#lecture > .think.first", 1, {top: "56%",left: "32%", autoAlpha:0}, {left:"28.5%", autoAlpha:1});
@@ -68,16 +64,14 @@ $(document).ready(function($) {
 	// Die Zeitleiste der Szene
 	var sceneTimeline = new TimelineMax()
 		.add([
+		  personLeaveTimeline,
 			backgroundSky,
 			orangeLeaves,
 			redLeaves,
 			snow,
 			prof,
 			row1, row2, row3,
-			front,
-			prow1_1,prow1_2,prow1_3,prow1_4,
-			prow2_1,prow2_2,prow2_3,
-			prow3_1,prow3_2,
+			foreground,
 			think1, think2, think3,
 			ppt1, ppt2, ppt3,
 			textTimeline
@@ -86,7 +80,7 @@ $(document).ready(function($) {
 		.addSceneChange($("#lecture > .sceneChange"), $("#selfstudy1"));
 	
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 5000px bis 7500px abgespielt.
-	addScene("lecture", new ScrollScene({duration: 2500})
+	addScene("lecture", new ScrollScene({duration: 7500})
 		.setTween(sceneTimeline)
 		.addTo(controller)
 		.on("enter", scene_enter)

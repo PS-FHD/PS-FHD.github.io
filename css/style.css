@@ -424,27 +424,49 @@ nav .text_area {
 	top: 20px;
 }
 
-#lecture > .front, #lecture > .row.third {
+#lecture > .foreground, #lecture > .row.third {
 	bottom: 0;
+}
+
+#lecture > .foreground, #lecture > .row {
+	left: 10%;
+}
+
+#lecture > .row {
+	bottom: 8.03%;
 }
 
 #lecture > .row.second {
 	bottom: 3.63%;
 }
 
-#lecture > .row.first {
-	bottom: 8.03%;
-}
-
-#lecture > .ppl1 {
+#lecture > .row.first.student {
+	left: 9%;
 	bottom: 12%;
 }
 
-#lecture > .ppl2 {
+#lecture > .row.first.student.three {
+	left: 8%;
+}
+
+#lecture > .row.first.student.four {
+	left: 6%;
+}
+
+#lecture > .row.second.student.two {
+	left: 8%;
+}
+
+#lecture > .row.second.student.three {
+	left: 7%;
+}
+
+#lecture > .row.second.student {
 	bottom: 9%;
 }
 
-#lecture > .ppl3 {
+#lecture > .row.third.student {
+	left: 8%;
 	bottom: 3%;
 }
 
