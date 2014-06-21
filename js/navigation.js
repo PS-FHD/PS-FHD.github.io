@@ -33,6 +33,7 @@ $(document).ready(function($) {
 				break;
 			case "canteen":
 			case "feature":
+			case "outro":
 				currentNav = "tools";
 				break;
 		}
