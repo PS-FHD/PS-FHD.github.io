@@ -16,6 +16,10 @@ $(document).ready(function($) {
 	var foregroundTree2 = TweenMax.fromTo("#outro > .foreground.tree.second", 0.4, {left: "100%"}, {left: "38%", delay: 0.6, ease: Linear.easeNone});
 	// Wolke animieren
 	var cloud = TweenMax.fromTo("#outro > .cloud", 1, {left: "100%"}, {left: "28%", ease: Linear.easeNone});
+	
+	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
+	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
+	var airplane 	= TweenMax.fromTo("#outro > .airplane", 1, {left: "115%", top: "30%", scale: 2}, {left: "-35%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
 
 	// Textbloecke vorselektieren
 	var firstTextblock  = $("#outro > .textblock:nth-of-type(1)");
@@ -34,6 +38,7 @@ $(document).ready(function($) {
 		.add([
 			background,
 			sun,
+			airplane,
 			foregroundTree1,
 			foregroundTree2,
 			cloud,
@@ -43,5 +48,22 @@ $(document).ready(function($) {
 	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 17500px bis 22500px abgespielt.
 	addScene("outro", new ScrollScene({duration: 5000})
 		.setTween(sceneTimeline)
-		.addTo(controller));
+		.addTo(controller)
+		.on("progress", scene_progress));
+		
+	/***********************************************************************************
+	 *    Event-Handler der bei Fortschrittsaenderung der Szene aufgerufen wird.
+	 *    
+	 *    @param event Die Ereignisdaten.
+	 **********************************************************************************/
+	function scene_progress(event) {
+		// event.scrollDirection liefert als Scrollrichtung FORWARD REVERSE oder PAUSED.
+		var scrollDirection = event.scrollDirection;
+		
+		// Aenderung des Flugzeugbildes bei Richtungswechsel
+		if (scrollDirection == "REVERSE") 
+			$("#outro > .airplane").attr({src: "img/Outro/outro_hg_flugzeug_reversed_414x150.png"});
+		else if (scrollDirection == "FORWARD")
+			$("#outro > .airplane").attr({src: "img/Outro/outro_hg_flugzeug_414x150.png"});
+	}
 });

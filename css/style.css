@@ -872,3 +872,7 @@ nav .text_area {
 #outro > .cloud {
 	top: 30%;
 }
+
+#outro > .airplane {
+	max-height: 13.2%;
+}
