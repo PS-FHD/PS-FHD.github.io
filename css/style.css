@@ -825,6 +825,11 @@ nav .text_area {
 	left: 50%;
 }
 
+#feature > .textblock.right_feature{
+	text-align:right;
+	width:37%;
+	}
+
 /********************************
 ** Outro Szene - Ende
 ********************************/
