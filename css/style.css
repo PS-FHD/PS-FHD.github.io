@@ -12,7 +12,7 @@ body {
 h1 {
 	font-family: 'Oswald';
 	font-size: 200%;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.02em;
 	margin-top: 0.4em;
 	margin-bottom: 0.6em;
 }
@@ -20,7 +20,7 @@ h1 {
 h2 {
 	font-family: 'Oswald';
 	font-size: 140%;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.02em;
 	margin-bottom: 0.4em;
 }
 
@@ -62,7 +62,7 @@ a:active {
 .s40 { font-size: 40%; }
 
 /* Klassen zur Aenderung der Schriftfarbe */
-.ccyan { color: #4169e1; }
+.ccyan { color: #11B3E4; }
 .cwhite { color: #FFFFFF; }
 /* Ergaenzende Farbwerte fuer die Navigation */
 .cred { color: #AA261D; }
@@ -185,10 +185,14 @@ nav .text_area {
 .scene .textblock {
 	left: 2%;
 	top: 9%;
-	width: 40%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
+	width: 30%; /* In den meisten Szenen gibt es wichtige Objekte in der Mitte, die der Text moeglichst nicht ueberlagern sollte. */
 	min-width: 350px;
 	max-width: 600px;
 	height: 82%;
+}
+
+.scene .textblock p {
+	font-size: 85%;
 }
 
 .scene .textblock.right {
@@ -335,7 +339,7 @@ nav .text_area {
 }
 
 #intro2 > .textblock {
-	width: 35%;
+	width: 30%;
 }
 
 /********************************
@@ -577,8 +581,10 @@ nav .text_area {
 }
 
 #selfstudy3 > .bit {
-	top: 30%;
-	left: 43%;
+	top: 26%;
+	left: 38%;
+	text-shadow: 0 0 20px #11b3e4;
+	font-weight: bold;
 }
 
 #selfstudy3 > .student {
