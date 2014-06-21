@@ -796,39 +796,15 @@ nav .text_area {
 	height: 100%;
 }
 
-#feature > .window-frame > .column1 {
+#feature > .window-frame > .column1,.column4,.column7 {
 	left: 8.66%;
 }
 
-#feature > .window-frame > .column2 {
+#feature > .window-frame > .column2,.column5,.column8 {
 	left: 36.65%;
 }
 
-#feature > .window-frame > .column3 {
-	left: 64.7%;
-}
-
-#feature > .window-frame > .column4 {
-	left: 8.66%;	
-}
-
-#feature > .window-frame > .column5 {
-	left: 36.65%;
-}
-
-#feature > .window-frame > .column6 {
-	left: 64.7%;
-}
-
-#feature > .window-frame > .column7 {
-	left: 8.66%;	
-}
-
-#feature > .window-frame > .column8 {
-	left: 36.65%;
-}
-
-#feature > .window-frame > .column9 {
+#feature > .window-frame > .column3,.column6,.column9 {
 	left: 64.7%;
 }
 
