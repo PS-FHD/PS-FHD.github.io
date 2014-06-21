@@ -1,9 +1,8 @@
-/**
- * Dieses Script stellt die Funktionalitäten für die Navigation bereit
- * @Author Alexander Dlugosch, David-Kay Posmyk
- */
+/*****************************************************************************
+ * Dieses Script stellt die Funktionalitaeten fuer die Navigation bereit.
+ ****************************************************************************/
 $(document).ready(function($) {
-	//Registriere Navigation
+	// Registriere Navigation
 	var navTweens = {
 		"intro":     TweenLite.to("#nav1", .5, {height: "2em", paused: true}),
 		"lecture":   TweenLite.to("#nav2", .5, {height: "2em", paused: true}),
@@ -11,11 +10,11 @@ $(document).ready(function($) {
 		"tools":     TweenLite.to("#nav4", .5, {height: "2em", paused: true})
 	};
 
-	/**
+	/**************************************************************************************************************************************
 	 * Wird aufgerufen, wenn eine Szene betreten wird.
 	 * Animiert die Navigationspunkte so, dass der Aktuelle nach Unten geschoben erscheint und faehrt alle anderen gegebenenfalls zurueck.
 	 * @param scene Der Name der Szene.
-	 */
+	 *************************************************************************************************************************************/
 	function sceneEnter(scene){
 		var currentNav = ""; // Aktueller Navigationspunkt
 		switch(scene){
@@ -41,9 +40,9 @@ $(document).ready(function($) {
 		activateNav(currentNav);
 	}
 	
-	/**
+	/****************************************************************************************************
 	 * Aktiviert einen Navigationspunkt und deaktiviert alle anderen Navigationspunkte.
-	 */
+	 ***************************************************************************************************/
 	function activateNav(navNameToActivate) {
 		// Alle anderen Navigationspunkte zurueckfahren.
 		// $.each iteriert durch alle Elemente eines Arrays und ruft fuer jedes Element die angegebene Funktion auf.
@@ -67,11 +66,11 @@ $(document).ready(function($) {
 		});
 	});
 
-	/**
+	/***************************************************************************
 	 * Scrolling zur mit dem Navigationspunkt verknüpten Szene
-	 * Übergeben wird der gesetzte Wert des hrefs-Attributs
-	 * Insofern vom Browser unterstützt, wird die Browser History geupdated
-	 */
+	 * Uebergeben wird der gesetzte Wert des hrefs-Attributs
+	 * Insofern vom Browser unterstaetzt, wird die Browser History geupdated
+	 **************************************************************************/
 	$(document).on("click", "nav a[href^=#]", function (e) {
 		var linkHref = $(this).attr("href");
 		var sceneName = linkHref.substring(1);

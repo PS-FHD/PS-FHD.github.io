@@ -8,8 +8,8 @@
 $(document).ready(function($) {
 	// Der Hinweis zum Scrollen wird nach einer halben Sekunde ueber eine Zeitspanne von einer Sekunde eingeblendet.
 	var scrollHintIn = TweenMax.from("#intro1 > .scrollhint", 1, {autoAlpha: 0, delay: 0.5, ease: Linear.easeNone});
-	/* Nach einer Zeitspanne von fuenf Sekunden, wird eine Daueranimation (repeat: -1) gestartet die staendig vor- und zurueck abgespielt
-	   (yoyo) wird. Da keine explizite Easing-Function angegeben wurde, wird Quad.easeOut verwendet. */
+	/* Nach einer Sekunde, wird eine Daueranimation (repeat: -1) gestartet die staendig vor- und zurueck abgespielt (yoyo) wird. 
+	   Da keine explizite Easing-Function angegeben wurde, wird Quad.easeOut verwendet. */
 	var scrollHintBounce = TweenMax.to("#intro1 > .scrollhint", 1, {left: "78%", repeat: -1, yoyo: true, delay: 1});
 
 	// Der erste Textblock wird ueber 10% der Szene durch Skalierung von 0 auf 1 eingeblendet.
@@ -26,7 +26,7 @@ $(document).ready(function($) {
 	var bitTwoOut = TweenMax.to("#intro1 > .bit.two", 0.05, {scale: 0, rotation: 40});
 	var bitThreeOut = TweenMax.to("#intro1 > .bit.three", 0.05, {scale: 0, rotation: 15});
 	
-	// Der zweite Textblock wird durch alpha-blending animiert.
+	// Der zweite Textblock wird durch alpha-blending eingeblendet.
 	var textBlockTwoIn = TweenMax.from("#intro1 > .textblock:nth-of-type(2)", 0.1, {autoAlpha: 0, ease: Linear.easeNone}); 
 	
 	// Zusaetzliche Zeitleiste fuer die Elemente die nacheinander Abgespielt werden sollen.
@@ -54,9 +54,10 @@ $(document).ready(function($) {
 	
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
 	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
-	var airplane 	= TweenMax.fromTo("#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
+	var airplane 	= TweenMax.fromTo(
+	  "#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
 	
-	// Die Zeitleiste der Szene
+	// Die Zeitleiste der Szene.
 	var sceneTimeline = new TimelineMax()
 		// Tweens hinzufuegen die parallel Abgespielt werden sollen. 
 		.add([
@@ -68,7 +69,7 @@ $(document).ready(function($) {
 		// Eigene Erweiterungsmethode um einen Szenenwechsel einzufuegen.
 		.addSceneChange($("#intro1 > .sceneChange"), $("#intro2"));
 	
-	// Die Scroll Magic Szene definieren und hinzufuegen. Sie wird in einem Scrollbereich von 0px bis 2500px abgespielt.
+	// Die Scroll Magic Szene definieren und hinzufuegen, sie ist 5000 pixel lang.
 	addScene("intro1", new ScrollScene({duration: 5000})
 		.setTween(sceneTimeline)
 		.addTo(controller)
@@ -81,9 +82,9 @@ $(document).ready(function($) {
 	 *    @param event Die Ereignisdaten.
 	 **********************************************************************************/
 	function scene_enter(event) {
-			scrollHintIn.duration(0.25);
-			scrollHintIn.reverse();
-			scrollHintBounce.pause();
+		scrollHintIn.duration(0.25);
+		scrollHintIn.reverse();
+		scrollHintBounce.pause();
 	}
 	
 	/***********************************************************************************
