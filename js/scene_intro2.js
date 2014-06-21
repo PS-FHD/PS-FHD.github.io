@@ -52,9 +52,9 @@ $(document).ready(function($) {
 		// sobald scrollPosition 6500 erreicht Uhr auf 8:15h stellen. <=7300 wichtig fuers Rausgehen aus der VorlesungSzene von links
 		// globale Variablen siehe global.js
 		if (scrollPosition >= 6500 && scrollPosition <= 7300 && globalCounterFirstTime){ // da das ProgressEvent mehrfach gefeuert wird globalCounterFirstTime einsetzen
-			globalIntSek = 0; 		// Sekunden
+			globalIntSec = 0; 		// Sekunden
 			globalIntMin = 15; 		// Minuten
-			globalIntStd = 8; 		// Stunden
+			globalIntHour = 8; 		// Stunden
 			globalCounterFirstTime = false;
 			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
 		}

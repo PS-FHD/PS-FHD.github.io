@@ -2,31 +2,31 @@
 
 $(document).ready(function ($) {
 
-	var objCanvas = $("#lecture > .clock > .canvasClockFastReverse ")[0];
+	var objCanvas = $("#lecture > .clock > .canvasClockFastReverse ")[0]; // HTML DOM Object <canvas class="canvasClockReverse">;
 
 	/* falls Canvas nicht funktioniert, wird die Funktion nicht aufgerufen */
 	if (objCanvas.getContext) {
 		/* Uhr beginnt bei 8:15h und 0 Sekunden */
-		var intSek = 0; 		// Sekunden
+		var intSec = 0; 		// Sekunden
 		var intMin = 15; 		// Minuten
-		var intStd = 7; 		// Stunden
-		Uhr();					// Funktion sofort ausfuehren
-		setInterval(function () { Uhr();}, 100);	// nach jeweils einer 10tel Sekunde (100ms) Funktion Uhr() erneut ausfuehren
+		var intHour = 7; 		// Stunden
+		clock_draw();					// Funktion sofort ausfuehren
+		setInterval(function () { clock_draw();}, 100);	// nach jeweils einer 10tel Sekunde (100ms) Funktion clock_draw() erneut ausfuehren
 	}
 
-	function Uhr() {
+	function clock_draw() {
 
 		// Kontext-Objekt
 		var objContext = objCanvas.getContext("2d");
 		objContext.clearRect(0, 0, 150, 150); 		// Anzeigebereich leeren
-		objContext.drawImage(objImgUhr, 0, 0);	// Ziffernblatt zeichnen
+		objContext.drawImage(objImgClock, 0, 0);	// Ziffernblatt zeichnen
 		objContext.save(); 							// Ausgangszustand speichern
 		objContext.translate(75, 75); 				// Koordinatensystem in Mittelpkt des Ziffernblatts verschieben
 		
 		// Stunden
 		objContext.save();
 		/* 	hier einfach mal mit 6 multipliziert, um schneller zu drehen */
-		objContext.rotate(intStd * Math.PI  + intMin * Math.PI / 60);
+		objContext.rotate(intHour * Math.PI  + intMin * Math.PI / 60);
 		objContext.beginPath(); 		// Neuen Pfad anlegen
 		objContext.moveTo(0, 10); 		// Zeiger über Mitte hinaus zeichnen
 		objContext.lineTo(0, -38); 		// Stundenzeiger im gedrehten Koord-Sys. um 38 Einheiten nach oben zeichnen
@@ -50,7 +50,7 @@ $(document).ready(function ($) {
 		
 		// Sekunden
 		objContext.save();
-		objContext.rotate(intSek * Math.PI / 3); // bei normaler Uhr durch 30 teilen
+		objContext.rotate(intSec * Math.PI / 3); // bei normaler Uhr durch 30 teilen
 		objContext.beginPath();
 		objContext.moveTo(0, 10);
 		objContext.lineTo(0, -50);
@@ -62,11 +62,11 @@ $(document).ready(function ($) {
 		objContext.restore();
 		
 		// Neue Werte fuer Uhrzeit setzen, NICHT wie echte Uhrzeitbrechnung, da es schneller drehen soll
-		if (intSek == 0){
-			intSek = 59;
+		if (intSec == 0){
+			intSec = 59;
 		}
 		else
-			intSek--;
+			intSec--;
 			
 		intMin -= 6;
 	}

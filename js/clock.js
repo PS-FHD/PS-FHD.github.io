@@ -9,18 +9,18 @@ console.log(objCanvas);
 	/* falls Canvas nicht funktioniert, wird die Funktion nicht aufgerufen */
 	if (objCanvas.getContext) {
 		/* Uhr beginnt bei 8:15h und 0 Sekunden */
-		globalIntSek = 0; 		// Sekunden
+		globalIntSec = 0; 		// Sekunden
 		globalIntMin = 15; 		// Minuten
-		globalIntStd = 8; 		// Stunden
-		Uhr();					// Funktion sofort ausfuehren
-		setInterval(function () { Uhr();}, 1000);	// nach jeweils einer Sekunde (1000ms) Funktion Uhr() erneut ausfuehren
+		globalIntHour = 8; 		// Stunden
+		clock_draw();					// Funktion sofort ausfuehren
+		setInterval(function () { clock_draw();}, 1000);	// nach jeweils einer Sekunde (1000ms) Funktion clock_draw() erneut ausfuehren
 	}
 
-	function Uhr() {
+	function clock_draw() {
 		// Kontext-Objekt
 		var objContext = objCanvas.getContext("2d");
 		objContext.clearRect(0, 0, 150, 150); 		// Anzeigebereich leeren
-		objContext.drawImage(objImgUhr, 0, 0);		// Ziffernblatt zeichnen
+		objContext.drawImage(objImgClock, 0, 0);		// Ziffernblatt zeichnen
 		objContext.save(); 							// Ausgangszustand speichern
 		objContext.translate(75, 75); 				// Koordinatensystem in Mittelpkt des Ziffernblatts verschieben
 		
@@ -28,7 +28,7 @@ console.log(objCanvas);
 		objContext.save();
 		/* 	Aktuelle Stunde zzgl. Minutenanteil über Drehung des Koordinatensystems
 			(kontinuierlicher Übergang zwischen zwei Stunden gewünscht, keine Sprung) */
-		objContext.rotate(globalIntStd * Math.PI / 6 + globalIntMin * Math.PI / 360);
+		objContext.rotate(globalIntHour * Math.PI / 6 + globalIntMin * Math.PI / 360);
 		objContext.beginPath(); 		// Neuen Pfad anlegen
 		objContext.moveTo(0, 10); 		// Zeiger über Mitte hinaus zeichnen
 		objContext.lineTo(0, -38); 		// Stundenzeiger im gedrehten Koord-Sys. um 38 Einheiten nach oben zeichnen
@@ -52,7 +52,7 @@ console.log(objCanvas);
 		
 		// Sekunden
 		objContext.save();
-		objContext.rotate(globalIntSek * Math.PI / 30);
+		objContext.rotate(globalIntSec * Math.PI / 30);
 		objContext.beginPath();
 		objContext.moveTo(0, 10);
 		objContext.lineTo(0, -50);
@@ -64,15 +64,15 @@ console.log(objCanvas);
 		objContext.restore();
 		
 		// Neue Werte fuer Uhrzeit setzen, sprich eine Sekunde weitergehen
-		if (globalIntSek == 59) {
-			globalIntSek = 0;
+		if (globalIntSec == 59) {
+			globalIntSec = 0;
 			globalIntMin++;
 		} else
-			globalIntSek++;
+			globalIntSec++;
 		
 		if (globalIntMin == 60) {
 			globalIntMin = 0;
-			globalIntStd++;
+			globalIntHour++;
 		}
 	}
 });

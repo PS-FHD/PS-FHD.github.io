@@ -11,13 +11,13 @@ var globalCounterFirstTime = true;
 /* *** UHR *** */
 
 // globale Variablen fuer die Uhrzeit der Uhr in der VorlesungsSzene (lecture) */
-globalIntSek = 0; 		// Sekunden
+globalIntSec = 0; 		// Sekunden
 globalIntMin = 15; 		// Minuten
-globalIntStd = 8; 		// Stunden
+globalIntHour = 8; 		// Stunden
 		
 // damit das Ziffernblatt der Uhr sofort auf der Seite sichtbar ist, wird es als Image geladen, bevor der DomBaum ready ist
-var objImgUhr = new Image();
-objImgUhr.src = "img/clock/clock_face.png";
+var objImgClock = new Image();
+objImgClock.src = "img/clock/clock_face.png";
 
 // globale Variable fuer die temporaere Scrollposition - wichtig in der VorlesungsSzene fuer die Realisierung der Uhr
 var globalTempScrollPosition = 0;
