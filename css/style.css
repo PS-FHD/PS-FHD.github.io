@@ -362,6 +362,18 @@ nav .text_area {
 	min-height: 90px;
 	height: 100%;
 }
+/* Uhr verschieben, damit sie länger eingeblendet bleiben kann */
+@media screen and (min-width: 1290px) and (max-width: 1449px) {
+	#lecture > .clock {
+		right: 23%;
+	}
+}
+/* Uhr ausblenden, solange sie auf dem Fenster liegt */
+@media screen and (min-width: 1450px) and (max-width: 1850px) {
+	#lecture > .clock {
+		display: none;
+	}
+}
 
 #lecture > .lectureroom {
 	left: 0;
