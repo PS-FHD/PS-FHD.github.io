@@ -41,7 +41,7 @@ $(document).ready(function($) {
 			bitOneOut, bitTwoOut, bitThreeOut,
 			textBlockTwoIn,
 		], 0.04);
-
+		
 	// Das Hintergrundbild der Szene wird ueber die gesamte Szenenlaenge um 500 pixel nach links verschoben.
 	var background = TweenMax.to("#intro1", 1, {backgroundPosition: "-500px 0px", ease: Linear.easeNone});
 	
@@ -56,6 +56,13 @@ $(document).ready(function($) {
 	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
 	var airplane 	= TweenMax.fromTo(
 	  "#intro1 > .airplane", 1, {left: "-35%", top: "30%", scale: 2}, {left: "105%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
+	
+	// Flugzeugbilder im Browsercache bereitstellen um Flugzeug je nach Scrollrichtung per Richtungswechsel landen bzw starten lassen zu koennen- siehe scene_progress(event)
+	var airplaneImgForw	= new Image();
+	var airplaneImgRev	= new Image();
+	
+	airplaneImgForw.src	= "img/Einleitung/einl_hg_flugzeug_ver3_414x150.png"; // Flugzeug vorwaerts
+	airplaneImgRev.src	= "img/Einleitung/einl_hg_flugzeug_reversed_ver3_414x150.png"; // Flugzeug rueckwaerts
 	
 	// Die Zeitleiste der Szene.
 	var sceneTimeline = new TimelineMax()
@@ -96,10 +103,10 @@ $(document).ready(function($) {
 		// event.scrollDirection liefert als Scrollrichtung FORWARD REVERSE oder PAUSED.
 		var scrollDirection = event.scrollDirection;
 		
-		// Aenderung des Flugzeugbildes bei Richtungswechsel
+		// Aenderung des Flugzeugbildes bei Richtungswechsel - PAUSED nicht relevant (aktuelles Bild bleibt automatisch erhalten)
 		if (scrollDirection == "REVERSE") 
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_reversed_ver3_414x150.png"});
+			$("#intro1 > .airplane").attr({src: airplaneImgRev.src});
 		else if (scrollDirection == "FORWARD")
-			$("#intro1 > .airplane").attr({src: "img/Einleitung/einl_hg_flugzeug_ver3_414x150.png"});
+			$("#intro1 > .airplane").attr({src: airplaneImgForw.src});
 	}
 });

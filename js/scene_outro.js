@@ -22,7 +22,14 @@ $(document).ready(function($) {
 	/* Das Flugzeug fliegt entgegen der Scrollrichtung, gewinnt dabei an Hoehe und schrumpft bis es nicht mehr zu sehen ist
 	   Hierbei gibt scale den Vergroesserungsfaktor an. Bei scale: 0 ist das Flugzeug nicht mehr sichtbar. */
 	var airplane 	= TweenMax.fromTo("#outro > .airplane", 1, {left: "115%", top: "30%", scale: 2}, {left: "-35%", top: "-5%", scale: 0.2, ease: Linear.easeNone});
-
+	
+	// Flugzeugbilder im Browsercache bereitstellen um Flugzeug je nach Scrollrichtung per Richtungswechsel landen bzw starten lassen zu koennen- siehe scene_progress(event)
+	var airplaneImgForw	= new Image();
+	var airplaneImgRev	= new Image();
+	
+	airplaneImgForw.src	= "img/Einleitung/einl_hg_flugzeug_ver3_414x150.png"; // Flugzeug vorwaerts
+	airplaneImgRev.src	= "img/Einleitung/einl_hg_flugzeug_reversed_ver3_414x150.png"; // Flugzeug rueckwaerts
+	
 	// Textbloecke vorselektieren.
 	var firstTextblock  = $("#outro > .textblock:nth-of-type(1)");
 	var secondTextblock = $("#outro > .textblock:nth-of-type(2)");
