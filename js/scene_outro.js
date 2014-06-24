@@ -27,8 +27,8 @@ $(document).ready(function($) {
 	var airplaneImgForw	= new Image();
 	var airplaneImgRev	= new Image();
 	
-	airplaneImgForw.src	= "img/Einleitung/einl_hg_flugzeug_ver3_414x150.png"; // Flugzeug vorwaerts
-	airplaneImgRev.src	= "img/Einleitung/einl_hg_flugzeug_reversed_ver3_414x150.png"; // Flugzeug rueckwaerts
+	airplaneImgForw.src	= "img/Outro/outro_hg_flugzeug_414x150.png"; // Flugzeug vorwaerts
+	airplaneImgRev.src	= "img/Outro/outro_hg_flugzeug_reversed_414x150.png"; // Flugzeug rueckwaerts
 	
 	// Textbloecke vorselektieren.
 	var firstTextblock  = $("#outro > .textblock:nth-of-type(1)");
