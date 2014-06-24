@@ -70,10 +70,10 @@ $(document).ready(function($) {
 		// event.scrollDirection liefert als Scrollrichtung FORWARD REVERSE oder PAUSED.
 		var scrollDirection = event.scrollDirection;
 		
-		// Aenderung des Flugzeugbildes bei Richtungswechsel
+		// Aenderung des Flugzeugbildes bei Richtungswechsel - PAUSED nicht relevant (aktuelles Bild bleibt automatisch erhalten)
 		if (scrollDirection == "REVERSE") 
-			$("#outro > .airplane").attr({src: "img/Outro/outro_hg_flugzeug_reversed_414x150.png"});
+			$("#outro > .airplane").attr({src: airplaneImgRev.src});
 		else if (scrollDirection == "FORWARD")
-			$("#outro > .airplane").attr({src: "img/Outro/outro_hg_flugzeug_414x150.png"});
+			$("#outro > .airplane").attr({src: airplaneImgForw.src});
 	}
 });
