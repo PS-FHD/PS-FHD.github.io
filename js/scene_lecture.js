@@ -89,7 +89,6 @@ $(document).ready(function($) {
 		.addTo(controller)
 		.on("enter", scene_enter)
 		.on("progress", scene_progress));
-//		.on("leave", scene_leave));  // nur wichtig, wenn Uhr mit z-Index extra hervorgehoben wird, um beim Ueberblenden der Szenen gesehen werden zu koennen
 			
 	/***********************************************************************************
 	 *    Event-Handler der beim Eintritt in die Szene aufgerufen wird.
@@ -125,64 +124,33 @@ $(document).ready(function($) {
 		// globale Variablen siehe global.js
 		// globale temporaere Scrollposition setzen, um beim naechsten Aufruf dieser Funktion pruefen zu koennen, ob sich der Wert um mehr als 1px geaendert hat
 		globalTempScrollPosition = scrollPosition;
-		
-//console.log(scrollDirection);
-//console.log(scrollPosition);
-		
+
 		/* 	UhrTyp (sekundenGeschwindigkeit, schnellVorwaerts, schnellRueckwaerts)
-			mit Canvas entsprechend der Scrollposition und der Scrollrichtung ein bzw ausblenden */
-		if (scrollDirection == "REVERSE") {
+			mit Canvas entsprechend der Scrollposition und der Scrollrichtung ein bzw ausblenden */	
+		
+		// Zunaechst UhrTyp schnellVorwaerts, schnellRueckwaerts in Abhaengigkeit der Scrollrichtung ein- ausblenden
+		if (scrollDirection == "REVERSE") { //ScrollRichtung rechts links: schnellRueckwaerts sichtbar
 			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "visible"});
 			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-		} else if (scrollDirection == "FORWARD") {	
+		} else if (scrollDirection == "FORWARD") {	//ScrollRichtung links rechts: schnellVorwaerts sichtbar
 			$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
 			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 		}
 		
+		// Zu Beginn der Szene bis ScrollPosition 9500 UhrTyp "sekundenGeschwindigkeik" einblenden, andere ausblenden
 		if ( scrollPosition < 9500 ) {
 			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
 			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
-		} else if ( scrollPosition >= 9500 ) {
-			$("#lecture > .clock > .canvasClockFast").css({visibility: "visible"});
-			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
 		}
 		
-		//if (scrollDirection == "PAUSED" &&  scrollPosition < 14900  ) {	// nur wichtig, wenn Uhr mit z-Index extra hervorgehoben wird, um beim Uberblenden der Szenen gesehen werden zu koennen
+		// Falls ScrollPosition PAUSED UhrTyp "sekundenGeschwindigkeik" einblenden, andere ausblenden
 		if (scrollDirection == "PAUSED") {
 			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
 			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
 			$("#lecture > .clock > .canvasClock").css({visibility: "visible"});
-		}
+		}	
 		
-		// ab ScrollPosition 14900 alle Uhren ausblenden - nur wichtig, wenn Uhr mit z-Index extra hervorgehoben wird, um beim Uberblenden der Szenen gesehen werden zu koennen
-//		if ( scrollPosition > 14900 ) {
-//			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-//			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-//			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
-//		}		
+		/* UhrTyp ENDE */
 	}
-	
-	/***********************************************************************************
-	 *    Event-Handler der beim Verlassen der Szene aufgerufen wird.
-	 *    
-	 *    @param event Objekt vom Typ "leave"
-	 **********************************************************************************/
-	function scene_leave(event) {
-//console.log("Vorlesung verlassen");
-//console.log(globalTempScrollPosition);
-		// globale Variablen siehe global.js
-		// Anzeige der normal tickenden Uhr aktiviert lassen, wenn wenn links aus der Szene herausgegangen wird - 
-		// beim Überblenden je nach Position der Uhr (wenn diese recht weit links ist) wichtig
-		if(globalTempScrollPosition < 8000){
-			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-			$("#lecture > .clock > .canvasClock").css({visibility: "visible"}); // 
-		}
-		else{ // rechts raus alle Uhren deaktivieren
-			$("#lecture > .clock > .canvasClockFast").css({visibility: "hidden"});
-			$("#lecture > .clock > .canvasClockFastReverse").css({visibility: "hidden"});
-			$("#lecture > .clock > .canvasClock").css({visibility: "hidden"});
-		}
-	};
 });
