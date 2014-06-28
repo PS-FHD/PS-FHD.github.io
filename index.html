@@ -26,6 +26,7 @@
 		<script src="js/scene_feature.js"></script>
 		<script src="js/scene_outro.js"></script>
 		<script src="js/navigation.js"></script>
+		<script src="js/preloading.js"></script>
 		<script src="js/HorizontalScrolling/jquery.mousewheel.js"></script>
 		<script src="js/HorizontalScrolling/horizontal.scrolling.js"></script>
 		<!-- http://benalman.com/projects/jquery-resize-plugin/ -->
@@ -501,7 +502,9 @@
 				</section><!-- Ende Szene 2: Intro 2 -->
 				<img class="sceneChange" src="img/Einleitung/einl_vg_szenenwechsel_1000x660.png" alt="Geb&auml;ude" />
 			</section><!-- Ende Szene 1: Intro 1 -->
-			<footer><!-- Schwarzer Balken --></footer>
+			<footer>
+				<div id="progressBar"></div>
+			</footer>
 		</div>
 		
 		<!-- Spaces um den Scrollbereich der Seite zu bestimmen. -->

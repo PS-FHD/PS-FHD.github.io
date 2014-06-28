@@ -161,7 +161,14 @@ nav .text_area {
 }
 /* Navigation ende */
 
+#progressBar {
+	position: absolute;
+	height: 3px;
+	background-color: #00A2E8;
+}
+
 .scene {
+	background-color: black;
 	/* Fuer die erste Szene gilt somit, dass sie so breit wie der Scenecontainer ist, weitere Szenen
 	   sind damit alle immer genau so Breit wie die erste Szene => Alle Szenen so gross wie der Viewport des
 	   Browsers. */
@@ -852,7 +859,7 @@ nav .text_area {
 ** Outro-Szene
 ********************************/
 #outro {
-	background: url(../img/Outro/outro_bg_hintergrund_2500x660.jpg);
+	background-image: url(../img/Outro/outro_bg_hintergrund_2500x660.jpg);
 }
 
 #outro > .boy {

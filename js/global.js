@@ -1,6 +1,8 @@
 // Debug flag, fuers Testen auf true belassen, fuer Releases auf false setzen.
 var DEBUG = true;
 
+var PRELOADER = true;
+
 // Der globale Scroll Magic Controller.
 var controller;
 
