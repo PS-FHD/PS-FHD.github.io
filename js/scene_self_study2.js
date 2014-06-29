@@ -21,6 +21,13 @@ $(document).ready(function($) {
 	// Die Krabbe
 	var crab = TweenMax.fromTo("#selfstudy2 > .crab", 1, {left: "100%"}, {left: "70%"});
 	
+	// Krebsbilder im Browsercache bereitstellen, um bei ScrollRichtungswechsel Bild aendern zu koennen
+	var crabImg				= new Image();
+	var crabImg_reversed	= new Image();
+	
+	crabImg.src				= "img/Selbststudium/Urlaub/krebs.png"; // Krebs vorwaerts
+	crabImg_reversed.src	= "img/Selbststudium/Urlaub/krebs_reversed.png"; // Krebs horizontal gespiegelt rueckwaerts
+	
 	// Der Textblock und sein zweiter Paragraph der sich erst nachtraeglich einschieben soll.
 	var textBlock = TweenMax.from("#selfstudy2 > .textblock", 0.15, {left: "-60%", ease: Linear.easeNone});
 	var textPara2 = TweenMax.from("#selfstudy2 > .textblock p:nth-of-type(2)", 0.15, {left: "-105%", delay: 0.2, ease: Linear.easeNone});
@@ -57,7 +64,8 @@ $(document).ready(function($) {
 		.setTween(sceneTimeline)
 		.addTo(controller)
 		.on("enter", scene_enter)
-		.on("leave", scene_leave));
+		.on("leave", scene_leave)
+		.on("progress", scene_progress));
 
 	/***********************************************************************************
 	 *    Event-Handler der beim Starten der Szene aufgerufen wird.
@@ -79,6 +87,23 @@ $(document).ready(function($) {
 		// Plamenanimation nur abspielen, wenn dies die aktuelle Szene ist.
 		palm1.pause();
 		palm2.pause();
+	}
+	
+	/***********************************************************************************
+	 *    Event-Handler der bei Fortschrittsaenderung der Szene aufgerufen wird.
+	 *    
+	 *    @param event Die Ereignisdaten.
+	 **********************************************************************************/
+	function scene_progress(event) {
+		// event.scrollDirection liefert als Scrollrichtung FORWARD REVERSE oder PAUSED.
+		var scrollDirection = event.scrollDirection;
+		
+		// Aenderung des Krebsbildes bei Richtungswechsel - PAUSED nicht relevant (aktuelles Bild bleibt automatisch erhalten)
+		if (scrollDirection == "REVERSE") {
+			$("#selfstudy2 > .crab").attr({src: crabImg.src});
+		}
+		else if (scrollDirection == "FORWARD")
+			$("#selfstudy2 > .crab").attr({src: crabImg_reversed.src});
 	}
 });
 
